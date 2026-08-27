@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import StatBar from '../components/StatBar.astro';
+import DigitalShelfChart from '../components/DigitalShelfChart.astro';
+import OfferRow from '../components/OfferRow.astro';
+import StatCard from '../components/StatCard.astro';
+import ToolTable from '../components/ToolTable.astro';
+import EquityTable from '../components/EquityTable.astro';
+import BecomeTheAnswerBand from '../components/BecomeTheAnswerBand.astro';
+import equityHeroImage from '../assets/brand/answer-equity.png';
+import { Image } from 'astro:assets';
+import home from '../../content/pages/home.json';
+
+const { seo, hero, statBar, bigIdea, digitalShelf, offerRow, proofStats, toolsTable, equityTable, closingCta, bookBand } =
+  home;
+---
+
+<BaseLayout title={seo.title} description={seo.description}>
+  <!-- Hero -->
+  <Section bg="paper" padding="top-only">
+    <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+      <div>
+        <h1 class="font-display text-4xl font-bold leading-[1.05] text-ink md:text-6xl">
+          {hero.headline}
+        </h1>
+        <p class="mt-6 max-w-prose text-lg text-slate md:text-xl">
+          {hero.subhead}
+          {' '}
+          <a href={hero.storyLinkHref} class="text-signal-deep underline underline-offset-4 hover:text-signal">
+            {hero.storyLinkLabel}
+          </a>
+        </p>
+        <div class="mt-8">
+          <Button variant="primary" openRegisterForm class="text-base">
+            {hero.ctaLabel}
+          </Button>
+        </div>
+      </div>
+
+      <Image
+        src={equityHeroImage}
+        alt="Answer Equity radar chart, illustrating how AI recommendations are measured across four dimensions"
+        class="w-full rounded-[12px] border border-line"
+        loading="eager"
+        widths={[400, 700, 900]}
+        sizes="(min-width: 768px) 480px, 100vw"
+      />
+    </div>
+  </Section>
+
+  <!-- Credibility stats bar -->
+  <Container class="pb-14 md:pb-24">
+    <StatBar stats={statBar.stats} />
+  </Container>
+
+  <!-- Big idea -->
+  <Section bg="cloud">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{bigIdea.title}</h2>
+      <p class="mt-6 text-lg text-slate">{bigIdea.subtitle}</p>
+      <div class="mt-8">
+        <Button variant="secondary" href={bigIdea.ctaHref}>{bigIdea.ctaLabel}</Button>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Impact on the digital shelf -->
+  <Section bg="paper">
+    <DigitalShelfChart
+      eyebrow={digitalShelf.eyebrow}
+      heading={digitalShelf.heading}
+      intro={digitalShelf.intro}
+      stages={digitalShelf.stages}
+    />
+  </Section>
+
+  <!-- Build your spot on the AI shelf -->
+  <Section bg="cloud">
+    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">
+      Build your spot on the AI shelf
+    </h2>
+    <div class="mt-10">
+      <OfferRow items={offerRow.items} />
+    </div>
+  </Section>
+
+  <!-- Proof stats -->
+  <Section bg="paper">
+    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{proofStats.heading}</h2>
+    <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+      {
+        proofStats.items.map((item: any) => (
+          <StatCard
+            stat={item.stat}
+            context={item.context}
+            sourceLabel={item.sourceLabel}
+            sourceUrl={item.sourceUrl}
+          />
+        ))
+      }
+    </div>
+    <div class="mt-8">
+      <Button variant="ghost" href="/library">{proofStats.ctaLabel}</Button>
+    </div>
+  </Section>
+
+  <!-- Curious where you stand: tools table -->
+  <Section bg="cloud">
+    <ToolTable
+      eyebrow={toolsTable.eyebrow}
+      heading={toolsTable.heading}
+      subhead={toolsTable.subhead}
+      tools={toolsTable.tools}
+      ctaLabel={toolsTable.ctaLabel}
+      microcopy={toolsTable.microcopy}
+      honestyNote={toolsTable.honestyNote}
+    />
+  </Section>
+
+  <!-- Answer Equity -->
+  <Section bg="paper">
+    <EquityTable heading={equityTable.heading} dimensions={equityTable.dimensions} />
+  </Section>
+
+  <!-- Closing CTA -->
+  <Section bg="ink">
+    <div class="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+      <p class="max-w-xl font-display text-2xl font-bold text-paper md:text-3xl">
+        {closingCta.line}
+      </p>
+      <Button variant="primary" href={closingCta.ctaHref}>{closingCta.ctaLabel}</Button>
+    </div>
+  </Section>
+
+  <!-- Become the Answer book band -->
+  <BecomeTheAnswerBand
+    description={bookBand.description}
+    microPoints={bookBand.microPoints}
+    primaryCtaLabel={bookBand.primaryCtaLabel}
+    secondaryCtaLabel={bookBand.secondaryCtaLabel}
+    bg="ink"
+  />
+</BaseLayout>

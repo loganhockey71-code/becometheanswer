@@ -1,0 +1,53 @@
+---
+import Button from './Button.astro';
+import Eyebrow from './Eyebrow.astro';
+
+interface Tool {
+  name: string;
+  description: string;
+  outcome: string;
+}
+interface Props {
+  eyebrow: string;
+  heading: string;
+  subhead: string;
+  tools: Tool[];
+  ctaLabel: string;
+  microcopy: string;
+  honestyNote: string;
+}
+const { eyebrow, heading, subhead, tools, ctaLabel, microcopy, honestyNote } = Astro.props;
+---
+
+<div>
+  <Eyebrow>{eyebrow}</Eyebrow>
+  <h2 class="mt-3 font-display text-3xl font-bold text-ink md:text-4xl">{heading}</h2>
+  <p class="mt-4 max-w-prose text-lg text-slate">{subhead}</p>
+
+  <ol class="mt-10 flex flex-col divide-y divide-line border-y border-line">
+    {
+      tools.map((tool, i) => (
+        <li class="flex flex-col gap-4 py-6 sm:flex-row sm:items-start">
+          <span class="font-display text-3xl font-bold text-signal sm:w-16 sm:shrink-0">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <div>
+            <h3 class="font-display text-lg font-bold text-ink">{tool.name}</h3>
+            <p class="mt-2 text-sm text-slate">{tool.description}</p>
+            <p class="mt-2 text-sm text-muted">
+              <span class="font-semibold text-ink">What you get: </span>
+              {tool.outcome}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+
+  <div class="mt-8 flex flex-col items-start gap-2">
+    <Button variant="primary" openRegisterForm>{ctaLabel}</Button>
+    <p class="text-xs text-muted">{microcopy}</p>
+  </div>
+
+  <p class="mt-6 max-w-prose text-sm italic text-slate">{honestyNote}</p>
+</div>

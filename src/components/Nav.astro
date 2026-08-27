@@ -1,0 +1,81 @@
+---
+import Mark from './Mark.astro';
+import Wordmark from './Wordmark.astro';
+import Button from './Button.astro';
+import globalSettings from '../../content/settings/global.json';
+
+const { nav, registerInterestCtaLabel } = globalSettings;
+---
+
+<header class="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur">
+  <div class="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-6 px-6 py-4">
+    <a href="/" class="flex items-center gap-3">
+      <Mark size={32} />
+      <Wordmark class="text-lg hidden sm:inline" />
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+      {
+        nav.map((item: { label: string; href: string }) => (
+          <a href={item.href} class="text-sm font-medium text-ink hover:text-signal-deep">
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="hidden md:block">
+      <Button variant="primary" openRegisterForm class="text-sm">
+        {registerInterestCtaLabel}
+      </Button>
+    </div>
+
+    <button
+      type="button"
+      class="flex h-10 w-10 items-center justify-center rounded-[6px] border border-line md:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      id="mobile-nav-toggle"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      >
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-nav" class="hidden flex-col gap-1 border-t border-line px-6 py-4 md:hidden">
+    {
+      nav.map((item: { label: string; href: string }) => (
+        <a href={item.href} class="py-2 text-sm font-medium text-ink">
+          {item.label}
+        </a>
+      ))
+    }
+    <Button variant="primary" openRegisterForm class="mt-2 w-full text-sm">
+      {registerInterestCtaLabel}
+    </Button>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-nav-toggle');
+  const menu = document.getElementById('mobile-nav');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('flex');
+    menu?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(Boolean(isOpen)));
+  });
+</script>

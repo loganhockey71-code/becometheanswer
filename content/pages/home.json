@@ -1,0 +1,147 @@
+{
+  "seo": {
+    "title": "Become the Answer — the definitive guide to visibility and authority on the AI-first internet",
+    "description": "Become the Answer helps brands get cited by AI — the practical move from SEO to AEO."
+  },
+  "hero": {
+    "headline": "When AI answers the question, is your brand the answer?",
+    "subhead": "I help ambitious brands become the answer AI gives — and measure whether they already are.",
+    "storyLinkLabel": "Read my story",
+    "storyLinkHref": "/about",
+    "ctaLabel": "Register your interest"
+  },
+  "statBar": {
+    "note": "PLACEHOLDER — five stats to be supplied and verified before launch. Do not publish unsourced numbers.",
+    "stats": [
+      { "value": "—", "label": "Add stat — verified source required" },
+      { "value": "—", "label": "Add stat — verified source required" },
+      { "value": "—", "label": "Add stat — verified source required" },
+      { "value": "—", "label": "Add stat — verified source required" },
+      { "value": "—", "label": "Add stat — verified source required" }
+    ]
+  },
+  "bigIdea": {
+    "title": "Being findable is no longer enough. You have to be the Answer.",
+    "subtitle": "When AI gives one answer instead of ten links, being findable stops being enough — you have to be the answer. That's a new discipline. Answer Engine Optimisation is the discipline of understanding what AI sees, trusts and recommends, then building the evidence your brand deserves.",
+    "ctaLabel": "Become the Answer",
+    "ctaHref": "/become-the-answer"
+  },
+  "digitalShelf": {
+    "eyebrow": "RISK",
+    "heading": "The impact on the digital shelf",
+    "intro": "As AI adoption continues, brand real estate shrinks. Same catalogue, four shelves, each one shorter than the last.",
+    "stages": [
+      { "value": "200–500", "label": "items on a store shelf" },
+      { "value": "100,000+", "label": "items on a digital shelf" },
+      { "value": "10–60", "label": "items on the first page of Amazon" },
+      { "value": "3–5", "label": "items recommended by an AI agent", "note": "ChatGPT Instant Checkout, Rufus, Sparky" }
+    ]
+  },
+  "offerRow": {
+    "items": [
+      {
+        "title": "Become the Answer",
+        "oneLiner": "The practitioner's guide to AEO",
+        "ctaLabel": "Learn more",
+        "ctaHref": "/become-the-answer"
+      },
+      {
+        "title": "The AI Answer Index™",
+        "oneLiner": "See whether AI recommends your brand",
+        "ctaLabel": "Register your interest",
+        "ctaHref": "#register-interest"
+      },
+      {
+        "title": "Work with me",
+        "oneLiner": "Keynote · Workshop · Speaking on AEO",
+        "ctaLabel": "Register your interest",
+        "ctaHref": "#register-interest"
+      }
+    ]
+  },
+  "proofStats": {
+    "heading": "AEO is already moving revenue",
+    "items": [
+      {
+        "stat": "~50%",
+        "context": "of B2B software buyers now start their research with AI chatbots. The buying journey now begins inside ChatGPT and Perplexity, before anyone reaches your site.",
+        "sourceLabel": "G2 research, 2026",
+        "sourceUrl": "https://www.demandgenreport.com/industry-news/news-brief/half-of-b2b-software-buyers-now-start-their-research-with-ai-chatbots-g2/52737/"
+      },
+      {
+        "stat": "~2×",
+        "context": "AI-referred visitors convert at roughly 11.4% versus roughly 5.3% for organic search. The few visitors AI sends arrive with higher intent.",
+        "sourceLabel": "Similarweb cross-site analysis, 2026",
+        "sourceUrl": "https://www.omnibound.ai/blog/ai-search-statistics"
+      },
+      {
+        "stat": "~796%",
+        "context": "AI referral traffic grew year over year. Still a small share of total traffic today, but the trajectory is the story.",
+        "sourceLabel": "WebFX analysis of 2.3B sessions, 2025",
+        "sourceUrl": "https://www.webfx.com/blog/seo/gen-ai-search-trends/"
+      }
+    ],
+    "ctaLabel": "Download report"
+  },
+  "toolsTable": {
+    "eyebrow": "FREE ANALYSIS",
+    "heading": "Curious where your brand actually stands in AI answers?",
+    "subhead": "Order a free analysis. Our three-tool stack shows you the whole picture: how often AI recommends you, what that gap is worth, and the brand asset underneath it.",
+    "tools": [
+      {
+        "name": "AI Answer Index™: your score",
+        "description": "How often AI names your brand, and where you rank against competitors.",
+        "outcome": "Your AAI, with Share of Answer + Share of Recommendation."
+      },
+      {
+        "name": "The Cost of Invisibility: what the gap is worth (AER)",
+        "description": "The revenue moving to whoever AI recommends instead of you.",
+        "outcome": "A revenue-at-stake figure you can take to finance."
+      },
+      {
+        "name": "Beyond the Score: Answer Equity, the asset",
+        "description": "How durable your position is, across four dimensions read from the machine's answers.",
+        "outcome": "Your Answer Equity baseline (Salience · Fidelity · Preference · Confidence)."
+      }
+    ],
+    "ctaLabel": "Order your free analysis",
+    "microcopy": "Free · about 15 minutes of our time, not yours · no obligation.",
+    "honestyNote": "One report, three layers: your score, what it's costing you, and the asset you're building."
+  },
+  "equityTable": {
+    "heading": "Being recommended once is luck. Answer Equity is when it keeps happening.",
+    "dimensions": [
+      {
+        "name": "Category Salience",
+        "question": "Do you surface when the category problem is asked without your name in it? (Share of Answer on non-branded prompts.)"
+      },
+      {
+        "name": "Identity Fidelity",
+        "question": "Does the engine describe you accurately and distinctly? (Accuracy, distinctness and consistency.)"
+      },
+      {
+        "name": "Recommendation Preference",
+        "question": "Are you actually chosen in real decisions, and how prominently? (Recommendation rate and position.)"
+      },
+      {
+        "name": "Answer Confidence",
+        "question": "Is the recommendation backed by credible, consistent evidence? (Citation and support quality.)"
+      }
+    ]
+  },
+  "closingCta": {
+    "line": "Want AEO in front of your team, on your stage, or need any AEO help?",
+    "ctaLabel": "Work with me",
+    "ctaHref": "/work-with-me"
+  },
+  "bookBand": {
+    "description": "The practitioner's guide to Answer Engine Optimization: how brands get found, trusted and cited in the age of AI search. Twenty years of word of mouth, and the tools that now measure it.",
+    "microPoints": [
+      "What AI engines actually cite",
+      "How to measure your share of the answer",
+      "The 90 day path to becoming the answer"
+    ],
+    "primaryCtaLabel": "Download the first chapter",
+    "secondaryCtaLabel": "Pre-order the book"
+  }
+}

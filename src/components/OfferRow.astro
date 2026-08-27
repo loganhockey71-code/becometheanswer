@@ -1,0 +1,36 @@
+---
+import Button from './Button.astro';
+
+interface Item {
+  title: string;
+  oneLiner: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props;
+---
+
+<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+  {
+    items.map((item) => (
+      <div class="flex flex-col justify-between rounded-[12px] border border-line bg-paper p-6">
+        <div>
+          <h3 class="font-display text-xl font-bold text-ink">{item.title}</h3>
+          <p class="mt-2 text-sm text-slate">{item.oneLiner}</p>
+        </div>
+        {item.ctaHref.startsWith('#') ? (
+          <Button variant="link" openRegisterForm class="mt-4 self-start text-sm">
+            {item.ctaLabel}
+          </Button>
+        ) : (
+          <Button variant="link" href={item.ctaHref} class="mt-4 self-start text-sm">
+            {item.ctaLabel}
+          </Button>
+        )}
+      </div>
+    ))
+  }
+</div>

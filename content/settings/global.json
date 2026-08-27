@@ -1,0 +1,29 @@
+{
+  "nav": [
+    { "label": "About", "href": "/about" },
+    { "label": "Become the Answer", "href": "/become-the-answer" },
+    { "label": "Work with me", "href": "/work-with-me" },
+    { "label": "Library", "href": "/library" }
+  ],
+  "registerInterestCtaLabel": "Register your interest",
+  "footer": {
+    "privacyHref": "/privacy-policy",
+    "termsHref": "/terms-of-service"
+  },
+  "seoDefaults": {
+    "titleTemplate": "%s — Become the Answer",
+    "defaultDescription": "Become the Answer helps brands get cited by AI — the practical move from SEO to AEO.",
+    "ogImage": null
+  },
+  "registerInterestForm": {
+    "heading": "Register your interest",
+    "microcopy": "Free · a few minutes to fill in · no obligation.",
+    "formOptions": [
+      "Provide me an AI visibility report of my brand",
+      "Interested in Masterclasses on AEO",
+      "Keynote speaker",
+      "Consultancy",
+      "Others"
+    ]
+  }
+}

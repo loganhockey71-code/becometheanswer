@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import equityImage from '../assets/brand/answer-equity.png';
+
+interface Dimension {
+  name: string;
+  question: string;
+}
+interface Props {
+  heading: string;
+  dimensions: Dimension[];
+}
+const { heading, dimensions } = Astro.props;
+---
+
+<div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+  <div>
+    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{heading}</h2>
+    <dl class="mt-8 flex flex-col gap-6">
+      {
+        dimensions.map((dim) => (
+          <div class="border-l-2 border-signal pl-4">
+            <dt class="font-display text-lg font-bold text-ink">{dim.name}</dt>
+            <dd class="mt-1 text-sm text-slate">{dim.question}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+
+  <Image
+    src={equityImage}
+    alt="Answer Equity radar chart showing four dimensions: Category Salience, Identity Fidelity, Recommendation Preference, and Answer Confidence"
+    class="w-full rounded-[12px] border border-line"
+    loading="lazy"
+  />
+</div>

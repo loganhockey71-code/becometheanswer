@@ -1,0 +1,62 @@
+---
+// Reusable "book promo" band per blueprint instruction: "Build it as a Component
+// so you place one instance per page and edit it in one place." Used on Home,
+// About, and Work with Me with page-appropriate CTA targets passed as props.
+import Button from './Button.astro';
+
+interface Props {
+  description: string;
+  microPoints: string[];
+  primaryCtaLabel: string;
+  secondaryCtaLabel?: string;
+  bg?: 'cloud' | 'ink';
+}
+
+const { description, microPoints, primaryCtaLabel, secondaryCtaLabel, bg = 'ink' } = Astro.props;
+
+const isInk = bg === 'ink';
+---
+
+<section class:list={['py-14 md:py-24', isInk ? 'bg-ink text-paper' : 'bg-cloud text-ink']}>
+  <div class="mx-auto grid w-full max-w-[1120px] grid-cols-1 items-center gap-10 px-6 md:grid-cols-2">
+    <div
+      class:list={[
+        'flex aspect-[3/4] w-full max-w-[280px] items-center justify-center rounded-[12px] border',
+        isInk ? 'border-slate' : 'border-line',
+      ]}
+      role="img"
+      aria-label="Become the Answer book cover placeholder — final cover to be supplied"
+    >
+      <span class:list={['text-xs uppercase tracking-[0.08em]', isInk ? 'text-muted' : 'text-muted']}>
+        Book cover
+      </span>
+    </div>
+
+    <div>
+      <h2 class="font-display text-3xl font-bold">
+        Become <span class="text-signal">the Answer</span>
+      </h2>
+      <p class:list={['mt-4 max-w-prose text-lg', isInk ? 'text-line' : 'text-slate']}>
+        {description}
+      </p>
+      <ul class="mt-6 flex flex-wrap gap-x-2 gap-y-2 text-sm">
+        {
+          microPoints.map((point, i) => (
+            <>
+              <li class={isInk ? 'text-paper' : 'text-ink'}>{point}</li>
+              {i < microPoints.length - 1 && <li class="text-signal" aria-hidden="true">·</li>}
+            </>
+          ))
+        }
+      </ul>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <Button variant="primary" openRegisterForm>{primaryCtaLabel}</Button>
+        {secondaryCtaLabel && (
+          <Button variant={isInk ? 'ghost-invert' : 'secondary'} openRegisterForm>
+            {secondaryCtaLabel}
+          </Button>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

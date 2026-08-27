@@ -1,0 +1,12 @@
+---
+interface Props {
+  class?: string;
+  color?: 'signal' | 'muted';
+}
+const { class: className = '', color = 'signal' } = Astro.props;
+const colorClass = color === 'signal' ? 'text-signal-deep' : 'text-muted';
+---
+
+<p class:list={['text-xs font-semibold uppercase tracking-[0.08em]', colorClass, className]}>
+  <slot />
+</p>

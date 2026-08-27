@@ -1,0 +1,36 @@
+---
+interface Props {
+  bg?: 'paper' | 'cloud' | 'ink';
+  padding?: 'default' | 'top-only' | 'bottom-only' | 'none';
+  id?: string;
+  class?: string;
+  containerClass?: string;
+}
+
+const {
+  bg = 'paper',
+  padding = 'default',
+  id,
+  class: className = '',
+  containerClass = '',
+} = Astro.props;
+
+const bgClass = {
+  paper: 'bg-paper text-ink',
+  cloud: 'bg-cloud text-ink',
+  ink: 'bg-ink text-paper',
+}[bg];
+
+const paddingClass = {
+  default: 'py-14 md:py-24',
+  'top-only': 'pt-14 md:pt-24',
+  'bottom-only': 'pb-14 md:pb-24',
+  none: '',
+}[padding];
+---
+
+<section id={id} class:list={[paddingClass, bgClass, className]}>
+  <div class:list={['mx-auto w-full max-w-[1120px] px-6', containerClass]}>
+    <slot />
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+// Renders the provided brand badge asset unmodified. Do not recolor, stretch,
+// or otherwise alter the mark — per Brand Identity Guidelines v1.0, "04 — Logo & Wordmark".
+import markIcon from '../assets/brand/mark.svg?raw';
+import markLightIcon from '../assets/brand/mark-light.svg?raw';
+
+interface Props {
+  variant?: 'ink' | 'light';
+  size?: number;
+  class?: string;
+}
+
+const { variant = 'ink', size = 32, class: className = '' } = Astro.props;
+const svg = variant === 'light' ? markLightIcon : markIcon;
+---
+
+<span
+  class:list={['mark-badge inline-block shrink-0', className]}
+  style={`width:${size}px;height:${size}px`}
+  set:html={svg}
+/>
+
+<style>
+  .mark-badge :global(svg) {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>

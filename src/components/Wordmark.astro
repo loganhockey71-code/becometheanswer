@@ -1,0 +1,19 @@
+---
+// Text lockup per Brand Identity Guidelines v1.0, "04 — Logo & Wordmark":
+// "The wordmark sets Become the in ink and Answer in Signal Orange — the one
+// word we want to own. Set it in Space Grotesk Bold with tight tracking (−1 to −2%)."
+// No wordmark SVG file was provided in the source assets, so this is implemented
+// as literal text to the documented spec, not a redesign.
+interface Props {
+  variant?: 'ink' | 'light';
+  class?: string;
+  as?: 'span' | 'p';
+}
+
+const { variant = 'ink', class: className = '', as: Tag = 'span' } = Astro.props;
+const baseColor = variant === 'light' ? 'text-paper' : 'text-ink';
+---
+
+<Tag class:list={['font-display font-bold tracking-[-0.02em] whitespace-nowrap', className]}>
+  <span class={baseColor}>Become the </span><span class="text-signal">Answer</span>
+</Tag>

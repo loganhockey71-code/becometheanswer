@@ -1,0 +1,45 @@
+---
+// Button variants per Brand Identity Guidelines v1.0, "07 — Layout & Graphic System":
+// Primary (Signal Orange fill / Ink text), Secondary (Ink fill / Paper text),
+// Ghost (transparent, 1px ink border / Ink text), Link (Signal Deep, underlined).
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost' | 'ghost-invert' | 'link';
+  href?: string;
+  openRegisterForm?: boolean;
+  class?: string;
+  type?: 'button' | 'submit';
+}
+
+const {
+  variant = 'primary',
+  href,
+  openRegisterForm = false,
+  class: className = '',
+  type = 'button',
+} = Astro.props;
+
+const base =
+  'inline-flex items-center justify-center gap-2 font-medium transition-colors duration-150';
+
+const variantClass = {
+  primary: 'rounded-[6px] bg-signal px-6 py-3 text-ink hover:bg-signal-deep hover:text-paper',
+  secondary: 'rounded-[6px] bg-ink px-6 py-3 text-paper hover:bg-slate',
+  ghost: 'rounded-[6px] border border-ink px-6 py-3 text-ink hover:bg-cloud',
+  'ghost-invert': 'rounded-[6px] border border-paper px-6 py-3 text-paper hover:bg-slate',
+  link: 'text-signal-deep underline underline-offset-4 hover:text-signal',
+}[variant];
+
+const attrs = openRegisterForm ? { 'data-open-register-form': true } : {};
+---
+
+{
+  href ? (
+    <a href={href} class:list={[base, variantClass, className]} {...attrs}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class:list={[base, variantClass, className]} {...attrs}>
+      <slot />
+    </button>
+  )
+}

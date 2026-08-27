@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+
+@theme {
+  /* Become the Answer — brand tokens, per Brand Identity Guidelines v1.0 */
+  --color-ink: #16181d;
+  --color-slate: #3a3f4a;
+  --color-muted: #6e7178;
+  --color-line: #e4e2db;
+  --color-cloud: #f1f0ea;
+  --color-paper: #fafaf7;
+  --color-signal: #ff5a1f;
+  --color-signal-deep: #d8430c;
+  --color-signal-tint: #ffede4;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  --radius-btn: 6px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 1px 2px 0 rgba(20, 23, 29, 0.06);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-paper);
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 2px;
+  }
+}

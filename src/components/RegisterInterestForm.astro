@@ -1,0 +1,187 @@
+---
+// CTA 1 — Register your interest. Fields per the General blueprint doc's CTA map.
+// One shared modal for the whole site: every "Register your interest" button
+// anywhere on the page opens this same dialog via [data-open-register-form].
+// Submission is stubbed (Phase 1); real ESP wiring lands in Phase 4.
+import globalSettings from '../../content/settings/global.json';
+
+const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
+---
+
+<dialog id="register-interest-dialog" class="register-dialog">
+  <div class="relative w-full max-w-lg rounded-[12px] bg-paper p-8 shadow-card">
+    <button
+      type="button"
+      aria-label="Close"
+      class="absolute right-4 top-4 text-2xl leading-none text-muted hover:text-ink"
+      data-close-register-form
+    >
+      &times;
+    </button>
+
+    <h2 class="font-display text-2xl font-bold text-ink">{heading}</h2>
+    {microcopy && <p class="mt-2 text-sm text-muted">{microcopy}</p>}
+
+    <form id="register-interest-form" class="mt-6 flex flex-col gap-4" novalidate>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <label class="flex flex-col gap-1 text-sm text-slate">
+          First name
+          <input
+            required
+            name="firstName"
+            type="text"
+            class="rounded-[6px] border border-line bg-paper px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-signal"
+          />
+        </label>
+        <label class="flex flex-col gap-1 text-sm text-slate">
+          Last name
+          <input
+            required
+            name="lastName"
+            type="text"
+            class="rounded-[6px] border border-line bg-paper px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-signal"
+          />
+        </label>
+      </div>
+
+      <label class="flex flex-col gap-1 text-sm text-slate">
+        Work email
+        <input
+          required
+          name="workEmail"
+          type="email"
+          class="rounded-[6px] border border-line bg-paper px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-signal"
+        />
+      </label>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <label class="flex flex-col gap-1 text-sm text-slate">
+          Brand you work for <span class="text-muted">(optional)</span>
+          <input
+            name="brand"
+            type="text"
+            class="rounded-[6px] border border-line bg-paper px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-signal"
+          />
+        </label>
+        <label class="flex flex-col gap-1 text-sm text-slate">
+          Key competitor <span class="text-muted">(optional)</span>
+          <input
+            name="keyCompetitor"
+            type="text"
+            class="rounded-[6px] border border-line bg-paper px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-signal"
+          />
+        </label>
+        <label class="flex flex-col gap-1 text-sm text-slate">
+          Company name <span class="text-muted">(optional)</span>
+          <input
+            name="companyName"
+            type="text"
+            class="rounded-[6px] border border-line bg-paper px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-signal"
+          />
+        </label>
+      </div>
+
+      <label class="flex flex-col gap-1 text-sm text-slate">
+        What prompted you?
+        <select
+          required
+          name="formOfInterest"
+          id="form-of-interest-select"
+          class="rounded-[6px] border border-line bg-paper px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-signal"
+        >
+          <option value="" disabled selected>Choose one</option>
+          {formOptions.map((option: string) => <option value={option}>{option}</option>)}
+        </select>
+      </label>
+
+      <label
+        class="flex flex-col gap-1 text-sm text-slate hidden"
+        id="other-message-wrapper"
+      >
+        Tell us more
+        <textarea
+          name="otherMessage"
+          rows="3"
+          class="rounded-[6px] border border-line bg-paper px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-signal"
+        ></textarea>
+      </label>
+
+      <p class="text-sm text-signal-deep hidden" id="register-form-error" role="alert"></p>
+      <p class="text-sm text-ink hidden" id="register-form-success" role="status">
+        Thanks — we've got your details and will be in touch.
+      </p>
+
+      <button
+        type="submit"
+        class="mt-2 inline-flex items-center justify-center rounded-[6px] bg-signal px-6 py-3 font-medium text-ink transition-colors duration-150 hover:bg-signal-deep hover:text-paper"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<style>
+  .register-dialog {
+    padding: 0;
+    border: none;
+    background: transparent;
+    max-height: 90vh;
+    max-width: 90vw;
+  }
+  .register-dialog::backdrop {
+    background: rgba(22, 24, 29, 0.5);
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById('register-interest-dialog') as HTMLDialogElement | null;
+  const form = document.getElementById('register-interest-form') as HTMLFormElement | null;
+  const select = document.getElementById('form-of-interest-select') as HTMLSelectElement | null;
+  const otherWrapper = document.getElementById('other-message-wrapper');
+  const errorEl = document.getElementById('register-form-error');
+  const successEl = document.getElementById('register-form-success');
+
+  function openDialog() {
+    dialog?.showModal();
+  }
+
+  document.addEventListener('click', (event) => {
+    const target = (event.target as HTMLElement)?.closest('[data-open-register-form]');
+    if (target) {
+      event.preventDefault();
+      openDialog();
+    }
+    if ((event.target as HTMLElement)?.closest('[data-close-register-form]')) {
+      dialog?.close();
+    }
+  });
+
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  select?.addEventListener('change', () => {
+    otherWrapper?.classList.toggle('hidden', select.value !== 'Others');
+  });
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    errorEl?.classList.add('hidden');
+    successEl?.classList.add('hidden');
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+    // Stub: logs the payload for now. Real ESP wiring (MailerLite/ConvertKit)
+    // is planned for Phase 4 of the build.
+    console.log('Register interest submission (stub):', payload);
+
+    successEl?.classList.remove('hidden');
+    form.reset();
+    otherWrapper?.classList.add('hidden');
+  });
+</script>
