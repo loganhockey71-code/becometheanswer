@@ -1,8 +1,9 @@
 ---
-// Renders one modal per configured lead-form type (download-chapter, preorder,
-// download-report, masterclass, speaker, consultancy, connect). Any element
+// Renders one modal per configured lead-form type (downloadChapter, preorder,
+// downloadReport, masterclass, speaker, consultancy, connect). Any element
 // anywhere on the site opens the right one via [data-open-lead-form="<id>"].
-// Submission is stubbed (Phase 1/2); real ESP wiring lands in Phase 4.
+// Submission goes through src/lib/formSubmit.ts — a console.log stub until
+// PUBLIC_FORM_ENDPOINT is configured, then a real POST to that endpoint.
 import { LEAD_FORM_FIELDS, FIELD_DEFS } from '../lib/leadForms';
 import globalSettings from '../../content/settings/global.json';
 
@@ -92,6 +93,8 @@ const copyById = globalSettings.leadForms as Record<
 </style>
 
 <script>
+  import { submitForm } from '../lib/formSubmit';
+
   document.addEventListener('click', (event) => {
     const opener = (event.target as HTMLElement)?.closest('[data-open-lead-form]');
     if (opener) {
@@ -113,7 +116,7 @@ const copyById = globalSettings.leadForms as Record<
   });
 
   document.querySelectorAll<HTMLFormElement>('.lead-form').forEach((form) => {
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       if (!form.checkValidity()) {
@@ -121,12 +124,16 @@ const copyById = globalSettings.leadForms as Record<
         return;
       }
 
-      const payload = Object.fromEntries(new FormData(form).entries());
-      // Stub: logs the payload for now. Real ESP wiring lands in Phase 4.
-      console.log(`Lead form submission (${form.dataset.leadFormId}, stub):`, payload);
+      const payload = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+      const formType = form.dataset.leadFormId || 'unknown';
 
-      form.querySelector('.success-message')?.classList.remove('hidden');
-      form.reset();
+      try {
+        await submitForm(formType, payload);
+        form.querySelector('.success-message')?.classList.remove('hidden');
+        form.reset();
+      } catch (err) {
+        console.error(`Lead form submission failed (${formType}):`, err);
+      }
     });
   });
 </script>

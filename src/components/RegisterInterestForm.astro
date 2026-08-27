@@ -2,7 +2,8 @@
 // CTA 1 — Register your interest. Fields per the General blueprint doc's CTA map.
 // One shared modal for the whole site: every "Register your interest" button
 // anywhere on the page opens this same dialog via [data-open-register-form].
-// Submission is stubbed (Phase 1); real ESP wiring lands in Phase 4.
+// Submission goes through src/lib/formSubmit.ts — a console.log stub until
+// PUBLIC_FORM_ENDPOINT is configured, then a real POST to that endpoint.
 import globalSettings from '../../content/settings/global.json';
 
 const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
@@ -135,6 +136,8 @@ const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
 </style>
 
 <script>
+  import { submitForm } from '../lib/formSubmit';
+
   const dialog = document.getElementById('register-interest-dialog') as HTMLDialogElement | null;
   const form = document.getElementById('register-interest-form') as HTMLFormElement | null;
   const select = document.getElementById('form-of-interest-select') as HTMLSelectElement | null;
@@ -165,7 +168,7 @@ const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
     otherWrapper?.classList.toggle('hidden', select.value !== 'Others');
   });
 
-  form?.addEventListener('submit', (event) => {
+  form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     errorEl?.classList.add('hidden');
     successEl?.classList.add('hidden');
@@ -175,13 +178,18 @@ const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
       return;
     }
 
-    const payload = Object.fromEntries(new FormData(form).entries());
-    // Stub: logs the payload for now. Real ESP wiring (MailerLite/ConvertKit)
-    // is planned for Phase 4 of the build.
-    console.log('Register interest submission (stub):', payload);
+    const payload = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
 
-    successEl?.classList.remove('hidden');
-    form.reset();
-    otherWrapper?.classList.add('hidden');
+    try {
+      await submitForm('register-interest', payload);
+      successEl?.classList.remove('hidden');
+      form.reset();
+      otherWrapper?.classList.add('hidden');
+    } catch (err) {
+      if (errorEl) {
+        errorEl.textContent = "Something went wrong sending that — please try again.";
+        errorEl.classList.remove('hidden');
+      }
+    }
   });
 </script>

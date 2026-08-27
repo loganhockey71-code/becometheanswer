@@ -32,7 +32,7 @@
       "submitLabel": "Send",
       "successMessage": "Thanks for reaching out — we'll be in touch."
     },
-    "download-chapter": {
+    "downloadChapter": {
       "heading": "Download the first chapter",
       "microcopy": "A short sign up, then the chapter lands in your inbox.",
       "submitLabel": "Send me the chapter",
@@ -43,7 +43,7 @@
       "submitLabel": "Pre-order",
       "successMessage": "Thanks — we'll let you know as soon as it's available."
     },
-    "download-report": {
+    "downloadReport": {
       "heading": "Download report",
       "submitLabel": "Download",
       "successMessage": "Thanks — the report is on its way to your inbox."
@@ -66,5 +66,11 @@
       "submitLabel": "Send",
       "successMessage": "Thanks — we'll be in touch shortly."
     }
+  },
+  "stripeLinks": {
+    "note": "TEST MODE links from the build-notes doc. Swap for live buy.stripe.com links when the book/masterclass are ready to sell for real.",
+    "ebook": "https://buy.stripe.com/test_14A5kF0B64hQ6d54cg4Ni00",
+    "hardcover": "https://buy.stripe.com/test_8x28wR3NidSqgRJeQU4Ni02",
+    "masterclass": "https://buy.stripe.com/test_fZu8wRfw06pYatl1044Ni01"
   }
 }

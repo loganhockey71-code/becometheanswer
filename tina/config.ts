@@ -11,6 +11,22 @@ import { defineConfig } from 'tinacms';
 // This file is functional as soon as a TinaCloud project is connected
 // (clientId + token below, via environment variables) — see EDITING.md.
 
+// Shared field set for each entry under settings.leadForms — copy only
+// (heading/microcopy/labels). The fields those forms actually collect are
+// fixed in src/lib/leadForms.ts, not editable here, on purpose.
+function leadFormCopyFields(options: { withMessageLabel?: boolean } = {}) {
+  const fields = [
+    { type: 'string' as const, name: 'heading', label: 'Heading' },
+    { type: 'string' as const, name: 'microcopy', label: 'Microcopy Under Heading' },
+    { type: 'string' as const, name: 'submitLabel', label: 'Submit Button Text' },
+    { type: 'string' as const, name: 'successMessage', label: 'Success Message' },
+  ];
+  if (options.withMessageLabel) {
+    fields.push({ type: 'string' as const, name: 'messageLabel', label: 'Message Field Label' });
+  }
+  return fields;
+}
+
 export default defineConfig({
   branch: process.env.TINA_BRANCH || process.env.HEAD || 'main',
   clientId: process.env.TINA_CLIENT_ID || '',
@@ -86,6 +102,66 @@ export default defineConfig({
                 label: 'Dropdown Options ("What prompted you?")',
                 list: true,
               },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'leadForms',
+            label: 'Other Forms (copy only — fields are fixed in code)',
+            fields: [
+              {
+                type: 'object',
+                name: 'connect',
+                label: '"I would love to connect" Form',
+                fields: leadFormCopyFields(),
+              },
+              {
+                type: 'object',
+                name: 'downloadChapter',
+                label: '"Download the First Chapter" Form',
+                fields: leadFormCopyFields(),
+              },
+              {
+                type: 'object',
+                name: 'preorder',
+                label: '"Pre-order the Book" Form',
+                fields: leadFormCopyFields(),
+              },
+              {
+                type: 'object',
+                name: 'downloadReport',
+                label: '"Download Report" Form',
+                fields: leadFormCopyFields(),
+              },
+              {
+                type: 'object',
+                name: 'masterclass',
+                label: '"Book a Masterclass" Form',
+                fields: leadFormCopyFields({ withMessageLabel: true }),
+              },
+              {
+                type: 'object',
+                name: 'speaker',
+                label: '"Book for Speaker" Form',
+                fields: leadFormCopyFields({ withMessageLabel: true }),
+              },
+              {
+                type: 'object',
+                name: 'consultancy',
+                label: '"Let\'s Talk About Your Brand" Form',
+                fields: leadFormCopyFields({ withMessageLabel: true }),
+              },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'stripeLinks',
+            label: 'Stripe Purchase Links',
+            fields: [
+              { type: 'string', name: 'note', label: 'Internal Note (not shown on site)' },
+              { type: 'string', name: 'ebook', label: 'Ebook Checkout Link' },
+              { type: 'string', name: 'hardcover', label: 'Hardcover Checkout Link' },
+              { type: 'string', name: 'masterclass', label: 'Masterclass Checkout Link' },
             ],
           },
         ],

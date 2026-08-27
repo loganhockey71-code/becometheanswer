@@ -25,13 +25,16 @@ export const FIELD_DEFS: Record<FieldKey, FieldDef> = {
 
 // Maps each lead-form id to the fields it collects, per the General blueprint
 // doc's CTA field definitions (CTA2, CTA3, CTA5, CTA6, CTA7).
+//
+// Ids are camelCase, not kebab-case: these double as Tina/GraphQL field
+// names in tina/config.ts, and GraphQL identifiers can't contain hyphens.
 export const LEAD_FORM_FIELDS: Record<string, FieldKey[]> = {
   // CTA3-shaped (first, last, email) — used for lightweight, no-friction asks.
   connect: ['firstName', 'lastName', 'email'],
-  'download-chapter': ['firstName', 'lastName', 'email'],
+  downloadChapter: ['firstName', 'lastName', 'email'],
   preorder: ['firstName', 'lastName', 'email'],
   // CTA2-shaped (adds brand name) — used where a report/PDF is delivered.
-  'download-report': ['firstName', 'lastName', 'email', 'brand'],
+  downloadReport: ['firstName', 'lastName', 'email', 'brand'],
   // CTA5/6/7-shaped (adds phone + open message) — used for booking requests.
   masterclass: ['firstName', 'lastName', 'email', 'phone', 'message'],
   speaker: ['firstName', 'lastName', 'email', 'phone', 'message'],

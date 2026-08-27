@@ -9,6 +9,7 @@ import LibraryTeaserRow from '../components/LibraryTeaserRow.astro';
 import BecomeTheAnswerBand from '../components/BecomeTheAnswerBand.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import page from '../../content/pages/become-the-answer.json';
+import globalSettings from '../../content/settings/global.json';
 
 const {
   seo,
@@ -23,7 +24,7 @@ const {
   faq,
 } = page;
 
-const ebookStripeLink = 'https://buy.stripe.com/test_14A5kF0B64hQ6d54cg4Ni00';
+const { stripeLinks } = globalSettings;
 ---
 
 <BaseLayout title={seo.title} description={seo.description}>
@@ -86,7 +87,7 @@ const ebookStripeLink = 'https://buy.stripe.com/test_14A5kF0B64hQ6d54cg4Ni00';
     </p>
 
     <div class="mt-6">
-      <Button variant="ghost" href={ebookStripeLink}>{operatingSystem.ctaLabel}</Button>
+      <Button variant="ghost" href={stripeLinks.ebook}>{operatingSystem.ctaLabel}</Button>
     </div>
   </Section>
 
