@@ -12,7 +12,7 @@ const { searchPlaceholder, emptyStateText } = Astro.props;
   <div class="flex flex-wrap gap-2" id="library-bucket-pills">
     <button
       type="button"
-      class="filter-pill rounded-[999px] border border-ink bg-ink px-4 py-2 text-sm font-medium text-paper"
+      class="filter-pill rounded-[999px] border border-ink bg-ink px-4 py-2.5 text-sm font-medium text-paper"
       data-bucket="all"
     >
       All
@@ -21,7 +21,7 @@ const { searchPlaceholder, emptyStateText } = Astro.props;
       LIBRARY_BUCKETS.map((bucket) => (
         <button
           type="button"
-          class="filter-pill rounded-[999px] border border-line px-4 py-2 text-sm font-medium text-ink hover:border-signal"
+          class="filter-pill rounded-[999px] border border-line px-4 py-2.5 text-sm font-medium text-ink hover:border-signal"
           data-bucket={bucket}
         >
           {bucket}
@@ -34,7 +34,7 @@ const { searchPlaceholder, emptyStateText } = Astro.props;
     type="search"
     id="library-search-input"
     placeholder={searchPlaceholder}
-    class="w-full rounded-[6px] border border-line bg-paper px-4 py-2 text-sm text-ink sm:w-64 focus-visible:outline-2 focus-visible:outline-signal"
+    class="w-full rounded-[6px] border border-line bg-paper px-4 py-2.5 text-base text-ink sm:w-64 sm:text-sm focus-visible:outline-2 focus-visible:outline-signal"
   />
 </div>
 

@@ -20,16 +20,19 @@ const items = await getLibraryItems('read');
     </div>
 
     <div class="mt-12">
-      <LibraryFilterBar searchPlaceholder={read.searchPlaceholder} emptyStateText={read.emptyState} />
-
       {
         items.length > 0 ? (
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {items.map((item) => (
-              <LibraryCard item={item} ctaLabel="Read" readTime={estimateReadTime(item.body || '')} />
-            ))}
-          </div>
+          <>
+            <LibraryFilterBar searchPlaceholder={read.searchPlaceholder} emptyStateText={read.emptyState} />
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {items.map((item) => (
+                <LibraryCard item={item} ctaLabel="Read" readTime={estimateReadTime(item.body || '')} />
+              ))}
+            </div>
+          </>
         ) : (
+          // No filter/search UI when the collection itself is empty — there's
+          // nothing yet to filter, so showing those controls would be confusing.
           <p class="py-16 text-center text-slate">{read.emptyState}</p>
         )
       }
