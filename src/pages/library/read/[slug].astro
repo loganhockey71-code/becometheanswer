@@ -1,0 +1,91 @@
+---
+// Per-article page: question-style H1, a quotable lead (from `description`),
+// the article body, an optional source line, and CTA1 at the end — the
+// format the blueprint specifies as "the kind AI engines can quote."
+// Article/FAQPage JSON-LD is added in Phase 5 alongside the rest of the
+// site's structured data.
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/Section.astro';
+import Button from '../../../components/Button.astro';
+import LibraryCard from '../../../components/LibraryCard.astro';
+import { estimateReadTime, formatDate } from '../../../lib/library';
+
+export async function getStaticPaths() {
+  const all = await getCollection('library');
+  const readItems = all.filter((item) => item.data.type === 'read');
+  return readItems.map((item) => ({
+    params: { slug: item.id },
+    props: { item, allReadItems: readItems },
+  }));
+}
+
+const { item, allReadItems } = Astro.props;
+const { Content } = await render(item);
+const { title, description, bucket, tags, publishDate, seoTitle, seoDescription } = item.data;
+
+const related = allReadItems
+  .filter((other) => other.id !== item.id && other.data.bucket === bucket)
+  .slice(0, 3);
+---
+
+<BaseLayout title={seoTitle || title} description={seoDescription || description}>
+  <Section bg="paper" padding="top-only">
+    <div class="mx-auto max-w-2xl">
+      <div class="flex flex-wrap items-center gap-3 text-xs text-muted">
+        {bucket && <span class="font-semibold uppercase tracking-[0.04em] text-signal-deep">{bucket}</span>}
+        <span>{formatDate(publishDate)}</span>
+        <span>{estimateReadTime(item.body || '')}</span>
+      </div>
+
+      <h1 class="mt-3 font-display text-3xl font-bold leading-[1.1] text-ink md:text-4xl">{title}</h1>
+
+      <p class="mt-6 border-l-2 border-signal pl-6 text-lg font-medium text-slate">{description}</p>
+
+      <div class="prose-library mt-8 max-w-none text-slate">
+        <Content />
+      </div>
+
+      {tags.length > 0 && (
+        <ul class="mt-8 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li class="rounded-[999px] bg-cloud px-3 py-1 text-xs text-muted">{tag}</li>
+          ))}
+        </ul>
+      )}
+
+      <div class="mt-10">
+        <Button variant="primary" openRegisterForm>Register your interest</Button>
+      </div>
+    </div>
+  </Section>
+
+  {
+    related.length > 0 && (
+      <Section bg="cloud">
+        <div class="mx-auto max-w-2xl">
+          <h2 class="font-display text-2xl font-bold text-ink">More from {bucket}</h2>
+          <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {related.map((relatedItem) => (
+              <LibraryCard
+                item={relatedItem}
+                ctaLabel="Read"
+                readTime={estimateReadTime(relatedItem.body || '')}
+              />
+            ))}
+          </div>
+        </div>
+      </Section>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .prose-library :global(p) {
+    margin-top: 1em;
+    line-height: 1.7;
+  }
+  .prose-library :global(p:first-child) {
+    margin-top: 0;
+  }
+</style>

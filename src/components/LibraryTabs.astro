@@ -1,0 +1,32 @@
+---
+interface Props {
+  active: 'all' | 'watch' | 'listen' | 'read';
+}
+const { active } = Astro.props;
+
+const tabs = [
+  { key: 'all', label: 'All', href: '/library' },
+  { key: 'watch', label: 'Watch', href: '/library/watch' },
+  { key: 'listen', label: 'Listen', href: '/library/listen' },
+  { key: 'read', label: 'Read', href: '/library/read' },
+] as const;
+---
+
+<nav class="flex flex-wrap gap-2" aria-label="Library sections">
+  {
+    tabs.map((tab) => (
+      <a
+        href={tab.href}
+        aria-current={tab.key === active ? 'page' : undefined}
+        class:list={[
+          'rounded-[999px] border px-4 py-2 text-sm font-medium transition-colors',
+          tab.key === active
+            ? 'border-ink bg-ink text-paper'
+            : 'border-line text-ink hover:border-signal',
+        ]}
+      >
+        {tab.label}
+      </a>
+    ))
+  }
+</nav>

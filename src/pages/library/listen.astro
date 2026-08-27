@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import LibraryTabs from '../../components/LibraryTabs.astro';
+import LibraryCard from '../../components/LibraryCard.astro';
+import { getLibraryItems } from '../../lib/library';
+import libraryContent from '../../../content/pages/library.json';
+
+const { listen } = libraryContent;
+const items = await getLibraryItems('listen');
+---
+
+<BaseLayout title={listen.seo.title} description={listen.seo.description}>
+  <Section bg="paper" padding="top-only">
+    <h1 class="font-display text-4xl font-bold text-ink md:text-5xl">{listen.heading}</h1>
+    <p class="mt-4 max-w-2xl text-lg text-slate">{listen.intro}</p>
+    <div class="mt-8">
+      <LibraryTabs active="listen" />
+    </div>
+
+    {
+      items.length > 0 ? (
+        <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {items.map((item) => (
+            <LibraryCard item={item} ctaLabel={listen.cardCtaLabel} />
+          ))}
+        </div>
+      ) : (
+        <p class="mt-16 text-center text-slate">{listen.emptyState}</p>
+      )
+    }
+  </Section>
+</BaseLayout>

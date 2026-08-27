@@ -1,0 +1,49 @@
+---
+import type { LibraryEntry } from '../lib/library';
+
+interface Props {
+  item: LibraryEntry;
+  ctaLabel?: string;
+  readTime?: string;
+}
+
+const { item, ctaLabel, readTime } = Astro.props;
+const { title, description, type, bucket, tags, source } = item.data;
+
+const href = type === 'read' ? `/library/read/${item.id}` : item.data.externalUrl;
+const isExternal = type !== 'read';
+---
+
+<a
+  href={href}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'noopener noreferrer' : undefined}
+  class="library-card flex flex-col rounded-[12px] border border-line bg-paper p-6 transition-colors hover:border-signal"
+  data-bucket={bucket}
+  data-search={`${title} ${description} ${tags.join(' ')}`.toLowerCase()}
+>
+  {bucket && (
+    <span class="text-xs font-semibold uppercase tracking-[0.04em] text-signal-deep">{bucket}</span>
+  )}
+  <h3 class="mt-2 font-display text-lg font-bold text-ink">{title}</h3>
+  <p class="mt-2 flex-1 text-sm text-slate">{description}</p>
+
+  {tags.length > 0 && (
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <li class="rounded-[999px] bg-cloud px-3 py-1 text-xs text-muted">{tag}</li>
+      ))}
+    </ul>
+  )}
+
+  <div class="mt-4 flex items-center justify-between text-xs text-muted">
+    {readTime && <span>{readTime}</span>}
+    {source && <span>{source}</span>}
+  </div>
+
+  {ctaLabel && (
+    <span class="mt-4 text-sm font-medium text-signal-deep">
+      {ctaLabel} {isExternal && <span aria-hidden="true">&rarr;</span>}
+    </span>
+  )}
+</a>

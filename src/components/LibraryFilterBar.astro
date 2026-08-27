@@ -1,0 +1,90 @@
+---
+import { LIBRARY_BUCKETS } from '../content.config';
+
+interface Props {
+  searchPlaceholder: string;
+  emptyStateText: string;
+}
+const { searchPlaceholder, emptyStateText } = Astro.props;
+---
+
+<div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+  <div class="flex flex-wrap gap-2" id="library-bucket-pills">
+    <button
+      type="button"
+      class="filter-pill rounded-[999px] border border-ink bg-ink px-4 py-2 text-sm font-medium text-paper"
+      data-bucket="all"
+    >
+      All
+    </button>
+    {
+      LIBRARY_BUCKETS.map((bucket) => (
+        <button
+          type="button"
+          class="filter-pill rounded-[999px] border border-line px-4 py-2 text-sm font-medium text-ink hover:border-signal"
+          data-bucket={bucket}
+        >
+          {bucket}
+        </button>
+      ))
+    }
+  </div>
+
+  <input
+    type="search"
+    id="library-search-input"
+    placeholder={searchPlaceholder}
+    class="w-full rounded-[6px] border border-line bg-paper px-4 py-2 text-sm text-ink sm:w-64 focus-visible:outline-2 focus-visible:outline-signal"
+  />
+</div>
+
+<p id="library-empty-state" class="hidden py-16 text-center text-slate">{emptyStateText}</p>
+
+<script>
+  const pills = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
+  const searchInput = document.getElementById('library-search-input') as HTMLInputElement | null;
+  const emptyState = document.getElementById('library-empty-state');
+  const cards = document.querySelectorAll<HTMLElement>('.library-card');
+
+  let activeBucket = 'all';
+
+  function applyFilters() {
+    const query = (searchInput?.value || '').trim().toLowerCase();
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const matchesBucket = activeBucket === 'all' || card.dataset.bucket === activeBucket;
+      const matchesSearch = !query || (card.dataset.search || '').includes(query);
+      const visible = matchesBucket && matchesSearch;
+      card.classList.toggle('hidden', !visible);
+      if (visible) visibleCount += 1;
+    });
+
+    emptyState?.classList.toggle('hidden', visibleCount > 0);
+  }
+
+  pills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      activeBucket = pill.dataset.bucket || 'all';
+      pills.forEach((p) => {
+        const isActive = p === pill;
+        p.classList.toggle('bg-ink', isActive);
+        p.classList.toggle('text-paper', isActive);
+        p.classList.toggle('border-ink', isActive);
+        p.classList.toggle('text-ink', !isActive);
+      });
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener('input', applyFilters);
+
+  // Pre-select a bucket from ?bucket= in the URL (used by the hub page's
+  // bucket cards to deep-link into a filtered view).
+  const params = new URLSearchParams(window.location.search);
+  const initialBucket = params.get('bucket');
+  if (initialBucket) {
+    const match = [...pills].find((p) => p.dataset.bucket === initialBucket);
+    match?.click();
+  }
+</script>

@@ -1,0 +1,92 @@
+{
+  "seo": {
+    "title": "Insights & the AEO Library — how brands become the answer AI gives",
+    "description": "Watch, listen and read the practitioner's take on Answer Engine Optimization: what AI engines cite, how to measure your share of the answer, and how to win it."
+  },
+  "eyebrow": "INSIGHTS",
+  "hero": {
+    "heading": "Insights on winning the AI shelf",
+    "subhead": "Everything I'm learning about becoming the answer, in the open: talks to watch, conversations to listen to, and short, citable pieces to read."
+  },
+  "featured": {
+    "heading": "Featured"
+  },
+  "buckets": {
+    "heading": "Our AEO Library structure",
+    "items": [
+      {
+        "name": "AEO Foundations",
+        "description": "The definitions and first principles: what AEO is, AEO vs SEO, what an answer engine is, a plain-language glossary.",
+        "ctaLabel": "Register your interest"
+      },
+      {
+        "name": "How Engines Choose",
+        "description": "What ChatGPT, Perplexity, Gemini and Rufus actually read, trust and cite.",
+        "ctaLabel": "See how AI ranks your brand"
+      },
+      {
+        "name": "The Raw Material",
+        "description": "The sources AI leans on: reviews, forums, UGC, comparison sites, and how to feed them honestly.",
+        "ctaLabel": "Register your interest"
+      },
+      {
+        "name": "Measurement",
+        "description": "How to measure share of answer across engines, what \"good\" looks like, and how tracking works.",
+        "ctaLabel": "Measure your share"
+      },
+      {
+        "name": "Field Notes & Playbooks",
+        "description": "Real experiments: pipelines, tests of what engines cite, mini case studies. The practitioner, not theorist, proof.",
+        "ctaLabel": "Want this for your brand?",
+        "ctaFormType": "masterclass"
+      }
+    ]
+  },
+  "watch": {
+    "seo": {
+      "title": "Watch — the AEO Library",
+      "description": "Keynote clips and explainers on where search is going, from Answer Engine Optimization practitioner Bjorn Vandemeulebroucke."
+    },
+    "heading": "Watch",
+    "intro": "Keynotes, clips and explainers on where search is going.",
+    "cardCtaLabel": "Watch",
+    "emptyState": "New talks drop here. Check back soon, or register your interest to be notified when new videos are added."
+  },
+  "listen": {
+    "seo": {
+      "title": "Listen — the AEO Library",
+      "description": "Podcast appearances and conversations on AI search and word of mouth for machines, from Answer Engine Optimization practitioner Bjorn Vandemeulebroucke."
+    },
+    "heading": "Listen",
+    "intro": "Podcast appearances and conversations on AI search and word of mouth for machines.",
+    "cardCtaLabel": "Listen",
+    "emptyState": "New episodes drop here. Check back soon, or register your interest to be notified when new episodes are added."
+  },
+  "read": {
+    "seo": {
+      "title": "Read — the AEO Library",
+      "description": "Short, practical answers on Answer Engine Optimization. Each one is a page in its own right, the kind AI engines can quote."
+    },
+    "heading": "Read: the AEO Library",
+    "intro": "Short, practical answers on Answer Engine Optimization. Each one is a page in its own right, the kind AI engines can quote.",
+    "searchPlaceholder": "Search articles",
+    "emptyState": "Nothing matches yet. Try a different filter or search term."
+  },
+  "faq": {
+    "heading": "FAQ",
+    "items": [
+      {
+        "question": "What is the AEO Library?",
+        "answer": "The AEO Library is a collection of short, practical articles on Answer Engine Optimization: what AI engines cite, how to measure your share of the answer, and how to win it. Each article is its own page so AI assistants can reference it directly."
+      },
+      {
+        "question": "How often is new content added?",
+        "answer": "New articles, talks and episodes are added regularly, drawn from ongoing experiments and Bjorn's LinkedIn content."
+      },
+      {
+        "question": "Can I use these insights for my own brand?",
+        "answer": "Yes, the Library is free to read. To see how your specific brand shows up in AI answers, register your interest and run the AI Answer Index."
+      }
+    ]
+  }
+}
