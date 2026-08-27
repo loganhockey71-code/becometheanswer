@@ -1,7 +1,15 @@
 ---
 // Reusable "book promo" band per blueprint instruction: "Build it as a Component
 // so you place one instance per page and edit it in one place." Used on Home,
-// About, and Work with Me with page-appropriate CTA targets passed as props.
+// About, Become the Answer, and Work with Me.
+//
+// Every blueprint's book-band block defines the same three CTAs: primary
+// ("Download the first chapter", labeled CTA5 in the source docs, but that
+// CTA's official field set is a masterclass-booking form with phone/message
+// fields, which doesn't fit an instant chapter download — implemented here
+// as the lightweight "download-chapter" lead form instead), secondary
+// ("Pre-order the book", CTA3-shaped), and a third text link ("Let's talk
+// about your brand", CTA7 / consultancy).
 import Button from './Button.astro';
 
 interface Props {
@@ -9,15 +17,25 @@ interface Props {
   microPoints: string[];
   primaryCtaLabel: string;
   secondaryCtaLabel?: string;
+  tertiaryCtaLabel?: string;
   bg?: 'cloud' | 'ink';
+  id?: string;
 }
 
-const { description, microPoints, primaryCtaLabel, secondaryCtaLabel, bg = 'ink' } = Astro.props;
+const {
+  description,
+  microPoints,
+  primaryCtaLabel,
+  secondaryCtaLabel,
+  tertiaryCtaLabel,
+  bg = 'ink',
+  id,
+} = Astro.props;
 
 const isInk = bg === 'ink';
 ---
 
-<section class:list={['py-14 md:py-24', isInk ? 'bg-ink text-paper' : 'bg-cloud text-ink']}>
+<section id={id} class:list={['py-14 md:py-24', isInk ? 'bg-ink text-paper' : 'bg-cloud text-ink']}>
   <div class="mx-auto grid w-full max-w-[1120px] grid-cols-1 items-center gap-10 px-6 md:grid-cols-2">
     <div
       class:list={[
@@ -49,11 +67,16 @@ const isInk = bg === 'ink';
           ))
         }
       </ul>
-      <div class="mt-8 flex flex-wrap gap-4">
-        <Button variant="primary" openRegisterForm>{primaryCtaLabel}</Button>
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <Button variant="primary" openLeadForm="download-chapter">{primaryCtaLabel}</Button>
         {secondaryCtaLabel && (
-          <Button variant={isInk ? 'ghost-invert' : 'secondary'} openRegisterForm>
+          <Button variant={isInk ? 'ghost-invert' : 'secondary'} openLeadForm="preorder">
             {secondaryCtaLabel}
+          </Button>
+        )}
+        {tertiaryCtaLabel && (
+          <Button variant="link" openLeadForm="consultancy">
+            {tertiaryCtaLabel}
           </Button>
         )}
       </div>

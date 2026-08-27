@@ -6,6 +6,7 @@ interface Props {
   variant?: 'primary' | 'secondary' | 'ghost' | 'ghost-invert' | 'link';
   href?: string;
   openRegisterForm?: boolean;
+  openLeadForm?: string;
   class?: string;
   type?: 'button' | 'submit';
 }
@@ -14,6 +15,7 @@ const {
   variant = 'primary',
   href,
   openRegisterForm = false,
+  openLeadForm,
   class: className = '',
   type = 'button',
 } = Astro.props;
@@ -29,7 +31,9 @@ const variantClass = {
   link: 'text-signal-deep underline underline-offset-4 hover:text-signal',
 }[variant];
 
-const attrs = openRegisterForm ? { 'data-open-register-form': true } : {};
+const attrs: Record<string, string | boolean> = {};
+if (openRegisterForm) attrs['data-open-register-form'] = true;
+if (openLeadForm) attrs['data-open-lead-form'] = openLeadForm;
 ---
 
 {

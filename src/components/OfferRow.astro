@@ -5,7 +5,10 @@ interface Item {
   title: string;
   oneLiner: string;
   ctaLabel: string;
-  ctaHref: string;
+  ctaHref?: string;
+  // 'register' opens the site's main CTA1 form; any other string opens the
+  // matching lead form (see src/lib/leadForms.ts); omit both to use ctaHref.
+  formType?: string;
 }
 interface Props {
   items: Item[];
@@ -21,8 +24,12 @@ const { items } = Astro.props;
           <h3 class="font-display text-xl font-bold text-ink">{item.title}</h3>
           <p class="mt-2 text-sm text-slate">{item.oneLiner}</p>
         </div>
-        {item.ctaHref.startsWith('#') ? (
+        {item.formType === 'register' ? (
           <Button variant="link" openRegisterForm class="mt-4 self-start text-sm">
+            {item.ctaLabel}
+          </Button>
+        ) : item.formType ? (
+          <Button variant="link" openLeadForm={item.formType} class="mt-4 self-start text-sm">
             {item.ctaLabel}
           </Button>
         ) : (

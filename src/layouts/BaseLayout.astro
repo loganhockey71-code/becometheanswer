@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import RegisterInterestForm from '../components/RegisterInterestForm.astro';
+import LeadForm from '../components/LeadForm.astro';
 import globalSettings from '../../content/settings/global.json';
 
 interface Props {
@@ -52,5 +53,6 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <Footer />
 
     <RegisterInterestForm />
+    <LeadForm />
   </body>
 </html>

@@ -25,5 +25,46 @@
       "Consultancy",
       "Others"
     ]
+  },
+  "leadForms": {
+    "connect": {
+      "heading": "I would love to connect and hear your thoughts",
+      "submitLabel": "Send",
+      "successMessage": "Thanks for reaching out — we'll be in touch."
+    },
+    "download-chapter": {
+      "heading": "Download the first chapter",
+      "microcopy": "A short sign up, then the chapter lands in your inbox.",
+      "submitLabel": "Send me the chapter",
+      "successMessage": "Check your inbox — the first chapter is on its way."
+    },
+    "preorder": {
+      "heading": "Pre-order the book",
+      "submitLabel": "Pre-order",
+      "successMessage": "Thanks — we'll let you know as soon as it's available."
+    },
+    "download-report": {
+      "heading": "Download report",
+      "submitLabel": "Download",
+      "successMessage": "Thanks — the report is on its way to your inbox."
+    },
+    "masterclass": {
+      "heading": "Book a masterclass",
+      "messageLabel": "Tell me more about the masterclass",
+      "submitLabel": "Send",
+      "successMessage": "Thanks — we'll be in touch to scope the masterclass."
+    },
+    "speaker": {
+      "heading": "Book for speaker",
+      "messageLabel": "Tell me more about the speaking event",
+      "submitLabel": "Send",
+      "successMessage": "Thanks — we'll be in touch about your event."
+    },
+    "consultancy": {
+      "heading": "Let's talk about your brand",
+      "messageLabel": "Tell me more about the consultancy",
+      "submitLabel": "Send",
+      "successMessage": "Thanks — we'll be in touch shortly."
+    }
   }
 }

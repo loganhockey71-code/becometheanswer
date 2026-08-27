@@ -49,13 +49,13 @@
         "title": "The AI Answer Index™",
         "oneLiner": "See whether AI recommends your brand",
         "ctaLabel": "Register your interest",
-        "ctaHref": "#register-interest"
+        "formType": "register"
       },
       {
         "title": "Work with me",
         "oneLiner": "Keynote · Workshop · Speaking on AEO",
         "ctaLabel": "Register your interest",
-        "ctaHref": "#register-interest"
+        "formType": "register"
       }
     ]
   },
@@ -142,6 +142,7 @@
       "The 90 day path to becoming the answer"
     ],
     "primaryCtaLabel": "Download the first chapter",
-    "secondaryCtaLabel": "Pre-order the book"
+    "secondaryCtaLabel": "Pre-order the book",
+    "tertiaryCtaLabel": "Let's talk about your brand"
   }
 }

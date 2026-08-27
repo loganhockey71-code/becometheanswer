@@ -1,0 +1,106 @@
+{
+  "seo": {
+    "title": "Become the Answer — is your brand the one AI recommends?",
+    "description": "SEO got you found. AEO decides whether you're the answer AI gives. See where your brand stands, what invisibility costs, and how to win the AI shelf."
+  },
+  "eyebrow": "BECOME THE ANSWER",
+  "hero": {
+    "eyebrow": "THE BUYING JOURNEY",
+    "headline": "Search got you found. Answers decide if you're chosen.",
+    "subhead": "The sale is now decided the moment a buyer asks an AI agent for answers. Whoever gets named there wins, and that answer becomes the next buyer's starting point.",
+    "ctaLabel": "See where you stand"
+  },
+  "stakes": {
+    "heading": "Is AI recommending you, or your competitor?",
+    "body": "You can be number one in search and absent from the answer. Ask an AI who to trust in your category, and three competitors come back, you were never in the running. Most brands have never even checked.",
+    "tool1": {
+      "heading": "Does AI recommend you, or your competitor?",
+      "microcopy": "About 30 seconds · free · your score, share of voice, and the competitors winning your answers.",
+      "body": "You can't fix what you can't see, and most brands have never looked. Run yours through the engines: enter your brand and category, and the AI Visibility Check asks the AI agents the questions your buyers ask, then scores whether you show up, or someone else takes your spot.",
+      "ctaLabel": "Request a free check"
+    },
+    "tool2": {
+      "heading": "When AI doesn't name you, someone else gets the sale.",
+      "subhead": "Your AI Answer Index says how often you're the answer. This turns the gap into a number your CFO will recognise, the revenue moving to whoever AI recommends instead.",
+      "ctaLabel": "See what invisibility costs you"
+    }
+  },
+  "operatingSystem": {
+    "heading": "What's the difference between AEO and SEO?",
+    "body": "SEO ranks your page in a list of links. AEO makes you the single answer an AI gives. It reads your reviews, your mentions, what others say, then recommends one name. You compete to be quoted, not ranked.",
+    "subheading": "Earned, not bought",
+    "subheadingBody": "AI trusts what other people say about you over what you say about yourself. It's word of mouth again, only now the machine is listening, and then doing the talking.",
+    "comparisonRows": [
+      { "label": "Goal", "seo": "Rank in a list of links", "aeo": "Be the single recommendation" },
+      { "label": "Who decides", "seo": "A ranking algorithm on keywords", "aeo": "An AI reasoning across sources" },
+      { "label": "What it reads", "seo": "Titles, keywords, backlinks", "aeo": "Reviews, third-party references, structured data, context" },
+      { "label": "You win by", "seo": "Climbing the page", "aeo": "Being genuinely recommendable, and readable by a machine" }
+    ],
+    "proofLine": "And they don't overlap the way you'd hope: in a Profitero analysis of 36,000 Amazon products, only 18% of the page-one search winners also appeared in the AI's answers.",
+    "proofSource": "Profitero, 2026",
+    "ctaLabel": "Read the full breakdown"
+  },
+  "whyMe": {
+    "heading": "Who's behind this",
+    "body": "I'm Bjorn Vandemeulebroucke, author of Become the Answer. Twenty years getting people to talk about brands; now I measure and improve how AI recommends them, with the AI Answer Index™.",
+    "ways": [
+      { "title": "Become the Answer", "description": "The practitioner's guide to AEO.", "ctaLabel": "Read more", "ctaHref": "#book" },
+      { "title": "The AI Answer Index™", "description": "See whether AI recommends you, tracked against competitors.", "ctaLabel": "Register your interest" },
+      { "title": "Masterclass & keynotes", "description": "Give your team a shared method for winning the answer.", "ctaLabel": "Register your interest" }
+    ]
+  },
+  "costOfWaiting": {
+    "heading": "The answers are being written right now.",
+    "body": "AI assistants are forming their defaults today, while adoption is early. Every month you're absent, a competitor becomes the name the engine reaches for by habit, and defaults are expensive to unseat. The brands that act while the answer is still being decided are the ones that get to keep the spot.",
+    "ctaLabel": "Don't wait to become the answer",
+    "quotableLine": "The cost of waiting isn't standing still, it's watching a competitor become the default answer."
+  },
+  "beyondTheScore": {
+    "heading": "A single recommendation is a moment. Answer Equity is the asset.",
+    "subhead": "Answer Equity is what it becomes when the recommendation holds, the durable advantage of being the brand AI reaches for, measured across four dimensions read straight from the machine's answers.",
+    "body": "Every month you're absent, a competitor becomes the name the engine reaches for by habit, and defaults are expensive to unseat. The brands that act while the answer is still being decided are the ones that get to keep the spot.",
+    "ctaLabel": "Don't wait to become the answer",
+    "quotableLine": "The cost of waiting isn't standing still, it's watching a competitor become the default answer."
+  },
+  "library": {
+    "heading": "Go deeper: the AEO Library",
+    "intro": "Everything I've learned about becoming the answer, in the open. Watch a talk, listen to an episode, or read the breakdowns.",
+    "items": [
+      { "title": "Watch", "description": "Keynote clips and explainers on AI search." },
+      { "title": "Listen", "description": "Podcast conversations on where discovery is going." },
+      { "title": "Read", "description": "Short, citable pieces on how engines choose." }
+    ]
+  },
+  "bookBand": {
+    "description": "The practitioner's guide to Answer Engine Optimization: how brands get found, trusted and cited in the age of AI search. Twenty years of word of mouth, and the tools that now measure it.",
+    "microPoints": [
+      "What AI engines actually cite",
+      "How to measure your share of the answer",
+      "The 90 day path to becoming the answer"
+    ],
+    "primaryCtaLabel": "Download the first chapter",
+    "secondaryCtaLabel": "Pre-order the book",
+    "tertiaryCtaLabel": "Let's talk about your brand"
+  },
+  "faq": {
+    "heading": "FAQ",
+    "items": [
+      {
+        "question": "What is the difference between AEO and SEO?",
+        "answer": "SEO optimises your pages to rank in a list of links a person then chooses from. AEO (Answer Engine Optimization) optimises for AI assistants that read across your content, reviews and third-party sources and recommend one answer. SEO competes for a position; AEO competes to be the answer."
+      },
+      {
+        "question": "How do I know if AI recommends my brand?",
+        "answer": "Run a free AI Visibility Check: enter your brand and category, and it asks ChatGPT, Perplexity, Claude and Gemini the questions your buyers ask, then scores how often you appear versus competitors."
+      },
+      {
+        "question": "What does it cost a brand to be invisible in AI answers?",
+        "answer": "It costs the deals shaped inside answers you never appear in. The Cost of Invisibility calculator estimates the annual pipeline you can't compete for, using your own buyer volume, deal size and close rate."
+      },
+      {
+        "question": "Why act now instead of waiting?",
+        "answer": "AI assistants are forming their default recommendations while adoption is still early. Brands that earn their place now become the default answer; those defaults get harder to unseat over time."
+      }
+    ]
+  }
+}

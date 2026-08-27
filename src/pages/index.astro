@@ -103,7 +103,7 @@ const { seo, hero, statBar, bigIdea, digitalShelf, offerRow, proofStats, toolsTa
       }
     </div>
     <div class="mt-8">
-      <Button variant="ghost" href="/library">{proofStats.ctaLabel}</Button>
+      <Button variant="ghost" openLeadForm="download-report">{proofStats.ctaLabel}</Button>
     </div>
   </Section>
 
@@ -141,6 +141,7 @@ const { seo, hero, statBar, bigIdea, digitalShelf, offerRow, proofStats, toolsTa
     microPoints={bookBand.microPoints}
     primaryCtaLabel={bookBand.primaryCtaLabel}
     secondaryCtaLabel={bookBand.secondaryCtaLabel}
+    tertiaryCtaLabel={bookBand.tertiaryCtaLabel}
     bg="ink"
   />
 </BaseLayout>

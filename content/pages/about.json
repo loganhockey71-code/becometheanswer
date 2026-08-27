@@ -1,0 +1,88 @@
+{
+  "seo": {
+    "title": "About me — the practitioner behind Become the Answer",
+    "description": "Why I wrote Become the Answer, what I actually do, and the principles behind Win the AI Shelf, helping brands become the answer AI gives."
+  },
+  "eyebrow": "ABOUT",
+  "headline": "I help brands become the answer AI gives, and I measure whether they already are.",
+  "lead": "I'm Bjorn Vandemeulebroucke, managing partner of a Word of Mouth Agency and author of Become the Answer. For over twenty years my work has been getting real people to recommend brands. Now that AI does the recommending, I measure and improve how brands show up in its answers.",
+  "connectLine": "I would love to connect and hear your thoughts.",
+  "whatIBelieve": {
+    "heading": "What I believe",
+    "paragraphs": [
+      "For twenty years, my work has rested on one belief: people trust people, and brands are built by what other people say about them, not by what they say about themselves.",
+      "AI has nestled itself nicely between the different moments of truth. That meant getting real people to talk, review and recommend products and experiences. Now the recommendation is done by AI, and it decides who to name by reading exactly those signals.",
+      "Become the Answer is that belief, updated for the machines: being findable is no longer enough, you have to be the answer the AI gives. It's word of mouth again, only this time the machine is doing the listening and the talking.",
+      "Eventually, the machine is no longer just a channel; it's a new buyer in the ecosystem, a revenue source in its own right that spends where it's been given a reason to trust."
+    ]
+  },
+  "whatIDo": {
+    "heading": "What I actually do",
+    "intro": "Three things, and they feed each other:",
+    "items": [
+      {
+        "title": "Measure it",
+        "description": "I built the AI Answer Index™, a Nielsen-style read on how often a brand shows up across ChatGPT, Claude, Gemini and Rufus, tracked against its competitors. Most brands have no idea whether AI recommends them at all. This is where you find out."
+      },
+      {
+        "title": "Teach it",
+        "description": "Keynotes and hands-on masterclasses on Answer Engine Optimization, \"Win the AI Shelf\", for teams and agencies who need to act, not just understand."
+      },
+      {
+        "title": "Build it",
+        "description": "I'm a practitioner, not a theorist. I build the pipelines and run the tests myself, so what I teach is what actually moves the needle, not what sounds good on a slide."
+      }
+    ],
+    "ctaLabel": "Learn more about this"
+  },
+  "principles": {
+    "heading": "What we believe, our principles",
+    "intro": "The work runs on a few simple beliefs. They're also how we decide what to do, and what not to.",
+    "items": [
+      { "title": "Earned, not gamed", "description": "You can't trick your way into an AI's answer. You have to be genuinely recommendable, then make that easy for a machine to see. We don't sell shortcuts." },
+      { "title": "Practitioner over theorist", "description": "We only teach what we've built and tested. If we haven't proven it with data, we say so." },
+      { "title": "Honest and early", "description": "The shift is real but young. We'll tell you what's actually happening, not the hype, and not the fear." },
+      { "title": "Measure what matters", "description": "If you can't see your share of the answer, you can't win it. Start with the truth, then improve it." },
+      { "title": "Trust is still the currency", "description": "This is word of mouth for machines. Reviews, real references, other people vouching for you, that's what the engines lean on, and it's what we help you earn." }
+    ]
+  },
+  "team": {
+    "fallbackLine": "Backed by The Insiders and a network of AEO practitioners."
+  },
+  "bookBand": {
+    "description": "The practitioner's guide to Answer Engine Optimization: how brands get found, trusted and known in the age of AI search. Twenty years of word of mouth, and the tools that now measure it.",
+    "microPoints": [
+      "What AI engines actually cite",
+      "How to measure your share of the answer",
+      "The 90 day path to becoming the answer"
+    ],
+    "primaryCtaLabel": "Download the first chapter",
+    "secondaryCtaLabel": "Pre-order the book",
+    "tertiaryCtaLabel": "Let's talk about your brand"
+  },
+  "faq": {
+    "heading": "FAQ",
+    "items": [
+      {
+        "question": "Who is Bjorn Vandemeulebroucke?",
+        "answer": "Bjorn Vandemeulebroucke is the managing partner of a global word-of-mouth marketing agency, and the author of Become the Answer. He created the AI Answer Index™ and the \"Win the AI Shelf\" practice, and has spent 20+ years helping brands earn recommendations, now from AI as well as people."
+      },
+      {
+        "question": "What is \"Become the Answer\" about?",
+        "answer": "Become the Answer is a practitioner's guide to Answer Engine Optimization (AEO). It explains how AI assistants choose which brands to cite, what sources they trust, and the concrete steps a brand takes to move from invisible in AI answers to being the answer itself."
+      },
+      {
+        "question": "What does Bjorn actually do for brands?",
+        "answer": "He measures a brand's visibility across AI engines with the AI Answer Index™, teaches AEO through keynotes and masterclasses, and builds the testing pipelines behind the work, so brands can see whether AI recommends them and improve it."
+      },
+      {
+        "question": "What is the AI Answer Index™?",
+        "answer": "The AI Answer Index™ is a measurement of a brand's share of voice across AI assistants like ChatGPT, Claude, Gemini and Rufus, benchmarked against competitors and tracked over time, so a brand can see where it stands and whether it's improving."
+      }
+    ]
+  },
+  "closingCta": {
+    "line": "Curious whether AI recommends you? The fastest way to understand this work is to see where your own brand stands.",
+    "ctaLabel": "Register your interest"
+  }
+}

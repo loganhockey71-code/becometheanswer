@@ -1,0 +1,130 @@
+{
+  "seo": {
+    "title": "Work with me — AEO masterclasses, keynotes & panels, consultancy",
+    "description": "A modular six-workshop AEO masterclass program and keynotes on winning the AI shelf. Bring Answer Engine Optimization to your team, cohort or stage."
+  },
+  "eyebrow": "WORK WITH ME",
+  "hero": {
+    "headline": "Bring AEO to your team, your stage or your company.",
+    "subhead": "Masterclass teaches your team the method. Consultancy puts me on your brand. Keynote moves the room.",
+    "quotableLine": "Search is changing, people ask AI a question and act on the answer. If your brand isn't in that answer, it's invisible, and that's a fixable problem."
+  },
+  "offers": [
+    { "title": "Masterclass AEO", "oneLiner": "A hands-on AEO program for your people.", "ctaLabel": "Register your interest", "formType": "masterclass" },
+    { "title": "Speaking & panels", "oneLiner": "A talk that makes a room feel the shift.", "ctaLabel": "Register your interest", "formType": "speaker" },
+    { "title": "Consultancy", "oneLiner": "Hands-on advisory on your brand's AI visibility.", "ctaLabel": "Register your interest", "formType": "consultancy" }
+  ],
+  "masterclass": {
+    "shift": {
+      "heading": "Why does your team need AEO, not more SEO?",
+      "body": "Most programs still teach SEO habits: keyword lists, backlink audits, ranking reports. None of it tells a client whether ChatGPT, Perplexity or Google's AI actually mention their brand, and your trainers are the ones fielding that question first. AEO is a different discipline: win share of voice in the answer, not just a click.",
+      "proofStrip": [
+        "42% of B2B searches now resolve inside an AI answer (Tinuiti, Q1 2026)",
+        "3.2× more citations after an AEO content rewrite (our engagements)",
+        "Close to zero blue links most users click before acting on an AI answer"
+      ]
+    },
+    "whoFor": {
+      "heading": "Who is this for",
+      "items": [
+        "Built for internal L&D teams and agencies running an ongoing AEO coaching program across multiple client cohorts, not a single one-off keynote audience. For a one-time talk, see Speaking & panels below.",
+        "Marketing, CX and innovation leaders looking to integrate AI into their strategy.",
+        "Teams preparing for agentic commerce and AI-driven customer interactions."
+      ]
+    },
+    "goal": {
+      "heading": "The goal of the masterclass",
+      "intro": "Equip brand, ecommerce, digital marketing, SEO, and product content teams with a practical framework for optimizing their digital shelf for AI-powered answer engines (ChatGPT, Gemini, Perplexity, Copilot, Claude), directly linked to a playbook generating sales revenue.",
+      "steps": [
+        { "title": "Audit & Strategy", "description": "Make the abstract concept of AEO tangible and relevant for the team's own company." },
+        { "title": "Building and Governing the AEO Strategy", "description": "Create the playbooks and governance documents that make a company's AEO program real and sustainable by taking the gap map." },
+        { "title": "Monetize AEO", "description": "Turn the action plan into sales generated revenue." }
+      ],
+      "quotableLine": "No two coaches probe AI engines the same way, this program gives a team a shared method, not a shared opinion."
+    },
+    "workshops": [
+      { "number": "01", "title": "Audit & Strategy: Prompt Library", "description": "Build a prompt library, adapted to your brand, key competitor and industry, one shared starting point for every engagement.", "leavesWith": "A reusable prompt bank to track AI visibility quarterly." },
+      { "number": "02", "title": "Audit & Strategy: The 3 Pillars & Their Weight", "description": "Not every AEO factor matters equally, learn to prioritise authority, structure, coverage and freshness by category.", "leavesWith": "A weighted matrix that tells every client where to focus first." },
+      { "number": "03", "title": "Building & Governing an AEO Strategy", "description": "Define the core metrics so everyone measures the same way.", "leavesWith": "A metrics dashboard template (citation rate, share of answer, answer accuracy) ready on day one." },
+      { "number": "04", "title": "Building & Governing an AEO Strategy", "description": "Use the AI Engine Report to surface unclaimed questions and content gaps competitors haven't taken.", "leavesWith": "A ranked opportunity list to hand a content team." },
+      { "number": "05", "title": "Monetization of AEO", "description": "Model whether a move pays off before the budget is spent.", "leavesWith": "A revenue-at-stake number for your next budget conversation, built from your AI Answer Index." },
+      { "number": "06", "title": "Act: The 90-Day Sprint", "description": "Turn six workshops of output into a dated plan.", "leavesWith": "A ready-to-run 90-day playbook with named owners, milestones and check-ins." }
+    ],
+    "howItRuns": {
+      "points": [
+        "Full 2-day session, in-person and on-site",
+        "Modular, all six in sequence or any one alone",
+        "Hands-on, every session builds a real artifact, not slides to file",
+        "Train-the-trainer, built for the coaches who'll run it with their own clients"
+      ],
+      "deliverables": "A facilitator guide, working templates and a live-build exercise scoped to a real client, plus the workshop's artifact (prompt bank, matrix, dashboard, report or sprint plan) to reuse with the next client."
+    },
+    "numbers": [
+      { "value": "6", "label": "modular workshops" },
+      { "value": "300+", "label": "prompts every cohort leaves with on day one" },
+      { "value": "90", "label": "days from kickoff to a live, owned sprint plan" }
+    ],
+    "howToStart": {
+      "steps": [
+        { "title": "Scope the cohort", "description": "Pick the workshops and trainer group size that fit where your program is today." },
+        { "title": "Schedule the sessions", "description": "Lock in full-day dates, back to back or spread across weeks." },
+        { "title": "Launch with Workshop 1", "description": "Trainers leave day one with a live prompt library already running." }
+      ]
+    },
+    "ctaLabel": "Register your interest"
+  },
+  "speaking": {
+    "heading": "Want AEO on your stage?",
+    "intro": "I speak on where search is going and how brands become the answer AI gives: keynotes, panels and podcast conversations, tuned to the room from a boardroom to a main stage.",
+    "formats": [
+      { "title": "Keynote", "description": "The shift from ranking to being cited, with live examples." },
+      { "title": "Panel / fireside", "description": "The practitioner's view on AI search." },
+      { "title": "Podcast / guest", "description": "A sharp, sourced take for your audience." }
+    ],
+    "ctaLabel": "Register your interest",
+    "quotableLine": "A keynote that makes a room realise their brand is missing from the answer, and that it's fixable."
+  },
+  "consultancy": {
+    "heading": "Work on it with me directly",
+    "what": "When you'd rather have me on your specific problem than in a training room. I work hands-on with your team on your brand's AI visibility, from measuring where you stand today to a clear plan for becoming the answer in your category.",
+    "who": "For brand and marketing leaders who don't want a generic playbook. They want their category, their competitors, their gaps, and a defensible next move. Fewer people, deeper work.",
+    "how": "It starts with an AI Answer Index™ read of where you actually stand, then a working session and a prioritised action plan you can hand straight to your team. Ongoing advisory optional.",
+    "ctaLabel": "Let's talk about your brand"
+  },
+  "bookBand": {
+    "description": "The practitioner's guide to Answer Engine Optimization: how brands get found, trusted and cited in the age of AI search. Twenty years of word of mouth, and the tools that now measure it.",
+    "microPoints": [
+      "What AI engines actually cite",
+      "How to measure your share of the answer",
+      "The 90 day path to becoming the answer"
+    ],
+    "primaryCtaLabel": "Download the first chapter",
+    "secondaryCtaLabel": "Pre-order the book",
+    "tertiaryCtaLabel": "Let's talk about your brand"
+  },
+  "faq": {
+    "heading": "FAQ",
+    "items": [
+      {
+        "question": "What is the AEO masterclass program?",
+        "answer": "It's a modular, six-workshop Answer Engine Optimization program that takes a team from understanding AEO to a 90-day action plan. The six workshops run across three phases, Understand, Decide, Act, and can be booked together as a curriculum or individually."
+      },
+      {
+        "question": "Can I book a single masterclass instead of all six?",
+        "answer": "Yes. Every workshop stands alone and builds its own artifact, a prompt library, weighting matrix, metrics dashboard, opportunity report, business case, or 90-day sprint plan. You can run one, or all six in sequence."
+      },
+      {
+        "question": "Who is the masterclass program for?",
+        "answer": "It's built for internal L&D teams and agencies running an ongoing AEO coaching program across multiple client cohorts, rather than a one-time audience. For a single event, a keynote or panel is the better fit."
+      },
+      {
+        "question": "How much does the AEO program cost?",
+        "answer": "The full two-day, on-site program starts at $7,500 (excluding travel). Final scope and price depend on cohort size and how many of the six workshops are booked together."
+      },
+      {
+        "question": "Does Bjorn speak at events?",
+        "answer": "Yes, keynotes, panels and podcast appearances on AI search and Answer Engine Optimization, tailored to the audience. Share your event details through the form to check availability."
+      }
+    ]
+  }
+}

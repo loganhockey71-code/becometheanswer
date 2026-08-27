@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Button from '../components/Button.astro';
+import OfferRow from '../components/OfferRow.astro';
+import WorkshopGrid from '../components/WorkshopGrid.astro';
+import StatBar from '../components/StatBar.astro';
+import BecomeTheAnswerBand from '../components/BecomeTheAnswerBand.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import page from '../../content/pages/work-with-me.json';
+
+const { seo, eyebrow, hero, offers, masterclass, speaking, consultancy, bookBand, faq } = page;
+---
+
+<BaseLayout title={seo.title} description={seo.description}>
+  <!-- Hero -->
+  <Section bg="paper" padding="top-only">
+    <Eyebrow>{eyebrow}</Eyebrow>
+    <h1 class="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
+      {hero.headline}
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg text-slate md:text-xl">{hero.subhead}</p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <Button variant="secondary" href="#masterclass">Explore the masterclasses</Button>
+      <Button variant="ghost" openLeadForm="speaker">Book a talk</Button>
+      <Button variant="ghost" openLeadForm="consultancy">Talk to me about your brand</Button>
+    </div>
+    <p class="mt-10 max-w-2xl font-display text-xl font-bold text-ink">{hero.quotableLine}</p>
+  </Section>
+
+  <!-- Three ways to work with me -->
+  <Section bg="cloud">
+    <OfferRow items={offers} />
+  </Section>
+
+  <!-- Masterclass: the shift -->
+  <Section bg="paper" id="masterclass">
+    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{masterclass.shift.heading}</h2>
+    <p class="mt-4 max-w-prose text-lg text-slate">{masterclass.shift.body}</p>
+    <ul class="mt-8 flex flex-col gap-3 border-l-2 border-signal pl-6 text-sm text-slate sm:flex-row sm:gap-8 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-6">
+      {masterclass.shift.proofStrip.map((line: string) => <li>{line}</li>)}
+    </ul>
+
+    <div class="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2">
+      <div>
+        <h3 class="font-display text-xl font-bold text-ink">{masterclass.whoFor.heading}</h3>
+        <ul class="mt-4 flex flex-col gap-3 text-slate">
+          {masterclass.whoFor.items.map((item: string) => (
+            <li class="border-l-2 border-line pl-4">{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display text-xl font-bold text-ink">{masterclass.goal.heading}</h3>
+        <p class="mt-4 text-slate">{masterclass.goal.intro}</p>
+        <ol class="mt-4 flex flex-col gap-3">
+          {masterclass.goal.steps.map((step: { title: string; description: string }, i: number) => (
+            <li class="flex gap-3">
+              <span class="font-display font-bold text-signal">{i + 1}.</span>
+              <span>
+                <span class="font-semibold text-ink">{step.title}: </span>
+                <span class="text-slate">{step.description}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+
+    <p class="mt-10 max-w-2xl font-display text-lg font-bold text-signal-deep">
+      {masterclass.goal.quotableLine}
+    </p>
+  </Section>
+
+  <!-- Masterclass: the six workshops -->
+  <Section bg="cloud">
+    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">The six workshops</h2>
+    <p class="mt-4 max-w-prose text-slate">Book any one on its own, or run all six as a curriculum.</p>
+    <div class="mt-10">
+      <WorkshopGrid workshops={masterclass.workshops} />
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2">
+      <ul class="flex flex-col gap-3 text-slate">
+        {masterclass.howItRuns.points.map((point: string) => (
+          <li class="flex gap-2">
+            <span class="text-signal" aria-hidden="true">·</span>
+            {point}
+          </li>
+        ))}
+      </ul>
+      <p class="text-sm text-muted">
+        <span class="font-semibold text-ink">Deliverables: </span>
+        {masterclass.howItRuns.deliverables}
+      </p>
+    </div>
+  </Section>
+
+  <!-- Masterclass: numbers + how to start -->
+  <Section bg="paper">
+    <StatBar stats={masterclass.numbers} />
+
+    <div class="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
+      {masterclass.howToStart.steps.map((step: { title: string; description: string }, i: number) => (
+        <div>
+          <span class="font-display text-2xl font-bold text-signal">{i + 1}</span>
+          <h3 class="mt-2 font-display text-lg font-bold text-ink">{step.title}</h3>
+          <p class="mt-2 text-sm text-slate">{step.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10">
+      <Button variant="primary" openLeadForm="masterclass">{masterclass.ctaLabel}</Button>
+    </div>
+  </Section>
+
+  <!-- Speaking & panels -->
+  <Section bg="cloud">
+    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{speaking.heading}</h2>
+    <p class="mt-4 max-w-prose text-lg text-slate">{speaking.intro}</p>
+    <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+      {speaking.formats.map((format: { title: string; description: string }) => (
+        <div class="rounded-[12px] border border-line bg-paper p-6">
+          <h3 class="font-display text-lg font-bold text-ink">{format.title}</h3>
+          <p class="mt-2 text-sm text-slate">{format.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-8">
+      <Button variant="primary" openLeadForm="speaker">{speaking.ctaLabel}</Button>
+    </div>
+    <p class="mt-8 max-w-2xl font-display text-lg font-bold text-signal">{speaking.quotableLine}</p>
+  </Section>
+
+  <!-- Consultancy -->
+  <Section bg="paper">
+    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{consultancy.heading}</h2>
+    <div class="mt-6 grid grid-cols-1 gap-8 md:grid-cols-3">
+      <p class="text-slate">{consultancy.what}</p>
+      <p class="text-slate">{consultancy.who}</p>
+      <p class="text-slate">{consultancy.how}</p>
+    </div>
+    <div class="mt-8">
+      <Button variant="primary" openLeadForm="consultancy">{consultancy.ctaLabel}</Button>
+    </div>
+  </Section>
+
+  <!-- Become the Answer book band -->
+  <BecomeTheAnswerBand
+    description={bookBand.description}
+    microPoints={bookBand.microPoints}
+    primaryCtaLabel={bookBand.primaryCtaLabel}
+    secondaryCtaLabel={bookBand.secondaryCtaLabel}
+    tertiaryCtaLabel={bookBand.tertiaryCtaLabel}
+    bg="cloud"
+  />
+
+  <!-- FAQ -->
+  <Section bg="paper">
+    <FaqAccordion heading={faq.heading} items={faq.items} />
+  </Section>
+</BaseLayout>

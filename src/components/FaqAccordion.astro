@@ -1,0 +1,33 @@
+---
+// Native <details>/<summary> accordion — accessible and functional with no JS.
+// Visible Q&A text here must stay identical to the FAQPage JSON-LD markup
+// added in Phase 5, per the blueprints' explicit AEO instruction.
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+interface Props {
+  items: FaqItem[];
+  heading?: string;
+}
+const { items, heading = 'FAQ' } = Astro.props;
+---
+
+<div>
+  <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{heading}</h2>
+  <div class="mt-8 flex flex-col divide-y divide-line border-y border-line">
+    {
+      items.map((item) => (
+        <details class="group py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-ink marker:content-none">
+            {item.question}
+            <span class="shrink-0 text-2xl leading-none text-signal transition-transform duration-150 group-open:rotate-45">
+              +
+            </span>
+          </summary>
+          <p class="mt-3 max-w-prose text-slate">{item.answer}</p>
+        </details>
+      ))
+    }
+  </div>
+</div>

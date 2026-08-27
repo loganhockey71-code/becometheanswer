@@ -1,0 +1,50 @@
+---
+// Native rebuild of the "buying journey" / ZMOT diagram (source only existed as
+// a print-PDF export, not a web-ready image) — same four stages, coded so it
+// renders crisply at any size instead of embedding a rasterized PDF page.
+interface Stage {
+  label: string;
+  description: string;
+  highlight?: boolean;
+}
+
+const stages: Stage[] = [
+  { label: 'Stimulus', description: 'Ad, mention, recommendation' },
+  { label: 'Zero moment of truth', description: 'The question, and the answer AI gives', highlight: true },
+  { label: 'First moment of truth', description: 'The shelf, digital or physical' },
+  { label: 'Second moment of truth', description: 'The experience, and what gets said about it' },
+];
+---
+
+<div class="rounded-[12px] border border-line bg-cloud p-8">
+  <div class="relative grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4 md:gap-x-6">
+    <div class="pointer-events-none absolute left-0 right-0 top-6 hidden h-px bg-line md:block" aria-hidden="true" />
+    {
+      stages.map((stage) => (
+        <div class="relative flex flex-col items-center text-center">
+          <span
+            class:list={[
+              'z-10 flex h-12 w-12 items-center justify-center rounded-full border-2',
+              stage.highlight ? 'border-signal bg-signal-tint text-signal-deep' : 'border-line bg-paper text-muted',
+            ]}
+            aria-hidden="true"
+          >
+            {stage.highlight ? '»' : '·'}
+          </span>
+          <span
+            class:list={[
+              'mt-3 font-display text-sm font-bold',
+              stage.highlight ? 'text-signal-deep' : 'text-ink',
+            ]}
+          >
+            {stage.label}
+          </span>
+          <span class="mt-1 text-xs text-muted">{stage.description}</span>
+        </div>
+      ))
+    }
+  </div>
+  <p class="mt-8 text-center text-sm font-medium text-signal-deep">
+    Which becomes the next person's zero moment
+  </p>
+</div>
