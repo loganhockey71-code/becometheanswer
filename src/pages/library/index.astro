@@ -8,14 +8,24 @@ import LibraryCard from '../../components/LibraryCard.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import { getLibraryItems, estimateReadTime } from '../../lib/library';
 import libraryContent from '../../../content/pages/library.json';
+import { faqPageSchema, breadcrumbSchema } from '../../lib/seo';
 
 const { seo, eyebrow, hero, featured, buckets, faq } = libraryContent;
 
 const allItems = await getLibraryItems();
 const featuredItems = allItems.filter((item) => item.data.featured);
+
+const siteUrl = Astro.site!.toString();
+const jsonLd = [
+  faqPageSchema(faq.items),
+  breadcrumbSchema(siteUrl, [
+    { name: 'Home', path: '/' },
+    { name: 'Library', path: '/library' },
+  ]),
+];
 ---
 
-<BaseLayout title={seo.title} description={seo.description}>
+<BaseLayout title={seo.title} description={seo.description} jsonLd={jsonLd}>
   <!-- Hero -->
   <Section bg="paper" padding="top-only">
     <Eyebrow>{eyebrow}</Eyebrow>
@@ -33,14 +43,28 @@ const featuredItems = allItems.filter((item) => item.data.featured);
     featuredItems.length > 0 && (
       <Section bg="cloud">
         <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{featured.heading}</h2>
-        <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {featuredItems.map((item) => (
+        <div class="mt-10 grid grid-cols-1 gap-6">
+          {featuredItems[0] && (
             <LibraryCard
-              item={item}
-              readTime={item.data.type === 'read' ? estimateReadTime(item.body || '') : undefined}
-              ctaLabel={item.data.type === 'read' ? 'Read' : item.data.type === 'watch' ? 'Watch' : 'Listen'}
+              item={featuredItems[0]}
+              featured
+              readTime={featuredItems[0].data.type === 'read' ? estimateReadTime(featuredItems[0].body || '') : undefined}
+              ctaLabel={
+                featuredItems[0].data.type === 'read' ? 'Read' : featuredItems[0].data.type === 'watch' ? 'Watch' : 'Listen'
+              }
             />
-          ))}
+          )}
+          {featuredItems.length > 1 && (
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {featuredItems.slice(1, 3).map((item) => (
+                <LibraryCard
+                  item={item}
+                  readTime={item.data.type === 'read' ? estimateReadTime(item.body || '') : undefined}
+                  ctaLabel={item.data.type === 'read' ? 'Read' : item.data.type === 'watch' ? 'Watch' : 'Listen'}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </Section>
     )

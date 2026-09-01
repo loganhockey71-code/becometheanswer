@@ -1,49 +1,121 @@
 ---
 import type { LibraryEntry } from '../lib/library';
+import { ARTICLE_QUOTE_CARDS } from '../lib/library';
+import ArticleQuoteCard from './ArticleQuoteCard.astro';
 
 interface Props {
   item: LibraryEntry;
   ctaLabel?: string;
   readTime?: string;
+  featured?: boolean;
 }
 
-const { item, ctaLabel, readTime } = Astro.props;
-const { title, description, type, bucket, tags, source } = item.data;
+const { item, ctaLabel, readTime, featured = false } = Astro.props;
+const { title, description, type, bucket, tags, source, image } = item.data;
 
 const href = type === 'read' ? `/library/read/${item.id}` : item.data.externalUrl;
 const isExternal = type !== 'read';
+const quoteCard = type === 'read' && !image ? ARTICLE_QUOTE_CARDS[item.id] : undefined;
 ---
 
 <a
   href={href}
   target={isExternal ? '_blank' : undefined}
   rel={isExternal ? 'noopener noreferrer' : undefined}
-  class="library-card flex flex-col rounded-[12px] border border-line bg-paper p-6 transition-colors hover:border-signal"
+  class:list={[
+    'library-card group flex flex-col overflow-hidden rounded-[12px] border border-line bg-paper transition-colors hover:border-signal',
+    featured ? 'md:flex-row' : '',
+  ]}
   data-bucket={bucket}
   data-search={`${title} ${description} ${tags.join(' ')}`.toLowerCase()}
 >
-  {bucket && (
-    <span class="text-xs font-semibold uppercase tracking-[0.04em] text-signal-deep">{bucket}</span>
-  )}
-  <h3 class="mt-2 font-display text-lg font-bold text-ink">{title}</h3>
-  <p class="mt-2 flex-1 text-sm text-slate">{description}</p>
-
-  {tags.length > 0 && (
-    <ul class="mt-4 flex flex-wrap gap-2">
-      {tags.map((tag) => (
-        <li class="rounded-[999px] bg-cloud px-3 py-1 text-xs text-muted">{tag}</li>
-      ))}
-    </ul>
-  )}
-
-  <div class="mt-4 flex items-center justify-between text-xs text-muted">
-    {readTime && <span>{readTime}</span>}
-    {source && <span>{source}</span>}
+  <div
+    class:list={[
+      'relative aspect-[8/5] w-full shrink-0 overflow-hidden border-b border-line bg-cloud',
+      featured ? 'md:aspect-auto md:w-[55%] md:border-b-0 md:border-r' : '',
+    ]}
+  >
+    {
+      type === 'read' && image && (
+        <img
+          src={image}
+          alt={`Diagram: ${title}`}
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+        />
+      )
+    }
+    {type === 'read' && quoteCard && <ArticleQuoteCard {...quoteCard} bordered={false} class="h-full" />}
+    {
+      type === 'watch' && (
+        <>
+          <img
+            src={image}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+          />
+          <span class="absolute inset-0 bg-ink/10" aria-hidden="true" />
+          <span
+            class="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-signal shadow-card"
+            aria-hidden="true"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="translate-x-[1px]">
+              <path d="M6 4L20 12L6 20V4Z" fill="#16181D" />
+            </svg>
+          </span>
+        </>
+      )
+    }
+    {
+      type === 'listen' && (
+        <div class="flex h-full w-full flex-col items-center justify-center gap-4 bg-ink px-6 text-center">
+          <span class="flex items-end gap-1" aria-hidden="true">
+            <span class="h-4 w-1.5 rounded-full bg-signal" />
+            <span class="h-8 w-1.5 rounded-full bg-signal" />
+            <span class="h-5 w-1.5 rounded-full bg-signal" />
+            <span class="h-9 w-1.5 rounded-full bg-signal" />
+            <span class="h-3 w-1.5 rounded-full bg-signal" />
+          </span>
+          {source && <p class="text-xs font-semibold uppercase tracking-[0.1em] text-paper/70">{source}</p>}
+        </div>
+      )
+    }
   </div>
 
-  {ctaLabel && (
-    <span class="mt-4 text-sm font-medium text-signal-deep">
-      {ctaLabel} {isExternal && <span aria-hidden="true">&rarr;</span>}
-    </span>
-  )}
+  <div class:list={['flex flex-1 flex-col p-6', featured ? 'md:justify-center md:p-8' : '']}>
+    {bucket && (
+      <span class="text-xs font-semibold uppercase tracking-[0.04em] text-signal-deep">{bucket}</span>
+    )}
+    <h3
+      class:list={[
+        'mt-2 font-display font-bold leading-snug text-ink',
+        featured ? 'text-xl md:text-2xl' : 'text-lg',
+      ]}
+    >
+      {title}
+    </h3>
+    <p class:list={['mt-2 flex-1 text-slate', featured ? 'text-base' : 'text-sm']}>{description}</p>
+
+    {tags.length > 0 && (
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <li class="rounded-[999px] bg-cloud px-3 py-1 text-xs text-muted">{tag}</li>
+        ))}
+      </ul>
+    )}
+
+    <div class="mt-4 flex items-center justify-between text-xs text-muted">
+      {readTime && <span>{readTime}</span>}
+      {type !== 'listen' && source && <span>{source}</span>}
+    </div>
+
+    {ctaLabel && (
+      <span class="mt-4 text-sm font-medium text-signal-deep">
+        {ctaLabel} {isExternal && <span aria-hidden="true">&rarr;</span>}
+      </span>
+    )}
+  </div>
 </a>

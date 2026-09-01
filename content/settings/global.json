@@ -13,7 +13,7 @@
   "seoDefaults": {
     "titleTemplate": "%s — Become the Answer",
     "defaultDescription": "Become the Answer helps brands get cited by AI — the practical move from SEO to AEO.",
-    "ogImage": null
+    "ogImage": "/og-default.png"
   },
   "registerInterestForm": {
     "heading": "Register your interest",

@@ -3,16 +3,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/Section.astro';
 import LibraryTabs from '../../components/LibraryTabs.astro';
 import LibraryCard from '../../components/LibraryCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getLibraryItems } from '../../lib/library';
 import libraryContent from '../../../content/pages/library.json';
+import { breadcrumbSchema } from '../../lib/seo';
 
 const { watch } = libraryContent;
 const items = await getLibraryItems('watch');
+
+const siteUrl = Astro.site!.toString();
+const jsonLd = [
+  breadcrumbSchema(siteUrl, [
+    { name: 'Home', path: '/' },
+    { name: 'Library', path: '/library' },
+    { name: 'Watch', path: '/library/watch' },
+  ]),
+];
 ---
 
-<BaseLayout title={watch.seo.title} description={watch.seo.description}>
+<BaseLayout title={watch.seo.title} description={watch.seo.description} jsonLd={jsonLd}>
   <Section bg="paper" padding="top-only">
-    <h1 class="font-display text-4xl font-bold text-ink md:text-5xl">{watch.heading}</h1>
+    <Breadcrumbs items={[{ name: 'Library', href: '/library' }, { name: 'Watch' }]} />
+    <h1 class="mt-4 font-display text-4xl font-bold text-ink md:text-5xl">{watch.heading}</h1>
     <p class="mt-4 max-w-2xl text-lg text-slate">{watch.intro}</p>
     <div class="mt-8">
       <LibraryTabs active="watch" />

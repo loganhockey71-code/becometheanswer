@@ -1,0 +1,35 @@
+---
+// A typographic stand-in for a data-viz header image, styled to match the
+// commissioned AEO/SEO diagram cards exactly (thin signal-orange top bar,
+// small uppercase eyebrow, a bold two-line statement with the second line
+// in signal orange, a muted subhead). Used on the four Read articles that
+// have no bespoke diagram, so the Library reads as one designed system
+// rather than "some articles got art, some didn't."
+interface Props {
+  eyebrow: string;
+  line1: string;
+  line2: string;
+  subhead: string;
+  bordered?: boolean;
+  class?: string;
+}
+
+const { eyebrow, line1, line2, subhead, bordered = true, class: className = '' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'relative flex aspect-[8/5] w-full flex-col justify-center overflow-hidden bg-paper px-8 py-10 sm:px-14',
+    bordered ? 'rounded-[12px] border border-line' : '',
+    className,
+  ]}
+>
+  <span class="absolute inset-x-0 top-0 h-[6px] bg-signal" aria-hidden="true"></span>
+  <p class="text-xs font-bold uppercase tracking-[0.14em] text-signal-deep">{eyebrow}</p>
+  <p class="mt-4 font-display text-2xl font-bold leading-[1.15] text-ink sm:text-4xl">
+    {line1}
+    <br />
+    <span class="text-signal">{line2}</span>
+  </p>
+  <p class="mt-4 max-w-md text-sm text-slate sm:text-base">{subhead}</p>
+</div>

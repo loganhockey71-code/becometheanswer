@@ -1,0 +1,116 @@
+{
+  "seo": {
+    "title": "Privacy Policy",
+    "description": "How Become the Answer collects, uses, and protects your personal data, in line with GDPR and applicable US state privacy law."
+  },
+  "eyebrow": "GDPR & US PRIVACY",
+  "heading": "Privacy Policy",
+  "lead": "How Become the Answer collects, uses, and protects your personal data.",
+  "lastUpdated": "August 2026",
+  "intro": "This Privacy Policy explains how Become the Answer (\"we,\" \"us,\" or \"our\") processes personal data when you visit our website, sign up for our newsletter, or purchase or book our products and services. It is written to meet the EU/UK General Data Protection Regulation (GDPR) and applicable US state privacy laws, including the Florida Digital Bill of Rights.",
+  "sections": [
+    {
+      "heading": "1. Who we are (controller)",
+      "paragraphs": [
+        "Become the Answer is the controller of your personal data. Contact: bjorn.vandemeulebroucke@gmail.com, 3111 E Community Drive, Jupiter, FL 33458 (also listed as 33459 in earlier drafts — Bjorn to confirm the correct ZIP before launch), US."
+      ]
+    },
+    {
+      "heading": "2. What data we collect",
+      "paragraphs": [
+        "Identity and contact data: name, email address, and any details you provide via forms or at checkout.",
+        "Transaction data: records of purchases, bookings, and payments (payment card details are handled by our payment provider, not stored by us).",
+        "Usage and analytics data: pages viewed, device and browser information, and similar data collected automatically.",
+        "Communications: messages you send to us and your marketing preferences."
+      ]
+    },
+    {
+      "heading": "3. How we collect it",
+      "paragraphs": [
+        "We collect data directly from you: through the forms on this Site (including \"Register your interest\" and the other contact and booking forms), and through correspondence you send us. We do not currently use any analytics or tracking tools of our own, so we do not collect automatic usage data about your visit unless a form provider or payment processor does so under its own terms (see Section 5)."
+      ]
+    },
+    {
+      "heading": "4. Why we use it and legal bases (GDPR)",
+      "paragraphs": [
+        "Sending newsletter or lead magnet emails, once a newsletter is active: identity and contact data, on the basis of your consent.",
+        "Providing and fulfilling purchases and bookings: identity and transaction data, on the basis of contract.",
+        "Operating and securing the Site, and responding to the forms you submit: identity and contact data, on the basis of legitimate interests.",
+        "Complying with legal and tax obligations: transaction data, on the basis of legal obligation.",
+        "Where we rely on consent, you may withdraw it at any time. Where we rely on legitimate interests, we balance them against your rights."
+      ]
+    },
+    {
+      "heading": "5. Cookies and analytics",
+      "paragraphs": [
+        "This Site does not currently set analytics, advertising, or tracking cookies of its own. If you submit a form, the payment provider or email/newsletter platform handling that submission may set its own strictly necessary cookies under its own privacy notice; we do not control those. If we later add analytics or marketing tools, we will update this Policy first and add a cookie banner before any non-essential cookie is set."
+      ]
+    },
+    {
+      "heading": "6. How we share data",
+      "paragraphs": [
+        "We share personal data with service providers who act on our behalf: whichever email/newsletter platform and payment processor we use to fulfil the request you made, under contracts that require them to protect it. We do not currently use a website analytics provider; if that changes, this section will be updated first. We may also disclose data to comply with law, enforce our terms, or in connection with a business transfer. We do not sell your personal data, and we do not \"share\" it for cross-context behavioral advertising as those terms are defined under US state law."
+      ]
+    },
+    {
+      "heading": "7. International transfers",
+      "paragraphs": [
+        "We are based in the US and use service providers that may process data in Europe and elsewhere. Where personal data is transferred outside the EEA/UK, we rely on appropriate safeguards such as the European Commission's Standard Contractual Clauses (and the UK Addendum) or an adequacy decision."
+      ]
+    },
+    {
+      "heading": "8. How long we keep data",
+      "paragraphs": [
+        "We keep personal data only as long as needed for the purposes above: form and newsletter data until you ask us to delete it or unsubscribe, and transaction records for the period required by tax and accounting law. We then delete or anonymize it."
+      ]
+    },
+    {
+      "heading": "9. Your rights (EU/UK)",
+      "paragraphs": [
+        "Subject to conditions, you have the right to access, rectify, erase, restrict, or object to processing, to data portability, and to withdraw consent. You also have the right to lodge a complaint with your local supervisory authority."
+      ]
+    },
+    {
+      "heading": "10. Your rights (US / Florida)",
+      "paragraphs": [
+        "Depending on your state, you may have the right to know what personal information we collect and how we use it, to access and delete it, to correct it, and to opt out of any sale or sharing (we do not sell or share as defined by law). We will not discriminate against you for exercising these rights. You may use an authorized agent where permitted."
+      ]
+    },
+    {
+      "heading": "11. How to exercise your rights",
+      "paragraphs": [
+        "To exercise any right, contact us at bjorn.vandemeulebroucke@gmail.com. We will respond within the timeframes required by applicable law and may need to verify your identity."
+      ]
+    },
+    {
+      "heading": "12. Security",
+      "paragraphs": [
+        "We use reasonable technical and organizational measures to protect personal data. No method of transmission or storage is completely secure, so we cannot guarantee absolute security."
+      ]
+    },
+    {
+      "heading": "13. Children",
+      "paragraphs": [
+        "The Site is not directed to children, and we do not knowingly collect personal data from children under 16 (or under 13 in the United States). If you believe a child has provided us data, contact us and we will delete it."
+      ]
+    },
+    {
+      "heading": "14. Payments",
+      "paragraphs": [
+        "Payments and bookings are processed by third-party providers who act as independent controllers or processors of your payment data under their own terms and privacy notices. We receive transaction confirmations but do not store full payment card details."
+      ]
+    },
+    {
+      "heading": "15. Changes to this Policy",
+      "paragraphs": [
+        "We may update this Policy from time to time. The \"Last updated\" date shows the current version; material changes will be highlighted on the Site."
+      ]
+    },
+    {
+      "heading": "16. Contact and complaints",
+      "paragraphs": [
+        "For privacy questions or complaints, contact us at bjorn.vandemeulebroucke@gmail.com. You may also contact your data protection or state authority."
+      ]
+    }
+  ]
+}

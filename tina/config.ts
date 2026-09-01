@@ -27,6 +27,38 @@ function leadFormCopyFields(options: { withMessageLabel?: boolean } = {}) {
   return fields;
 }
 
+// Shared shape for the Privacy Policy and Terms of Service pages: a flat
+// list of {heading, paragraphs} sections rather than a rich-text blob, so
+// Bjorn can edit one clause at a time without touching page structure.
+function legalPageFields() {
+  return [
+    {
+      type: 'object' as const,
+      name: 'seo',
+      label: 'SEO',
+      fields: [
+        { type: 'string' as const, name: 'title', label: 'Page Title' },
+        { type: 'string' as const, name: 'description', label: 'Meta Description', ui: { component: 'textarea' } },
+      ],
+    },
+    { type: 'string' as const, name: 'eyebrow', label: 'Eyebrow' },
+    { type: 'string' as const, name: 'heading', label: 'Heading (H1)' },
+    { type: 'string' as const, name: 'lead', label: 'Lead Line' },
+    { type: 'string' as const, name: 'lastUpdated', label: 'Last Updated (e.g. "August 2026")' },
+    { type: 'string' as const, name: 'intro', label: 'Intro Paragraph', ui: { component: 'textarea' } },
+    {
+      type: 'object' as const,
+      name: 'sections',
+      label: 'Sections',
+      list: true,
+      fields: [
+        { type: 'string' as const, name: 'heading', label: 'Section Heading' },
+        { type: 'string' as const, name: 'paragraphs', label: 'Paragraphs', list: true, ui: { component: 'textarea' } },
+      ],
+    },
+  ];
+}
+
 export default defineConfig({
   branch: process.env.TINA_BRANCH || process.env.HEAD || 'main',
   clientId: process.env.TINA_CLIENT_ID || '',
@@ -980,6 +1012,24 @@ export default defineConfig({
             ],
           },
         ],
+      },
+      {
+        name: 'privacyPolicy',
+        label: 'Privacy Policy Page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'privacy-policy' },
+        ui: { allowedActions: { create: false, delete: false } },
+        fields: legalPageFields(),
+      },
+      {
+        name: 'termsOfService',
+        label: 'Terms of Service Page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'terms-of-service' },
+        ui: { allowedActions: { create: false, delete: false } },
+        fields: legalPageFields(),
       },
       {
         name: 'library',

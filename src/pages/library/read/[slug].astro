@@ -2,14 +2,17 @@
 // Per-article page: question-style H1, a quotable lead (from `description`),
 // the article body, an optional source line, and CTA1 at the end — the
 // format the blueprint specifies as "the kind AI engines can quote."
-// Article/FAQPage JSON-LD is added in Phase 5 alongside the rest of the
-// site's structured data.
+// Article + BreadcrumbList JSON-LD reflect real, published fields only —
+// no invented FAQ entries or citations.
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Section from '../../../components/Section.astro';
 import Button from '../../../components/Button.astro';
 import LibraryCard from '../../../components/LibraryCard.astro';
-import { estimateReadTime, formatDate } from '../../../lib/library';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ArticleQuoteCard from '../../../components/ArticleQuoteCard.astro';
+import { estimateReadTime, formatDate, ARTICLE_QUOTE_CARDS } from '../../../lib/library';
+import { articleSchema, breadcrumbSchema } from '../../../lib/seo';
 
 export async function getStaticPaths() {
   const all = await getCollection('library');
@@ -22,17 +25,50 @@ export async function getStaticPaths() {
 
 const { item, allReadItems } = Astro.props;
 const { Content } = await render(item);
-const { title, description, bucket, tags, publishDate, seoTitle, seoDescription } = item.data;
+const { title, description, bucket, tags, publishDate, seoTitle, seoDescription, image } = item.data;
+const quoteCard = !image ? ARTICLE_QUOTE_CARDS[item.id] : undefined;
 
 const related = allReadItems
   .filter((other) => other.id !== item.id && other.data.bucket === bucket)
   .slice(0, 3);
+
+const siteUrl = Astro.site!.toString();
+const path = `/library/read/${item.id}`;
+const jsonLd = [
+  articleSchema(siteUrl, {
+    headline: title,
+    description: seoDescription || description,
+    path,
+    datePublished: publishDate,
+    image,
+  }),
+  breadcrumbSchema(siteUrl, [
+    { name: 'Home', path: '/' },
+    { name: 'Library', path: '/library' },
+    { name: 'Read', path: '/library/read' },
+    { name: title, path },
+  ]),
+];
 ---
 
-<BaseLayout title={seoTitle || title} description={seoDescription || description}>
+<BaseLayout
+  title={seoTitle || title}
+  description={seoDescription || description}
+  image={image}
+  ogType="article"
+  jsonLd={jsonLd}
+>
   <Section bg="paper" padding="top-only">
     <div class="mx-auto max-w-2xl">
-      <div class="flex flex-wrap items-center gap-3 text-xs text-muted">
+      <Breadcrumbs
+        items={[
+          { name: 'Library', href: '/library' },
+          { name: 'Read', href: '/library/read' },
+          { name: title },
+        ]}
+      />
+
+      <div class="mt-6 flex flex-wrap items-center gap-3 text-xs text-muted">
         {bucket && <span class="font-semibold uppercase tracking-[0.04em] text-signal-deep">{bucket}</span>}
         <span>{formatDate(publishDate)}</span>
         <span>{estimateReadTime(item.body || '')}</span>
@@ -40,7 +76,29 @@ const related = allReadItems
 
       <h1 class="mt-3 font-display text-3xl font-bold leading-[1.1] text-ink md:text-4xl">{title}</h1>
 
-      <p class="mt-6 border-l-2 border-signal pl-6 text-lg font-medium text-slate">{description}</p>
+      <p class="mt-4 text-sm text-slate">
+        By <span class="font-semibold text-ink">Bjorn Vandemeulebroucke</span> &middot; author of{' '}
+        <em>Become the Answer</em>
+      </p>
+    </div>
+
+    <div class="mx-auto mt-8 max-w-3xl">
+      {image && (
+        <img
+          src={image}
+          alt={`Diagram: ${title}`}
+          class="w-full rounded-[12px] border border-line"
+          loading="eager"
+          decoding="async"
+          width="1600"
+          height="1000"
+        />
+      )}
+      {!image && quoteCard && <ArticleQuoteCard {...quoteCard} />}
+    </div>
+
+    <div class="mx-auto max-w-2xl">
+      <p class="mt-8 border-l-2 border-signal pl-6 text-lg font-medium text-slate">{description}</p>
 
       <div class="prose-library mt-8 max-w-none text-slate">
         <Content />
@@ -54,8 +112,13 @@ const related = allReadItems
         </ul>
       )}
 
-      <div class="mt-10">
-        <Button variant="primary" openRegisterForm>Register your interest</Button>
+      <div class="mt-10 border-t border-line pt-8">
+        <p class="text-sm text-slate">
+          Want to know where your own brand stands in AI answers?
+        </p>
+        <div class="mt-4">
+          <Button variant="primary" openRegisterForm>Register your interest</Button>
+        </div>
       </div>
     </div>
   </Section>
@@ -82,8 +145,8 @@ const related = allReadItems
 
 <style>
   .prose-library :global(p) {
-    margin-top: 1em;
-    line-height: 1.7;
+    margin-top: 1.25em;
+    line-height: 1.75;
   }
   .prose-library :global(p:first-child) {
     margin-top: 0;
