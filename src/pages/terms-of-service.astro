@@ -21,7 +21,7 @@ const jsonLd = [
   <Section bg="paper" padding="top-only">
     <Breadcrumbs items={[{ name: 'Terms of Service' }]} />
     <Eyebrow class="mt-4">{eyebrow}</Eyebrow>
-    <h1 class="mt-3 font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">{heading}</h1>
+    <h1 class="mt-3 font-display text-[38px] font-bold leading-[1.05] text-ink md:text-[50px]">{heading}</h1>
     <p class="mt-4 text-lg text-slate">{lead}</p>
     <p class="mt-2 text-sm text-muted">Last updated: {lastUpdated}</p>
   </Section>
@@ -34,7 +34,7 @@ const jsonLd = [
         {
           sections.map((section: { heading: string; paragraphs: string[] }) => (
             <div>
-              <h2 class="font-display text-xl font-bold text-ink">{section.heading}</h2>
+              <h2 class="font-display text-[22px] font-bold text-ink">{section.heading}</h2>
               <div class="mt-3 flex flex-col gap-3 text-slate">
                 {section.paragraphs.map((p) => (
                   <p>{p}</p>

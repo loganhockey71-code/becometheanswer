@@ -10,56 +10,58 @@ import StatCard from '../components/StatCard.astro';
 import ToolTable from '../components/ToolTable.astro';
 import EquityTable from '../components/EquityTable.astro';
 import BecomeTheAnswerBand from '../components/BecomeTheAnswerBand.astro';
-import equityHeroImage from '../assets/brand/answer-equity.png';
+import aiAnswerIndexImage from '../assets/brand/ai-answer-index.png';
 import { Image } from 'astro:assets';
 import home from '../../content/pages/home.json';
 
-const { seo, hero, statBar, bigIdea, digitalShelf, offerRow, proofStats, toolsTable, equityTable, closingCta, bookBand } =
-  home;
+const {
+  seo,
+  hero,
+  statBar,
+  bigIdea,
+  digitalShelf,
+  offerRow,
+  proofStats,
+  toolsTable,
+  equityTable,
+  authority,
+  closingCta,
+  bookBand,
+} = home;
 ---
 
 <BaseLayout title={seo.title} description={seo.description}>
-  <!-- Hero -->
+  <!-- Hero: clean, no standalone visual per feedback — a full-size background
+       photo was the alternative offered, but no real photography asset exists
+       in the repo to use for one, so this stays a clean typographic hero. -->
   <Section bg="paper" padding="top-only">
-    <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
-      <div>
-        <h1 class="font-display text-4xl font-bold leading-[1.05] text-ink md:text-6xl">
-          {hero.headline}
-        </h1>
-        <p class="mt-6 max-w-prose text-lg text-slate md:text-xl">
-          {hero.subhead}
-          {' '}
-          <a href={hero.storyLinkHref} class="text-signal-deep underline underline-offset-4 hover:text-signal">
-            {hero.storyLinkLabel}
-          </a>
-        </p>
-        <div class="mt-8">
-          <Button variant="primary" openRegisterForm class="text-base">
-            {hero.ctaLabel}
-          </Button>
-        </div>
+    <div class="mx-auto max-w-3xl text-center">
+      <h1 class="font-display text-[38px] font-bold leading-[1.05] text-ink md:text-[62px]">
+        {hero.headline}
+      </h1>
+      <p class="mx-auto mt-6 max-w-prose text-lg text-slate md:text-xl">
+        {hero.subhead}
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <Button variant="primary" openRegisterForm class="text-base">
+          {hero.ctaLabel}
+        </Button>
+        <Button variant="secondary" href={hero.storyLinkHref} class="text-base">
+          {hero.storyLinkLabel}
+        </Button>
       </div>
-
-      <Image
-        src={equityHeroImage}
-        alt="Answer Equity radar chart, illustrating how AI recommendations are measured across four dimensions"
-        class="w-full rounded-[12px] border border-line"
-        loading="eager"
-        widths={[400, 700, 900]}
-        sizes="(min-width: 768px) 480px, 100vw"
-      />
     </div>
   </Section>
 
   <!-- Credibility stats bar -->
-  <Container class="pb-14 md:pb-24">
+  <Container class="pb-14 pt-10 md:pb-24 md:pt-16">
     <StatBar stats={statBar.stats} />
   </Container>
 
   <!-- Big idea -->
   <Section bg="cloud">
     <div class="mx-auto max-w-3xl text-center">
-      <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{bigIdea.title}</h2>
+      <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{bigIdea.title}</h2>
       <p class="mt-6 text-lg text-slate">{bigIdea.subtitle}</p>
       <div class="mt-8">
         <Button variant="secondary" href={bigIdea.ctaHref}>{bigIdea.ctaLabel}</Button>
@@ -74,22 +76,25 @@ const { seo, hero, statBar, bigIdea, digitalShelf, offerRow, proofStats, toolsTa
       heading={digitalShelf.heading}
       intro={digitalShelf.intro}
       stages={digitalShelf.stages}
+      riskHeading={digitalShelf.riskHeading}
+      riskBody={digitalShelf.riskBody}
+      source={digitalShelf.source}
     />
   </Section>
 
   <!-- Build your spot on the AI shelf -->
   <Section bg="cloud">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">
       Build your spot on the AI shelf
     </h2>
     <div class="mt-10">
-      <OfferRow items={offerRow.items} />
+      <OfferRow items={offerRow.items} featuredIndex={1} />
     </div>
   </Section>
 
   <!-- Proof stats -->
   <Section bg="paper">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{proofStats.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{proofStats.heading}</h2>
     <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
       {
         proofStats.items.map((item: any) => (
@@ -109,15 +114,30 @@ const { seo, hero, statBar, bigIdea, digitalShelf, offerRow, proofStats, toolsTa
 
   <!-- Curious where you stand: tools table -->
   <Section bg="cloud">
-    <ToolTable
-      eyebrow={toolsTable.eyebrow}
-      heading={toolsTable.heading}
-      subhead={toolsTable.subhead}
-      tools={toolsTable.tools}
-      ctaLabel={toolsTable.ctaLabel}
-      microcopy={toolsTable.microcopy}
-      honestyNote={toolsTable.honestyNote}
-    />
+    <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-[minmax(0,380px)_1fr]">
+      <Image
+        src={aiAnswerIndexImage}
+        alt="The AI Answer Index score card, showing an overall score with Share of Answer, Share of Recommendation and the Structure, Credibility and Identity pillar audits"
+        class="w-full rounded-[12px] border border-line"
+        loading="lazy"
+        widths={[400, 700]}
+        sizes="(min-width: 768px) 380px, 100vw"
+      />
+      <ToolTable
+        eyebrow={toolsTable.eyebrow}
+        heading={toolsTable.heading}
+        subhead={toolsTable.subhead}
+        tools={toolsTable.tools}
+        ctaLabel={toolsTable.ctaLabel}
+        microcopy={toolsTable.microcopy}
+        honestyNote={toolsTable.honestyNote}
+      />
+    </div>
+    <p class="mt-6">
+      <a href="/free-analysis" class="text-sm text-signal-deep underline underline-offset-4 hover:text-signal">
+        Read the full breakdown of what's in the free analysis &rarr;
+      </a>
+    </p>
   </Section>
 
   <!-- Answer Equity -->
@@ -133,6 +153,7 @@ const { seo, hero, statBar, bigIdea, digitalShelf, offerRow, proofStats, toolsTa
       </p>
       <Button variant="primary" href={closingCta.ctaHref}>{closingCta.ctaLabel}</Button>
     </div>
+    {authority?.line && <p class="mt-8 max-w-2xl text-sm text-line">{authority.line}</p>}
   </Section>
 
   <!-- Become the Answer book band -->

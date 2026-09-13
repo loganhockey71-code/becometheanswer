@@ -9,7 +9,14 @@ tags:
 publishDate: 2026-08-24
 featured: true
 seoTitle: "What Is the Answer Economy? From Attention to Answers"
-seoDescription: "The attention economy is giving way to the Answer Economy. Why being cited, not seen, is the new currency, and you can't buy your way in."
+seoDescription: "The attention economy is giving way to the Answer Economy. Why being cited, not seen, is the new currency, and why the biggest ad budget no longer wins."
+relatedSlugs:
+  - "what-is-answer-engine-optimization"
+  - "what-is-share-of-answer"
+  - "why-people-trust-ai-recommendations"
+followUpQuestion:
+  question: "What replaced attention as the scarce resource marketers compete for?"
+  answer: "Being the answer. In the Answer Economy the currency is citations, mentions and recommendations from AI, not impressions, clicks or reach, and unlike attention, it can't simply be bought with a bigger media budget."
 ---
 
 The Answer Economy is the market that replaces the attention economy. For twenty years, the scarce resource marketers fought over was attention: impressions, clicks, reach. Now that a machine gives one answer instead of a page of options, the scarce resource is being that answer. Being cited is the new currency.

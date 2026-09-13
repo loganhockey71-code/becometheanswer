@@ -1,31 +1,65 @@
 ---
+// Crawlable table representation of the Answer Equity framework, alongside
+// the radar chart (not instead of it) — AI systems can't read the chart, so
+// each dimension's name, definition and how it's measured need to exist as
+// real markup too. Dimension names are wrapped in <dfn> and anchor-linked to
+// their canonical definition on /aeo-glossary.
 import { Image } from 'astro:assets';
 import equityImage from '../assets/brand/answer-equity.png';
 
 interface Dimension {
   name: string;
-  question: string;
+  definition: string;
+  measurement: string;
 }
 interface Props {
   heading: string;
   dimensions: Dimension[];
 }
 const { heading, dimensions } = Astro.props;
+
+const slugify = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 ---
 
-<div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+<div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
   <div>
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{heading}</h2>
-    <dl class="mt-8 flex flex-col gap-6">
-      {
-        dimensions.map((dim) => (
-          <div class="border-l-2 border-signal pl-4">
-            <dt class="font-display text-lg font-bold text-ink">{dim.name}</dt>
-            <dd class="mt-1 text-sm text-slate">{dim.question}</dd>
-          </div>
-        ))
-      }
-    </dl>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{heading}</h2>
+
+    <div class="mt-8 overflow-x-auto">
+      <table class="w-full border-collapse text-left text-sm">
+        <caption class="sr-only">The four dimensions of Answer Equity, their definitions and how each is measured</caption>
+        <thead class="hidden sm:table-header-group">
+          <tr class="border-b border-line text-xs uppercase tracking-[0.04em] text-muted">
+            <th scope="col" class="py-2 pr-4 font-semibold">Dimension</th>
+            <th scope="col" class="py-2 pr-4 font-semibold">Definition</th>
+            <th scope="col" class="py-2 font-semibold">How it's measured</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            dimensions.map((dim) => (
+              <tr class="block border-b border-line py-4 align-top sm:table-row sm:py-0">
+                <th
+                  scope="row"
+                  class="block pr-4 pb-1 text-left font-display font-bold text-ink sm:table-cell sm:py-4 sm:pb-4"
+                >
+                  <dfn id={slugify(dim.name)}>
+                    <a href={`/aeo-glossary#${slugify(dim.name)}`} class="no-underline hover:text-signal-deep">
+                      {dim.name}
+                    </a>
+                  </dfn>
+                </th>
+                <td class="block pr-4 pb-1 text-slate sm:table-cell sm:py-4">{dim.definition}</td>
+                <td class="block text-xs text-muted sm:table-cell sm:py-4 sm:text-sm sm:text-slate">
+                  <span class="font-semibold uppercase tracking-[0.04em] sm:hidden">How it's measured: </span>
+                  {dim.measurement}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <Image

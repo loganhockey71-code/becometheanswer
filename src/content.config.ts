@@ -25,9 +25,17 @@ const library = defineCollection({
     externalUrl: z.string().optional(),
     source: z.string().optional(),
     publishDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
     featured: z.boolean().default(false),
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
+    // Optional AEO cross-linking: slugs of other 'read' items this article
+    // relates to, and one natural follow-up question AI engines are likely
+    // to ask right after this article's own headline question.
+    relatedSlugs: z.array(z.string()).default([]),
+    followUpQuestion: z
+      .object({ question: z.string(), answer: z.string() })
+      .optional(),
   }),
 });
 

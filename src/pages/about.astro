@@ -8,7 +8,7 @@ import FaqAccordion from '../components/FaqAccordion.astro';
 import about from '../../content/pages/about.json';
 import { personSchema, faqPageSchema, breadcrumbSchema } from '../lib/seo';
 
-const { seo, eyebrow, headline, lead, connectLine, whatIBelieve, whatIDo, principles, team, bookBand, faq, closingCta } =
+const { seo, eyebrow, headline, lead, connectLine, whatIBelieve, whatIDo, principles, bookBand, faq, closingCta } =
   about;
 
 const siteUrl = Astro.site!.toString();
@@ -24,19 +24,20 @@ const jsonLd = [
 
 <BaseLayout title={seo.title} description={seo.description} jsonLd={jsonLd}>
   <!-- Header + lead -->
-  <Section bg="paper" padding="top-only">
+  <Section bg="paper" padding="top-only" containerClass="pb-20 md:pb-28">
     <Eyebrow>{eyebrow}</Eyebrow>
-    <h1 class="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
+    <h1 class="mt-3 max-w-3xl font-display text-[38px] font-bold leading-[1.05] text-ink md:text-[50px]">
       {headline}
     </h1>
 
     <div class="mt-12 grid grid-cols-1 items-start gap-10 md:grid-cols-[280px_1fr]">
+      <!-- TODO(Logan): swap in Bjorn's real headshot the moment he sends the file — not available in the repo or the assets he's shared so far. -->
       <div
         class="flex aspect-square w-full max-w-[280px] items-center justify-center rounded-[12px] border border-line bg-cloud"
         role="img"
         aria-label="Bjorn Vandemeulebroucke headshot placeholder — final photo to be supplied"
       >
-        <span class="text-xs uppercase tracking-[0.08em] text-muted">Headshot</span>
+        <span class="text-xs uppercase tracking-[0.08em] text-muted">Headshot pending</span>
       </div>
 
       <div>
@@ -50,7 +51,7 @@ const jsonLd = [
 
   <!-- What I believe -->
   <Section bg="cloud">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{whatIBelieve.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{whatIBelieve.heading}</h2>
     <div class="mt-6 flex max-w-3xl flex-col gap-5 text-lg text-slate">
       {whatIBelieve.paragraphs.map((p: string) => <p>{p}</p>)}
     </div>
@@ -58,15 +59,15 @@ const jsonLd = [
 
   <!-- What I actually do -->
   <Section bg="paper">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{whatIDo.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{whatIDo.heading}</h2>
     <p class="mt-4 text-lg text-slate">{whatIDo.intro}</p>
     <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
       {
         whatIDo.items.map((item: { title: string; description: string }) => (
-          <div>
-            <h3 class="font-display text-xl font-bold text-ink">{item.title}</h3>
-            <p class="mt-3 text-sm text-slate">{item.description}</p>
-            <Button variant="link" href="/become-the-answer" class="mt-4 inline-block text-sm">
+          <div class="flex h-full flex-col">
+            <h3 class="font-display text-[22px] font-bold text-ink">{item.title}</h3>
+            <p class="mt-3 flex-1 text-sm text-slate">{item.description}</p>
+            <Button variant="link" href="/become-the-answer" class="mt-4 inline-block self-start text-sm">
               {whatIDo.ctaLabel}
             </Button>
           </div>
@@ -77,7 +78,7 @@ const jsonLd = [
 
   <!-- Principles -->
   <Section bg="cloud">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{principles.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{principles.heading}</h2>
     <p class="mt-4 max-w-prose text-lg text-slate">{principles.intro}</p>
     <ul class="mt-10 flex flex-col divide-y divide-line border-y border-line">
       {
@@ -91,11 +92,6 @@ const jsonLd = [
     </ul>
   </Section>
 
-  <!-- Team (fallback single line per blueprint UX note) -->
-  <Section bg="paper" padding="bottom-only">
-    <p class="text-center text-sm text-muted">{team.fallbackLine}</p>
-  </Section>
-
   <!-- Become the Answer book band -->
   <BecomeTheAnswerBand
     description={bookBand.description}
@@ -103,7 +99,7 @@ const jsonLd = [
     primaryCtaLabel={bookBand.primaryCtaLabel}
     secondaryCtaLabel={bookBand.secondaryCtaLabel}
     tertiaryCtaLabel={bookBand.tertiaryCtaLabel}
-    bg="cloud"
+    bg="ink"
   />
 
   <!-- FAQ -->

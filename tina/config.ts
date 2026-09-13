@@ -234,7 +234,6 @@ export default defineConfig({
             name: 'statBar',
             label: 'Credibility Stats Bar',
             fields: [
-              { type: 'string', name: 'note', label: 'Internal Note (not shown on site)' },
               {
                 type: 'object',
                 name: 'stats',
@@ -243,6 +242,8 @@ export default defineConfig({
                 fields: [
                   { type: 'string', name: 'value', label: 'Number / Value' },
                   { type: 'string', name: 'label', label: 'Label' },
+                  { type: 'string', name: 'sourceLabel', label: 'Source Label (e.g. "G2 research, 2026")' },
+                  { type: 'string', name: 'sourceUrl', label: 'Source Link' },
                 ],
               },
             ],
@@ -277,6 +278,9 @@ export default defineConfig({
                   { type: 'string', name: 'note', label: 'Note (optional)' },
                 ],
               },
+              { type: 'string', name: 'riskHeading', label: 'Risk Callout Heading' },
+              { type: 'string', name: 'riskBody', label: 'Risk Callout Body', ui: { component: 'textarea' } },
+              { type: 'string', name: 'source', label: 'Source Citation (text only, no link available)' },
             ],
           },
           {
@@ -356,9 +360,18 @@ export default defineConfig({
                 list: true,
                 fields: [
                   { type: 'string', name: 'name', label: 'Name' },
-                  { type: 'string', name: 'question', label: 'Question', ui: { component: 'textarea' } },
+                  { type: 'string', name: 'definition', label: 'Definition', ui: { component: 'textarea' } },
+                  { type: 'string', name: 'measurement', label: 'How It\'s Measured', ui: { component: 'textarea' } },
                 ],
               },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'authority',
+            label: 'Authority Line (shown near the closing CTA)',
+            fields: [
+              { type: 'string', name: 'line', label: 'Line', ui: { component: 'textarea' } },
             ],
           },
           {
@@ -453,12 +466,6 @@ export default defineConfig({
                 ],
               },
             ],
-          },
-          {
-            type: 'object',
-            name: 'team',
-            label: 'Team',
-            fields: [{ type: 'string', name: 'fallbackLine', label: 'Fallback Line (shown until a real team page exists)' }],
           },
           {
             type: 'object',
@@ -761,13 +768,12 @@ export default defineConfig({
                       { type: 'string', name: 'description', label: 'Description' },
                     ],
                   },
-                  { type: 'string', name: 'quotableLine', label: 'Quotable Line' },
                 ],
               },
               {
                 type: 'object',
                 name: 'workshops',
-                label: 'The Six Workshops',
+                label: 'The Five Workshops',
                 list: true,
                 fields: [
                   { type: 'string', name: 'number', label: 'Number' },
@@ -1077,6 +1083,7 @@ export default defineConfig({
             label: 'Source (e.g. YouTube, Spotify — Watch / Listen only)',
           },
           { type: 'datetime', name: 'publishDate', label: 'Publish Date', required: true },
+          { type: 'datetime', name: 'updatedDate', label: 'Last Updated Date (optional — Read only)' },
           { type: 'boolean', name: 'featured', label: 'Feature this on the Library hub page' },
           { type: 'string', name: 'seoTitle', label: 'SEO Title (optional — Read only)' },
           {
@@ -1084,6 +1091,21 @@ export default defineConfig({
             name: 'seoDescription',
             label: 'SEO Description (optional — Read only)',
             ui: { component: 'textarea' },
+          },
+          {
+            type: 'string',
+            name: 'relatedSlugs',
+            label: 'Related Concepts (slugs of other Read articles — Read only)',
+            list: true,
+          },
+          {
+            type: 'object',
+            name: 'followUpQuestion',
+            label: 'Follow-up Question (Read only — a natural next question, shown after the article)',
+            fields: [
+              { type: 'string', name: 'question', label: 'Question' },
+              { type: 'string', name: 'answer', label: 'Answer', ui: { component: 'textarea' } },
+            ],
           },
           {
             type: 'rich-text',

@@ -1,0 +1,108 @@
+---
+// A crawlable, form-free page explaining the free analysis (Bjorn's feedback,
+// Priority 5): the value proposition lives here as plain HTML, not locked
+// behind the RegisterInterestForm modal — AI engines and human visitors can
+// both read what the offer actually is before deciding to sign up. Content
+// is reused verbatim from home.json's toolsTable and equityTable, not
+// rewritten, so the two pages stay consistent.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Button from '../components/Button.astro';
+import EquityTable from '../components/EquityTable.astro';
+import { breadcrumbSchema, faqPageSchema } from '../lib/seo';
+import home from '../../content/pages/home.json';
+import btaPage from '../../content/pages/become-the-answer.json';
+
+const { toolsTable, equityTable } = home;
+
+const faqItems = btaPage.faq.items.filter((item) =>
+  ['How do I know if AI recommends my brand?', 'What does it cost a brand to be invisible in AI answers?'].includes(
+    item.question,
+  ),
+);
+
+const siteUrl = Astro.site!.toString();
+const path = '/free-analysis';
+const jsonLd = [
+  faqPageSchema(faqItems),
+  breadcrumbSchema(siteUrl, [
+    { name: 'Home', path: '/' },
+    { name: 'Free analysis', path },
+  ]),
+];
+---
+
+<BaseLayout
+  title="Free AI visibility analysis: your AI Answer Index, Cost of Invisibility and Answer Equity baseline"
+  description="A free, three-part analysis of your brand's AI visibility: your AI Answer Index score, what invisibility is costing you, and your Answer Equity baseline."
+  jsonLd={jsonLd}
+>
+  <Section bg="paper" padding="top-only">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Free analysis' }]} />
+    <Eyebrow>{toolsTable.eyebrow}</Eyebrow>
+    <h1 class="mt-3 max-w-3xl font-display text-[38px] font-bold leading-[1.05] text-ink md:text-[50px]">
+      {toolsTable.heading}
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg text-slate md:text-xl">{toolsTable.subhead}</p>
+    <p class="mt-4 max-w-2xl text-sm italic text-slate">{toolsTable.honestyNote}</p>
+  </Section>
+
+  <Section bg="cloud">
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">What you get, in three parts</h2>
+    <ol class="mt-10 flex flex-col divide-y divide-line border-y border-line">
+      {
+        toolsTable.tools.map((tool: { name: string; description: string; outcome: string }, i: number) => (
+          <li class="flex flex-col gap-4 py-8 sm:flex-row sm:items-start">
+            <span class="font-display text-3xl font-bold text-signal sm:w-16 sm:shrink-0">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div>
+              <h3 class="font-display text-[20px] font-bold text-ink">{tool.name}</h3>
+              <p class="mt-2 max-w-prose text-slate">{tool.description}</p>
+              <p class="mt-2 text-sm text-muted">
+                <span class="font-semibold text-ink">What you get: </span>
+                {tool.outcome}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="mt-10 flex flex-col items-start gap-2">
+      <Button variant="primary" openRegisterForm>{toolsTable.ctaLabel}</Button>
+      <p class="text-xs text-muted">{toolsTable.microcopy}</p>
+    </div>
+  </Section>
+
+  <Section bg="paper">
+    <EquityTable heading={equityTable.heading} dimensions={equityTable.dimensions} />
+  </Section>
+
+  {
+    faqItems.length > 0 && (
+      <Section bg="cloud">
+        <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">Common questions</h2>
+        <dl class="mt-8 flex flex-col divide-y divide-line border-y border-line">
+          {faqItems.map((item) => (
+            <div class="py-6">
+              <dt class="font-display text-[20px] font-bold text-ink">{item.question}</dt>
+              <dd class="mt-2 max-w-prose text-slate">{item.answer}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+    )
+  }
+
+  <Section bg="ink">
+    <div class="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+      <p class="max-w-xl font-display text-2xl font-bold text-paper md:text-3xl">
+        Ready to see where your brand actually stands in AI answers?
+      </p>
+      <Button variant="primary" openRegisterForm>{toolsTable.ctaLabel}</Button>
+    </div>
+  </Section>
+</BaseLayout>

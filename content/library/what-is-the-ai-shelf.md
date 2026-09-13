@@ -9,7 +9,14 @@ tags:
 publishDate: 2026-08-28
 featured: true
 seoTitle: "What Is the AI Shelf? Why It Fits Only Three Brands"
-seoDescription: "The AI Shelf is the short list of brands an AI names, often just three. Why the space is so narrow, and what decides who earns a seat."
+seoDescription: "The AI Shelf is the short list of brands an AI names, often just three, with no page two. Why the space is so narrow, and what decides who earns a seat."
+relatedSlugs:
+  - "what-is-answer-engine-optimization"
+  - "what-is-share-of-answer"
+  - "what-is-the-answer-economy"
+followUpQuestion:
+  question: "How many brands actually make the AI Shelf?"
+  answer: "Often five or six, sometimes just three. Those brands take the whole shelf; everyone else is simply absent, with no ranked position to fall back on the way a lower search ranking would still be found."
 ---
 
 The AI Shelf is the short list of brands an AI names when it answers a category question: often five or six, sometimes just three. The rest of the market is not ranked lower; it is simply absent. Like the supermarket shelf before it, space is limited and position is everything.
