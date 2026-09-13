@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Become the Answer — the definitive guide to visibility and authority on the AI-first internet",
-    "description": "Become the Answer helps brands get cited by AI — the practical move from SEO to AEO."
+    "description": "Become the Answer helps brands get cited by AI: the practical move from SEO to AEO. See whether AI recommends your brand, and act while it still matters."
   },
   "hero": {
     "headline": "When AI answers the question, is your brand the answer?",
@@ -11,13 +11,10 @@
     "ctaLabel": "Register your interest"
   },
   "statBar": {
-    "note": "PLACEHOLDER — five stats to be supplied and verified before launch. Do not publish unsourced numbers.",
     "stats": [
-      { "value": "—", "label": "Add stat — verified source required" },
-      { "value": "—", "label": "Add stat — verified source required" },
-      { "value": "—", "label": "Add stat — verified source required" },
-      { "value": "—", "label": "Add stat — verified source required" },
-      { "value": "—", "label": "Add stat — verified source required" }
+      { "value": "~50%", "label": "of B2B buyers now start research in an AI chatbot", "sourceLabel": "G2 research, 2026", "sourceUrl": "https://www.demandgenreport.com/industry-news/news-brief/half-of-b2b-software-buyers-now-start-their-research-with-ai-chatbots-g2/52737/" },
+      { "value": "~2×", "label": "higher conversion from AI-referred visitors vs. organic search", "sourceLabel": "Similarweb cross-site analysis, 2026", "sourceUrl": "https://www.omnibound.ai/blog/ai-search-statistics" },
+      { "value": "~796%", "label": "year-over-year growth in AI referral traffic", "sourceLabel": "WebFX analysis of 2.3B sessions, 2025", "sourceUrl": "https://www.webfx.com/blog/seo/gen-ai-search-trends/" }
     ]
   },
   "bigIdea": {
@@ -31,11 +28,14 @@
     "heading": "The impact on the digital shelf",
     "intro": "As AI adoption continues, brand real estate shrinks. Same catalogue, four shelves, each one shorter than the last.",
     "stages": [
-      { "value": "200–500", "label": "items on a store shelf" },
+      { "value": "200–500", "label": "items on a physical store shelf" },
       { "value": "100,000+", "label": "items on a digital shelf" },
-      { "value": "10–60", "label": "items on the first page of Amazon" },
-      { "value": "3–5", "label": "items recommended by an AI agent", "note": "ChatGPT Instant Checkout, Rufus, Sparky" }
-    ]
+      { "value": "10–60", "label": "items on page 1 of Amazon" },
+      { "value": "8", "label": "items recommended by an AI agent", "note": "Rufus, Sparky, ChatGPT" }
+    ],
+    "riskHeading": "The risk for our clients",
+    "riskBody": "Appearing on page 1 of search is no longer enough, it's no guarantee you'll be selected by AI. As AI adoption grows, brands that don't feed AI engines with the right review signals will disappear from the recommended set entirely.",
+    "source": "Profitero+ Digital Shelf Playbooks for AI Commerce, 2026"
   },
   "offerRow": {
     "items": [
@@ -113,21 +113,28 @@
     "dimensions": [
       {
         "name": "Category Salience",
-        "question": "Do you surface when the category problem is asked without your name in it? (Share of Answer on non-branded prompts.)"
+        "definition": "Do you surface when the category problem is asked without your name in it?",
+        "measurement": "Share of Answer on non-branded prompts."
       },
       {
         "name": "Identity Fidelity",
-        "question": "Does the engine describe you accurately and distinctly? (Accuracy, distinctness and consistency.)"
+        "definition": "Does the engine describe you accurately and distinctly?",
+        "measurement": "Accuracy, distinctness and consistency."
       },
       {
         "name": "Recommendation Preference",
-        "question": "Are you actually chosen in real decisions, and how prominently? (Recommendation rate and position.)"
+        "definition": "Are you actually chosen in real decisions, and how prominently?",
+        "measurement": "Recommendation rate and position."
       },
       {
         "name": "Answer Confidence",
-        "question": "Is the recommendation backed by credible, consistent evidence? (Citation and support quality.)"
+        "definition": "Is the recommendation backed by credible, consistent evidence?",
+        "measurement": "Citation and support quality."
       }
     ]
+  },
+  "authority": {
+    "line": "Written by Bjorn Vandemeulebroucke: 20+ years in marketing and word of mouth, author of Become the Answer, creator of the AI Answer Index™, and a practitioner who tests ChatGPT, Claude, Gemini and Perplexity daily."
   },
   "closingCta": {
     "line": "Want AEO in front of your team, on your stage, or need any AEO help?",

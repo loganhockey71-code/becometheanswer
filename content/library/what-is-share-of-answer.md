@@ -10,6 +10,13 @@ publishDate: 2026-08-22
 featured: true
 seoTitle: "Share of Search Is Over: What Is Share of Answer?"
 seoDescription: "Share of search measured a page fewer people see. Share of Answer measures how often AI names your brand, the metric that replaces the old scoreboard."
+relatedSlugs:
+  - "what-is-answer-engine-optimization"
+  - "cost-of-ai-invisibility"
+  - "what-is-the-ai-shelf"
+followUpQuestion:
+  question: "What is the difference between Share of Answer and Share of Recommendation?"
+  answer: "Share of Answer measures how often your brand is mentioned at all when AI answers a category question. Share of Recommendation is narrower: how often you're the one actually chosen. A brand can be named in nine answers out of ten and chosen in none."
 ---
 
 Share of Answer is the metric that replaces share of search. It measures how often AI names your brand when it answers the questions in your category. Where share of search asked "how high do I rank on the page?", Share of Answer asks the only question that now matters: "when the machine answers, is it me?"

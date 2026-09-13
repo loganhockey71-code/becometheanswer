@@ -23,6 +23,18 @@ export const GET: APIRoute = async ({ site }) => {
     { url: `${base}/become-the-answer`, title: btaPage.seo.title, description: btaPage.seo.description },
     { url: `${base}/work-with-me`, title: workWithMePage.seo.title, description: workWithMePage.seo.description },
     { url: `${base}/library`, title: libraryPage.seo.title, description: libraryPage.seo.description },
+    {
+      url: `${base}/free-analysis`,
+      title: 'Free AI visibility analysis: your AI Answer Index, Cost of Invisibility and Answer Equity baseline',
+      description:
+        "A free, three-part analysis of your brand's AI visibility: your AI Answer Index score, what invisibility is costing you, and your Answer Equity baseline.",
+    },
+    {
+      url: `${base}/aeo-glossary`,
+      title: 'AEO Glossary — key Answer Engine Optimization terms defined',
+      description:
+        'Plain-language definitions of AEO, Answer Equity, the AI Shelf, the AI Answer Index and the four Answer Equity dimensions, each with a stable, linkable anchor.',
+    },
   ];
 
   const libraryItems = library.map((item) => ({

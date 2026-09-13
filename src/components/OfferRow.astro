@@ -12,32 +12,49 @@ interface Item {
 }
 interface Props {
   items: Item[];
+  // Index of the card to visually feature with a dark/orange treatment
+  // (per Bjorn's feedback mockup: the middle offer stands out).
+  featuredIndex?: number;
 }
-const { items } = Astro.props;
+const { items, featuredIndex } = Astro.props;
 ---
 
 <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
   {
-    items.map((item) => (
-      <div class="flex flex-col justify-between rounded-[12px] border border-line bg-paper p-6">
-        <div>
-          <h3 class="font-display text-xl font-bold text-ink">{item.title}</h3>
-          <p class="mt-2 text-sm text-slate">{item.oneLiner}</p>
+    items.map((item, i) => {
+      const isFeatured = i === featuredIndex;
+      return (
+        <div
+          class:list={[
+            'flex flex-col justify-between rounded-[12px] border p-6',
+            isFeatured ? 'border-ink bg-ink text-paper' : 'border-line bg-paper text-ink',
+          ]}
+        >
+          <div>
+            <h3 class:list={['font-display text-[22px] font-bold', isFeatured ? 'text-paper' : 'text-ink']}>
+              {item.title}
+            </h3>
+            <p class:list={['mt-2 text-sm', isFeatured ? 'text-line' : 'text-slate']}>{item.oneLiner}</p>
+          </div>
+          {item.formType === 'register' ? (
+            <Button
+              variant={isFeatured ? 'primary' : 'link'}
+              openRegisterForm
+              class={isFeatured ? 'mt-4 self-start text-sm' : 'mt-4 self-start text-sm'}
+            >
+              {item.ctaLabel}
+            </Button>
+          ) : item.formType ? (
+            <Button variant={isFeatured ? 'primary' : 'link'} openLeadForm={item.formType} class="mt-4 self-start text-sm">
+              {item.ctaLabel}
+            </Button>
+          ) : (
+            <Button variant={isFeatured ? 'primary' : 'link'} href={item.ctaHref} class="mt-4 self-start text-sm">
+              {item.ctaLabel}
+            </Button>
+          )}
         </div>
-        {item.formType === 'register' ? (
-          <Button variant="link" openRegisterForm class="mt-4 self-start text-sm">
-            {item.ctaLabel}
-          </Button>
-        ) : item.formType ? (
-          <Button variant="link" openLeadForm={item.formType} class="mt-4 self-start text-sm">
-            {item.ctaLabel}
-          </Button>
-        ) : (
-          <Button variant="link" href={item.ctaHref} class="mt-4 self-start text-sm">
-            {item.ctaLabel}
-          </Button>
-        )}
-      </div>
-    ))
+      );
+    })
   }
 </div>

@@ -66,6 +66,7 @@ export function articleSchema(
     description: string;
     path: string;
     datePublished: Date;
+    dateModified?: Date;
     image?: string;
   },
 ) {
@@ -77,6 +78,7 @@ export function articleSchema(
     mainEntityOfPage: new URL(options.path, siteUrl).toString(),
     url: new URL(options.path, siteUrl).toString(),
     datePublished: options.datePublished.toISOString().slice(0, 10),
+    dateModified: (options.dateModified ?? options.datePublished).toISOString().slice(0, 10),
     image: options.image ? new URL(options.image, siteUrl).toString() : undefined,
     author: {
       '@type': 'Person',
@@ -91,6 +93,27 @@ export function articleSchema(
         url: new URL('/logo.png', siteUrl).toString(),
       },
     },
+  };
+}
+
+export function definedTermSetSchema(
+  siteUrl: string,
+  path: string,
+  terms: { name: string; slug: string; definition: string }[],
+) {
+  const pageUrl = new URL(path, siteUrl).toString();
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    name: 'AEO Glossary',
+    url: pageUrl,
+    hasDefinedTerm: terms.map((term) => ({
+      '@type': 'DefinedTerm',
+      name: term.name,
+      description: term.definition,
+      url: `${pageUrl}#${term.slug}`,
+      inDefinedTermSet: pageUrl,
+    })),
   };
 }
 

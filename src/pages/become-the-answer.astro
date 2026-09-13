@@ -11,6 +11,8 @@ import FaqAccordion from '../components/FaqAccordion.astro';
 import page from '../../content/pages/become-the-answer.json';
 import globalSettings from '../../content/settings/global.json';
 import { faqPageSchema, breadcrumbSchema } from '../lib/seo';
+import aiAnswerIndexImage from '../assets/brand/ai-answer-index.png';
+import { Image } from 'astro:assets';
 
 const {
   seo,
@@ -39,9 +41,9 @@ const jsonLd = [
 
 <BaseLayout title={seo.title} description={seo.description} jsonLd={jsonLd}>
   <!-- Hero -->
-  <Section bg="paper" padding="top-only">
+  <Section bg="paper" padding="top-only" containerClass="pb-20 md:pb-28">
     <Eyebrow>{hero.eyebrow}</Eyebrow>
-    <h1 class="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
+    <h1 class="mt-3 max-w-3xl font-display text-[38px] font-bold leading-[1.05] text-ink md:text-[50px]">
       {hero.headline}
     </h1>
     <p class="mt-6 max-w-2xl text-lg text-slate md:text-xl">{hero.subhead}</p>
@@ -55,24 +57,35 @@ const jsonLd = [
 
   <!-- What is at stake -->
   <Section bg="cloud">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{stakes.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{stakes.heading}</h2>
     <p class="mt-4 max-w-prose text-lg text-slate">{stakes.body}</p>
 
-    <div class="mt-12 flex flex-col divide-y divide-line border-y border-line">
-      <div class="flex flex-col gap-3 py-8">
-        <h3 class="font-display text-xl font-bold text-ink">{stakes.tool1.heading}</h3>
-        <p class="text-xs uppercase tracking-[0.04em] text-muted">{stakes.tool1.microcopy}</p>
-        <p class="max-w-prose text-slate">{stakes.tool1.body}</p>
-        <div class="mt-2">
-          <Button variant="primary" openRegisterForm>{stakes.tool1.ctaLabel}</Button>
-        </div>
-      </div>
+    <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,320px)_1fr]">
+      <Image
+        src={aiAnswerIndexImage}
+        alt="The AI Answer Index score card, showing an overall score with Share of Answer, Share of Recommendation and the Structure, Credibility and Identity pillar audits"
+        class="w-full rounded-[12px] border border-line"
+        loading="lazy"
+        widths={[320, 640]}
+        sizes="(min-width: 768px) 320px, 100vw"
+      />
 
-      <div class="flex flex-col gap-3 py-8">
-        <h3 class="font-display text-xl font-bold text-ink">{stakes.tool2.heading}</h3>
-        <p class="max-w-prose text-slate">{stakes.tool2.subhead}</p>
-        <div class="mt-2">
-          <Button variant="primary" openRegisterForm>{stakes.tool2.ctaLabel}</Button>
+      <div class="flex flex-col divide-y divide-line border-y border-line md:border-y-0">
+        <div class="flex flex-col gap-3 py-8 md:pt-0">
+          <h3 class="font-display text-[22px] font-bold text-ink">{stakes.tool1.heading}</h3>
+          <p class="text-xs uppercase tracking-[0.04em] text-muted">{stakes.tool1.microcopy}</p>
+          <p class="max-w-prose text-slate">{stakes.tool1.body}</p>
+          <div class="mt-2">
+            <Button variant="primary" openRegisterForm>{stakes.tool1.ctaLabel}</Button>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3 py-8">
+          <h3 class="font-display text-[22px] font-bold text-ink">{stakes.tool2.heading}</h3>
+          <p class="max-w-prose text-slate">{stakes.tool2.subhead}</p>
+          <div class="mt-2">
+            <Button variant="primary" openRegisterForm>{stakes.tool2.ctaLabel}</Button>
+          </div>
         </div>
       </div>
     </div>
@@ -80,10 +93,10 @@ const jsonLd = [
 
   <!-- New operating system -->
   <Section bg="paper">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{operatingSystem.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{operatingSystem.heading}</h2>
     <p class="mt-4 max-w-prose text-lg text-slate">{operatingSystem.body}</p>
 
-    <h3 class="mt-8 font-display text-xl font-bold text-ink">{operatingSystem.subheading}</h3>
+    <h3 class="mt-8 font-display text-[22px] font-bold text-ink">{operatingSystem.subheading}</h3>
     <p class="mt-3 max-w-prose text-slate">{operatingSystem.subheadingBody}</p>
 
     <div class="mt-8">
@@ -103,13 +116,13 @@ const jsonLd = [
 
   <!-- Why me, and how -->
   <Section bg="cloud">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{whyMe.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{whyMe.heading}</h2>
     <p class="mt-4 max-w-prose text-lg text-slate">{whyMe.body}</p>
     <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
       {
         whyMe.ways.map((way: { title: string; description: string; ctaLabel: string; ctaHref?: string }) => (
           <div class="flex flex-col rounded-[12px] border border-line bg-paper p-6">
-            <h3 class="font-display text-lg font-bold text-ink">{way.title}</h3>
+            <h3 class="font-display text-[20px] font-bold text-ink">{way.title}</h3>
             <p class="mt-2 text-sm text-slate">{way.description}</p>
             {way.ctaHref ? (
               <Button variant="link" href={way.ctaHref} class="mt-4 self-start text-sm">
@@ -129,7 +142,7 @@ const jsonLd = [
   <!-- Cost of waiting -->
   <Section bg="ink">
     <div class="mx-auto max-w-2xl text-center">
-      <h2 class="font-display text-3xl font-bold text-paper md:text-4xl">{costOfWaiting.heading}</h2>
+      <h2 class="font-display text-[32px] font-bold text-paper md:text-[38px]">{costOfWaiting.heading}</h2>
       <p class="mt-6 text-lg text-line">{costOfWaiting.body}</p>
       <div class="mt-8">
         <Button variant="primary" openRegisterForm>{costOfWaiting.ctaLabel}</Button>
@@ -141,7 +154,7 @@ const jsonLd = [
   <!-- Beyond the score -->
   <Section bg="paper">
     <div class="mx-auto max-w-2xl border-l-2 border-signal pl-8 text-left">
-      <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{beyondTheScore.heading}</h2>
+      <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{beyondTheScore.heading}</h2>
       <p class="mt-6 text-lg text-slate">{beyondTheScore.subhead}</p>
       <p class="mt-4 text-slate">{beyondTheScore.body}</p>
       <div class="mt-8">
@@ -153,7 +166,7 @@ const jsonLd = [
 
   <!-- Our Library -->
   <Section bg="cloud">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{library.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{library.heading}</h2>
     <p class="mt-4 max-w-prose text-lg text-slate">{library.intro}</p>
     <div class="mt-10">
       <LibraryTeaserRow items={library.items} href="/library" />

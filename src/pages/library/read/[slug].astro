@@ -2,8 +2,9 @@
 // Per-article page: question-style H1, a quotable lead (from `description`),
 // the article body, an optional source line, and CTA1 at the end — the
 // format the blueprint specifies as "the kind AI engines can quote."
-// Article + BreadcrumbList JSON-LD reflect real, published fields only —
-// no invented FAQ entries or citations.
+// Article + BreadcrumbList (+ FAQPage, when a follow-up question exists)
+// JSON-LD reflect real, published fields only — no invented FAQ entries or
+// citations.
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Section from '../../../components/Section.astro';
@@ -12,7 +13,8 @@ import LibraryCard from '../../../components/LibraryCard.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import ArticleQuoteCard from '../../../components/ArticleQuoteCard.astro';
 import { estimateReadTime, formatDate, ARTICLE_QUOTE_CARDS } from '../../../lib/library';
-import { articleSchema, breadcrumbSchema } from '../../../lib/seo';
+import { articleSchema, breadcrumbSchema, faqPageSchema } from '../../../lib/seo';
+import aboutPage from '../../../../content/pages/about.json';
 
 export async function getStaticPaths() {
   const all = await getCollection('library');
@@ -25,12 +27,28 @@ export async function getStaticPaths() {
 
 const { item, allReadItems } = Astro.props;
 const { Content } = await render(item);
-const { title, description, bucket, tags, publishDate, seoTitle, seoDescription, image } = item.data;
+const {
+  title,
+  description,
+  bucket,
+  tags,
+  publishDate,
+  updatedDate,
+  seoTitle,
+  seoDescription,
+  image,
+  relatedSlugs,
+  followUpQuestion,
+} = item.data;
 const quoteCard = !image ? ARTICLE_QUOTE_CARDS[item.id] : undefined;
 
 const related = allReadItems
   .filter((other) => other.id !== item.id && other.data.bucket === bucket)
   .slice(0, 3);
+
+const relatedConcepts = relatedSlugs
+  .map((slug) => allReadItems.find((other) => other.id === slug))
+  .filter((other): other is NonNullable<typeof other> => Boolean(other));
 
 const siteUrl = Astro.site!.toString();
 const path = `/library/read/${item.id}`;
@@ -40,6 +58,7 @@ const jsonLd = [
     description: seoDescription || description,
     path,
     datePublished: publishDate,
+    dateModified: updatedDate,
     image,
   }),
   breadcrumbSchema(siteUrl, [
@@ -48,6 +67,7 @@ const jsonLd = [
     { name: 'Read', path: '/library/read' },
     { name: title, path },
   ]),
+  ...(followUpQuestion ? [faqPageSchema([followUpQuestion])] : []),
 ];
 ---
 
@@ -70,16 +90,21 @@ const jsonLd = [
 
       <div class="mt-6 flex flex-wrap items-center gap-3 text-xs text-muted">
         {bucket && <span class="font-semibold uppercase tracking-[0.04em] text-signal-deep">{bucket}</span>}
-        <span>{formatDate(publishDate)}</span>
+        <span>Published {formatDate(publishDate)}</span>
+        {updatedDate && <span>&middot; Updated {formatDate(updatedDate)}</span>}
         <span>{estimateReadTime(item.body || '')}</span>
       </div>
 
-      <h1 class="mt-3 font-display text-3xl font-bold leading-[1.1] text-ink md:text-4xl">{title}</h1>
+      <h1 class="mt-3 font-display text-[32px] font-bold leading-[1.1] text-ink md:text-[38px]">{title}</h1>
 
       <p class="mt-4 text-sm text-slate">
-        By <span class="font-semibold text-ink">Bjorn Vandemeulebroucke</span> &middot; author of{' '}
-        <em>Become the Answer</em>
+        By{' '}
+        <a href="/about" class="font-semibold text-ink hover:text-signal-deep">
+          Bjorn Vandemeulebroucke
+        </a>
+        {' '}&middot; author of <em>Become the Answer</em>
       </p>
+      <p class="mt-2 max-w-prose text-sm text-muted">{aboutPage.lead}</p>
     </div>
 
     <div class="mx-auto mt-8 max-w-3xl">
@@ -104,6 +129,15 @@ const jsonLd = [
         <Content />
       </div>
 
+      {
+        followUpQuestion && (
+          <div class="mt-10 rounded-[12px] border border-line bg-cloud p-6">
+            <h2 class="font-display text-[20px] font-bold text-ink">{followUpQuestion.question}</h2>
+            <p class="mt-2 text-slate">{followUpQuestion.answer}</p>
+          </div>
+        )
+      }
+
       {tags.length > 0 && (
         <ul class="mt-8 flex flex-wrap gap-2">
           {tags.map((tag) => (
@@ -111,6 +145,26 @@ const jsonLd = [
           ))}
         </ul>
       )}
+
+      {
+        relatedConcepts.length > 0 && (
+          <div class="mt-10 border-t border-line pt-8">
+            <h2 class="font-display text-[20px] font-bold text-ink">Related concepts</h2>
+            <ul class="mt-4 flex flex-col gap-2">
+              {relatedConcepts.map((concept) => (
+                <li>
+                  <a
+                    href={`/library/read/${concept.id}`}
+                    class="text-signal-deep underline underline-offset-4 hover:text-signal"
+                  >
+                    {concept.data.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
 
       <div class="mt-10 border-t border-line pt-8">
         <p class="text-sm text-slate">
@@ -127,7 +181,7 @@ const jsonLd = [
     related.length > 0 && (
       <Section bg="cloud">
         <div class="mx-auto max-w-2xl">
-          <h2 class="font-display text-2xl font-bold text-ink">More from {bucket}</h2>
+          <h2 class="font-display text-[26px] font-bold text-ink">More from {bucket}</h2>
           <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {related.map((relatedItem) => (
               <LibraryCard

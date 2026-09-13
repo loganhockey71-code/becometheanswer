@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "About me — the practitioner behind Become the Answer",
-    "description": "Why I wrote Become the Answer, what I actually do, and the principles behind Win the AI Shelf, helping brands become the answer AI gives."
+    "description": "Why I wrote Become the Answer, what I actually do, and the principles behind Win the AI Shelf, helping brands become the answer AI gives, 20 years in the works."
   },
   "eyebrow": "ABOUT",
   "headline": "I help brands become the answer AI gives, and I measure whether they already are.",
@@ -45,9 +45,6 @@
       { "title": "Measure what matters", "description": "If you can't see your share of the answer, you can't win it. Start with the truth, then improve it." },
       { "title": "Trust is still the currency", "description": "This is word of mouth for machines. Reviews, real references, other people vouching for you, that's what the engines lean on, and it's what we help you earn." }
     ]
-  },
-  "team": {
-    "fallbackLine": "Backed by The Insiders and a network of AEO practitioners."
   },
   "bookBand": {
     "description": "The practitioner's guide to Answer Engine Optimization: how brands get found, trusted and known in the age of AI search. Twenty years of word of mouth, and the tools that now measure it.",

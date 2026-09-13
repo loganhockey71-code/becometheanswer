@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Work with me — AEO masterclasses, keynotes & panels, consultancy",
-    "description": "A modular six-workshop AEO masterclass program and keynotes on winning the AI shelf. Bring Answer Engine Optimization to your team, cohort or stage."
+    "description": "A modular five-workshop AEO masterclass program and keynotes on winning the AI shelf. Bring Answer Engine Optimization to your team, cohort or stage."
   },
   "eyebrow": "WORK WITH ME",
   "hero": {
@@ -39,28 +39,26 @@
         { "title": "Audit & Strategy", "description": "Make the abstract concept of AEO tangible and relevant for the team's own company." },
         { "title": "Building and Governing the AEO Strategy", "description": "Create the playbooks and governance documents that make a company's AEO program real and sustainable by taking the gap map." },
         { "title": "Monetize AEO", "description": "Turn the action plan into sales generated revenue." }
-      ],
-      "quotableLine": "No two coaches probe AI engines the same way, this program gives a team a shared method, not a shared opinion."
+      ]
     },
     "workshops": [
       { "number": "01", "title": "Audit & Strategy: Prompt Library", "description": "Build a prompt library, adapted to your brand, key competitor and industry, one shared starting point for every engagement.", "leavesWith": "A reusable prompt bank to track AI visibility quarterly." },
       { "number": "02", "title": "Audit & Strategy: The 3 Pillars & Their Weight", "description": "Not every AEO factor matters equally, learn to prioritise authority, structure, coverage and freshness by category.", "leavesWith": "A weighted matrix that tells every client where to focus first." },
       { "number": "03", "title": "Building & Governing an AEO Strategy", "description": "Define the core metrics so everyone measures the same way.", "leavesWith": "A metrics dashboard template (citation rate, share of answer, answer accuracy) ready on day one." },
-      { "number": "04", "title": "Building & Governing an AEO Strategy", "description": "Use the AI Engine Report to surface unclaimed questions and content gaps competitors haven't taken.", "leavesWith": "A ranked opportunity list to hand a content team." },
-      { "number": "05", "title": "Monetization of AEO", "description": "Model whether a move pays off before the budget is spent.", "leavesWith": "A revenue-at-stake number for your next budget conversation, built from your AI Answer Index." },
-      { "number": "06", "title": "Act: The 90-Day Sprint", "description": "Turn six workshops of output into a dated plan.", "leavesWith": "A ready-to-run 90-day playbook with named owners, milestones and check-ins." }
+      { "number": "04", "title": "Monetization of AEO", "description": "Model whether a move pays off before the budget is spent.", "leavesWith": "A revenue-at-stake number for your next budget conversation, built from your AI Answer Index." },
+      { "number": "05", "title": "Act: The 90-Day Sprint", "description": "Turn five workshops of output into a dated plan.", "leavesWith": "A ready-to-run 90-day playbook with named owners, milestones and check-ins." }
     ],
     "howItRuns": {
       "points": [
         "Full 2-day session, in-person and on-site",
-        "Modular, all six in sequence or any one alone",
+        "Modular, all five in sequence or any one alone",
         "Hands-on, every session builds a real artifact, not slides to file",
         "Train-the-trainer, built for the coaches who'll run it with their own clients"
       ],
       "deliverables": "A facilitator guide, working templates and a live-build exercise scoped to a real client, plus the workshop's artifact (prompt bank, matrix, dashboard, report or sprint plan) to reuse with the next client."
     },
     "numbers": [
-      { "value": "6", "label": "modular workshops" },
+      { "value": "5", "label": "modular workshops" },
       { "value": "300+", "label": "prompts every cohort leaves with on day one" },
       { "value": "90", "label": "days from kickoff to a live, owned sprint plan" }
     ],
@@ -107,11 +105,11 @@
     "items": [
       {
         "question": "What is the AEO masterclass program?",
-        "answer": "It's a modular, six-workshop Answer Engine Optimization program that takes a team from understanding AEO to a 90-day action plan. The six workshops run across three phases, Understand, Decide, Act, and can be booked together as a curriculum or individually."
+        "answer": "It's a modular, five-workshop Answer Engine Optimization program that takes a team from understanding AEO to a 90-day action plan. The five workshops run across three phases, Understand, Decide, Act, and can be booked together as a curriculum or individually."
       },
       {
-        "question": "Can I book a single masterclass instead of all six?",
-        "answer": "Yes. Every workshop stands alone and builds its own artifact, a prompt library, weighting matrix, metrics dashboard, opportunity report, business case, or 90-day sprint plan. You can run one, or all six in sequence."
+        "question": "Can I book a single masterclass instead of all five?",
+        "answer": "Yes. Every workshop stands alone and builds its own artifact, a prompt library, weighting matrix, metrics dashboard, or 90-day sprint plan. You can run one, or all five in sequence."
       },
       {
         "question": "Who is the masterclass program for?",
@@ -119,7 +117,7 @@
       },
       {
         "question": "How much does the AEO program cost?",
-        "answer": "The full two-day, on-site program starts at $7,500 (excluding travel). Final scope and price depend on cohort size and how many of the six workshops are booked together."
+        "answer": "The full two-day, on-site program starts at $7,500 (excluding travel). Final scope and price depend on cohort size and how many of the five workshops are booked together."
       },
       {
         "question": "Does Bjorn speak at events?",

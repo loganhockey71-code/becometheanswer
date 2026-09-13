@@ -25,9 +25,9 @@ const jsonLd = [
 
 <BaseLayout title={seo.title} description={seo.description} jsonLd={jsonLd}>
   <!-- Hero -->
-  <Section bg="paper" padding="top-only">
+  <Section bg="paper" padding="top-only" containerClass="pb-20 md:pb-28">
     <Eyebrow>{eyebrow}</Eyebrow>
-    <h1 class="mt-3 max-w-3xl font-display text-4xl font-bold leading-[1.05] text-ink md:text-5xl">
+    <h1 class="mt-3 max-w-3xl font-display text-[38px] font-bold leading-[1.05] text-ink md:text-[50px]">
       {hero.headline}
     </h1>
     <p class="mt-6 max-w-2xl text-lg text-slate md:text-xl">{hero.subhead}</p>
@@ -41,12 +41,12 @@ const jsonLd = [
 
   <!-- Three ways to work with me -->
   <Section bg="cloud">
-    <OfferRow items={offers} />
+    <OfferRow items={offers} featuredIndex={1} />
   </Section>
 
   <!-- Masterclass: the shift -->
   <Section bg="paper" id="masterclass">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{masterclass.shift.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{masterclass.shift.heading}</h2>
     <p class="mt-4 max-w-prose text-lg text-slate">{masterclass.shift.body}</p>
     <ul class="mt-8 flex flex-col gap-3 border-l-2 border-signal pl-6 text-sm text-slate sm:flex-row sm:gap-8 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-6">
       {masterclass.shift.proofStrip.map((line: string) => <li>{line}</li>)}
@@ -54,7 +54,7 @@ const jsonLd = [
 
     <div class="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2">
       <div>
-        <h3 class="font-display text-xl font-bold text-ink">{masterclass.whoFor.heading}</h3>
+        <h3 class="font-display text-[22px] font-bold text-ink">{masterclass.whoFor.heading}</h3>
         <ul class="mt-4 flex flex-col gap-3 text-slate">
           {masterclass.whoFor.items.map((item: string) => (
             <li class="border-l-2 border-line pl-4">{item}</li>
@@ -63,7 +63,7 @@ const jsonLd = [
       </div>
 
       <div>
-        <h3 class="font-display text-xl font-bold text-ink">{masterclass.goal.heading}</h3>
+        <h3 class="font-display text-[22px] font-bold text-ink">{masterclass.goal.heading}</h3>
         <p class="mt-4 text-slate">{masterclass.goal.intro}</p>
         <ol class="mt-4 flex flex-col gap-3">
           {masterclass.goal.steps.map((step: { title: string; description: string }, i: number) => (
@@ -78,16 +78,12 @@ const jsonLd = [
         </ol>
       </div>
     </div>
-
-    <p class="mt-10 max-w-2xl font-display text-lg font-bold text-signal-deep">
-      {masterclass.goal.quotableLine}
-    </p>
   </Section>
 
-  <!-- Masterclass: the six workshops -->
+  <!-- Masterclass: the five workshops -->
   <Section bg="cloud">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">The six workshops</h2>
-    <p class="mt-4 max-w-prose text-slate">Book any one on its own, or run all six as a curriculum.</p>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">The five workshops</h2>
+    <p class="mt-4 max-w-prose text-slate">Book any one on its own, or run all five as a curriculum.</p>
     <div class="mt-10">
       <WorkshopGrid workshops={masterclass.workshops} />
     </div>
@@ -116,7 +112,7 @@ const jsonLd = [
       {masterclass.howToStart.steps.map((step: { title: string; description: string }, i: number) => (
         <div>
           <span class="font-display text-2xl font-bold text-signal">{i + 1}</span>
-          <h3 class="mt-2 font-display text-lg font-bold text-ink">{step.title}</h3>
+          <h3 class="mt-2 font-display text-[20px] font-bold text-ink">{step.title}</h3>
           <p class="mt-2 text-sm text-slate">{step.description}</p>
         </div>
       ))}
@@ -129,12 +125,12 @@ const jsonLd = [
 
   <!-- Speaking & panels -->
   <Section bg="cloud">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{speaking.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{speaking.heading}</h2>
     <p class="mt-4 max-w-prose text-lg text-slate">{speaking.intro}</p>
     <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
       {speaking.formats.map((format: { title: string; description: string }) => (
         <div class="rounded-[12px] border border-line bg-paper p-6">
-          <h3 class="font-display text-lg font-bold text-ink">{format.title}</h3>
+          <h3 class="font-display text-[20px] font-bold text-ink">{format.title}</h3>
           <p class="mt-2 text-sm text-slate">{format.description}</p>
         </div>
       ))}
@@ -147,7 +143,7 @@ const jsonLd = [
 
   <!-- Consultancy -->
   <Section bg="paper">
-    <h2 class="font-display text-3xl font-bold text-ink md:text-4xl">{consultancy.heading}</h2>
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{consultancy.heading}</h2>
     <div class="mt-6 grid grid-cols-1 gap-8 md:grid-cols-3">
       <p class="text-slate">{consultancy.what}</p>
       <p class="text-slate">{consultancy.who}</p>

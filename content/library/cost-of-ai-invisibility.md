@@ -9,6 +9,13 @@ publishDate: 2026-08-23
 featured: false
 seoTitle: "What Is AI Invisibility Costing Your Brand?"
 seoDescription: "When AI names a competitor instead of you, the lost sale never hits your dashboard. How to put a real revenue number on AI invisibility (the AER model)."
+relatedSlugs:
+  - "what-is-share-of-answer"
+  - "what-is-the-ai-shelf"
+  - "what-is-answer-engine-optimization"
+followUpQuestion:
+  question: "How is the cost of AI invisibility actually calculated?"
+  answer: "The book's AER model multiplies your category's monthly AI query volume by your Share of Answer, by AI click-through rate, by conversion rate, and by average customer value, to produce an annual revenue-at-stake figure. It measures revenue at stake, not revenue guaranteed."
 ---
 
 More than you can see. When an AI names a competitor instead of you, no alarm goes off; the lost sale never reaches your analytics. But the revenue is real. AI invisibility is a silent, compounding cost: the category questions you would have won, answered by someone else.

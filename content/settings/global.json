@@ -3,7 +3,8 @@
     { "label": "About", "href": "/about" },
     { "label": "Become the Answer", "href": "/become-the-answer" },
     { "label": "Work with me", "href": "/work-with-me" },
-    { "label": "Library", "href": "/library" }
+    { "label": "Library", "href": "/library" },
+    { "label": "Free analysis", "href": "/free-analysis" }
   ],
   "registerInterestCtaLabel": "Register your interest",
   "footer": {

@@ -10,6 +10,13 @@ publishDate: 2026-08-29
 featured: false
 seoTitle: "SEO vs AEO vs GEO: What's the Actual Difference?"
 seoDescription: "SEO wins a place on the page. AEO wins a place inside the AI answer. GEO gets you cited. The three defined in plain English, and why AEO is the umbrella."
+relatedSlugs:
+  - "what-is-answer-engine-optimization"
+  - "is-seo-dead-or-shrinking"
+  - "what-is-the-ai-shelf"
+followUpQuestion:
+  question: "What is GEO, and how does it relate to AEO?"
+  answer: "Generative Engine Optimization (GEO) is the narrower craft of getting a brand cited and woven into the text a generative model produces. It's one part of AEO, the citation layer, not a rival discipline to it."
 ---
 
 SEO wins you a ranking on a list of links. AEO wins you a place inside the answer an AI gives. GEO is the narrower craft of getting your brand cited in that answer: it lives inside AEO. Same customer, three different games.

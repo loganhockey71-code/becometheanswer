@@ -1,0 +1,114 @@
+---
+// A canonical, linkable glossary of the site's proprietary/core terms.
+// Every definition here is reused verbatim (or lightly condensed) from
+// existing, already-published copy elsewhere on the site — nothing invented.
+// Each term is a <dfn> with a stable id so it can be deep-linked from any
+// article or section (e.g. /aeo-glossary#category-salience).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { definedTermSetSchema, breadcrumbSchema } from '../lib/seo';
+
+const terms = [
+  {
+    slug: 'aeo',
+    name: 'Answer Engine Optimization (AEO)',
+    definition:
+      'The practice of getting a brand named inside the answers AI assistants give (ChatGPT, Perplexity, Gemini, Claude), instead of ranked on a list of links. Where SEO earns a position on the page, AEO earns the recommendation itself.',
+  },
+  {
+    slug: 'answer-equity',
+    name: 'Answer Equity',
+    definition:
+      "The durable advantage of being the brand AI reaches for, measured across four dimensions read straight from the machine's answers: Category Salience, Identity Fidelity, Recommendation Preference and Answer Confidence. Being recommended once is luck; Answer Equity is when it keeps happening.",
+  },
+  {
+    slug: 'ai-shelf',
+    name: 'AI Shelf',
+    definition:
+      'The short list of brands an AI names when it answers a category question, often five or six, sometimes just three. The rest of the market is not ranked lower; it is simply absent, with no page two to fall back on.',
+  },
+  {
+    slug: 'ai-answer-index',
+    name: 'AI Answer Index™ (AAI)',
+    definition:
+      "A Nielsen-style read on how often a brand shows up across ChatGPT, Claude, Gemini and Rufus, tracked against its competitors, combining Share of Answer and Share of Recommendation with the Structure, Credibility and Identity pillar audits.",
+  },
+  {
+    slug: 'category-salience',
+    name: 'Category Salience',
+    definition:
+      'Whether a brand surfaces when the category problem is asked without its name in it. Measured via Share of Answer on non-branded prompts. One of the four Answer Equity dimensions.',
+  },
+  {
+    slug: 'identity-fidelity',
+    name: 'Identity Fidelity',
+    definition:
+      'Whether the engine describes a brand accurately and distinctly. Measured via accuracy, distinctness and consistency. One of the four Answer Equity dimensions.',
+  },
+  {
+    slug: 'recommendation-preference',
+    name: 'Recommendation Preference',
+    definition:
+      'Whether a brand is actually chosen in real decisions, and how prominently. Measured via recommendation rate and position. One of the four Answer Equity dimensions.',
+  },
+  {
+    slug: 'answer-confidence',
+    name: 'Answer Confidence',
+    definition:
+      'Whether a recommendation is backed by credible, consistent evidence. Measured via citation and support quality. One of the four Answer Equity dimensions.',
+  },
+];
+
+const siteUrl = Astro.site!.toString();
+const path = '/aeo-glossary';
+const jsonLd = [
+  definedTermSetSchema(siteUrl, path, terms),
+  breadcrumbSchema(siteUrl, [
+    { name: 'Home', path: '/' },
+    { name: 'AEO Glossary', path },
+  ]),
+];
+---
+
+<BaseLayout
+  title="AEO Glossary — key Answer Engine Optimization terms defined"
+  description="Plain-language definitions of AEO, Answer Equity, the AI Shelf, the AI Answer Index and the four Answer Equity dimensions, each with a stable, linkable anchor."
+  jsonLd={jsonLd}
+>
+  <Section bg="paper" padding="top-only">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'AEO Glossary' }]} />
+    <Eyebrow>GLOSSARY</Eyebrow>
+    <h1 class="mt-3 max-w-3xl font-display text-[38px] font-bold leading-[1.05] text-ink md:text-[50px]">
+      AEO Glossary
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg text-slate md:text-xl">
+      The core terms behind Answer Engine Optimization and Answer Equity, defined in one place. Link to any
+      definition directly with its anchor, for example <code class="rounded bg-cloud px-1.5 py-0.5 text-sm">#category-salience</code>.
+    </p>
+  </Section>
+
+  <Section bg="cloud">
+    <dl class="flex flex-col divide-y divide-line border-y border-line">
+      {
+        terms.map((term) => (
+          <div id={term.slug} class="scroll-mt-24 py-8">
+            <dt>
+              <dfn id={`${term.slug}-term`} class="font-display text-[22px] font-bold not-italic text-ink">
+                {term.name}
+              </dfn>
+            </dt>
+            <dd class="mt-3 max-w-prose text-slate">{term.definition}</dd>
+            <a
+              href={`#${term.slug}`}
+              class="mt-2 inline-block text-xs text-muted underline underline-offset-2 hover:text-signal-deep"
+            >
+              #{term.slug}
+            </a>
+          </div>
+        ))
+      }
+    </dl>
+  </Section>
+</BaseLayout>

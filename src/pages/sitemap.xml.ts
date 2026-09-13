@@ -12,6 +12,8 @@ const STATIC_PATHS = [
   '/library/watch',
   '/library/listen',
   '/library/read',
+  '/free-analysis',
+  '/aeo-glossary',
   '/privacy-policy',
   '/terms-of-service',
 ];
