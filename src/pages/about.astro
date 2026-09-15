@@ -7,6 +7,8 @@ import BecomeTheAnswerBand from '../components/BecomeTheAnswerBand.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import about from '../../content/pages/about.json';
 import { personSchema, faqPageSchema, breadcrumbSchema } from '../lib/seo';
+import bjornHeadshot from '../assets/brand/bjorn-headshot.png';
+import { Image } from 'astro:assets';
 
 const { seo, eyebrow, headline, lead, connectLine, whatIBelieve, whatIDo, principles, bookBand, faq, closingCta } =
   about;
@@ -31,14 +33,14 @@ const jsonLd = [
     </h1>
 
     <div class="mt-12 grid grid-cols-1 items-start gap-10 md:grid-cols-[280px_1fr]">
-      <!-- TODO(Logan): swap in Bjorn's real headshot the moment he sends the file — not available in the repo or the assets he's shared so far. -->
-      <div
-        class="flex aspect-square w-full max-w-[280px] items-center justify-center rounded-[12px] border border-line bg-cloud"
-        role="img"
-        aria-label="Bjorn Vandemeulebroucke headshot placeholder — final photo to be supplied"
-      >
-        <span class="text-xs uppercase tracking-[0.08em] text-muted">Headshot pending</span>
-      </div>
+      <Image
+        src={bjornHeadshot}
+        alt="Bjorn Vandemeulebroucke, author of Become the Answer and creator of the AI Answer Index"
+        class="aspect-square w-full max-w-[280px] rounded-[12px] border border-line object-cover object-top"
+        loading="eager"
+        widths={[280, 560]}
+        sizes="280px"
+      />
 
       <div>
         <p class="max-w-prose text-lg text-slate md:text-xl">{lead}</p>
