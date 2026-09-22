@@ -59,6 +59,15 @@ const allJsonLd = [organizationSchema(siteUrl), websiteSchema(siteUrl), ...jsonL
         <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
       ))
     }
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7E2PJNVF7D"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7E2PJNVF7D');
+    </script>
   </head>
   <body>
     <a
