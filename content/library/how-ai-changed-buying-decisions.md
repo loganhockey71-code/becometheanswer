@@ -21,6 +21,6 @@ Think about the last time you bought something you did not know much about. A mo
 
 The research did not disappear. It moved. The comparing, the weighing, the reading of reviews, the work the buyer used to do, is now done by the machine, in a second, out of sight. What the person receives is not a set of raw materials to judge. It is a conclusion.
 
-That is a genuine change in human behaviour, not just in technology. The buyer has handed the decision to something they trust and is acting on what it says. Which, stripped of the software, is the oldest behaviour in commerce: asking someone you trust what to do, and doing it. Long before search, there was a neighbour, a shopkeeper, a friend who had bought one already. The AI has simply become that trusted adviser, at scale.
+That is a genuine change in human behavior, not just in technology. The buyer has handed the decision to something they trust and is acting on what it says. Which, stripped of the software, is the oldest behavior in commerce: asking someone you trust what to do, and doing it. Long before search, there was a neighbor, a shopkeeper, a friend who had bought one already. The AI has simply become that trusted adviser, at scale.
 
 For brands, the implication is sharp. The moment you spent a decade learning to influence, the researching buyer, mid-funnel, comparing you against rivals, is now answered by a machine before you ever see it. You are not persuading the shopper anymore. You are persuading the thing the shopper asks.

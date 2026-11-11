@@ -16,12 +16,12 @@
     "tool1": {
       "heading": "Does AI recommend you, or your competitor?",
       "microcopy": "About 30 seconds · free · your score, share of voice, and the competitors winning your answers.",
-      "body": "You can't fix what you can't see, and most brands have never looked. Run yours through the engines: enter your brand and category, and the AI Visibility Check asks the AI agents the questions your buyers ask, then scores whether you show up, or someone else takes your spot.",
-      "ctaLabel": "Request a free check"
+      "body": "You can't fix what you can't see, and most brands have never looked. Run yours through the engines: enter your brand and category, and the Free AI Visibility Analysis asks the AI agents the questions your buyers ask, then scores whether you show up, or someone else takes your spot.",
+      "ctaLabel": "Request your free analysis"
     },
     "tool2": {
       "heading": "When AI doesn't name you, someone else gets the sale.",
-      "subhead": "Your AI Answer Index says how often you're the answer. This turns the gap into a number your CFO will recognise, the revenue moving to whoever AI recommends instead.",
+      "subhead": "Your AI Answer Index says how often you're the answer. This turns the gap into a number your CFO will recognize, the revenue moving to whoever AI recommends instead.",
       "ctaLabel": "See what invisibility costs you"
     }
   },
@@ -57,10 +57,7 @@
   },
   "beyondTheScore": {
     "heading": "A single recommendation is a moment. Answer Equity is the asset.",
-    "subhead": "Answer Equity is what it becomes when the recommendation holds, the durable advantage of being the brand AI reaches for, measured across four dimensions read straight from the machine's answers.",
-    "body": "Every month you're absent, a competitor becomes the name the engine reaches for by habit, and defaults are expensive to unseat. The brands that act while the answer is still being decided are the ones that get to keep the spot.",
-    "ctaLabel": "Don't wait to become the answer",
-    "quotableLine": "The cost of waiting isn't standing still, it's watching a competitor become the default answer."
+    "subhead": "Answer Equity is what it becomes when the recommendation holds, the durable advantage of being the brand AI reaches for, measured across four dimensions read straight from the machine's answers."
   },
   "library": {
     "heading": "Go deeper: the AEO Library",
@@ -78,8 +75,8 @@
       "How to measure your share of the answer",
       "The 90 day path to becoming the answer"
     ],
-    "primaryCtaLabel": "Download the first chapter",
-    "secondaryCtaLabel": "Pre-order the book",
+    "primaryCtaLabel": "Download the first chapter (free)",
+    "secondaryCtaLabel": "Join the launch list",
     "tertiaryCtaLabel": "Let's talk about your brand"
   },
   "faq": {
@@ -87,11 +84,11 @@
     "items": [
       {
         "question": "What is the difference between AEO and SEO?",
-        "answer": "SEO optimises your pages to rank in a list of links a person then chooses from. AEO (Answer Engine Optimization) optimises for AI assistants that read across your content, reviews and third-party sources and recommend one answer. SEO competes for a position; AEO competes to be the answer."
+        "answer": "SEO optimizes your pages to rank in a list of links a person then chooses from. AEO (Answer Engine Optimization) optimizes for AI assistants that read across your content, reviews and third-party sources and recommend one answer. SEO competes for a position; AEO competes to be the answer."
       },
       {
         "question": "How do I know if AI recommends my brand?",
-        "answer": "Run a free AI Visibility Check: enter your brand and category, and it asks ChatGPT, Perplexity, Claude and Gemini the questions your buyers ask, then scores how often you appear versus competitors."
+        "answer": "Run a Free AI Visibility Analysis: enter your brand and category, and it asks ChatGPT, Perplexity, Claude and Gemini the questions your buyers ask, then scores how often you appear versus competitors."
       },
       {
         "question": "What does it cost a brand to be invisible in AI answers?",

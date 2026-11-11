@@ -25,11 +25,17 @@
       "Keynote speaker",
       "Consultancy",
       "Others"
-    ]
+    ],
+    "freeAnalysisVariant": {
+      "heading": "Request your free analysis",
+      "microcopy": "Free AI Visibility Analysis · a few minutes to fill in · no obligation.",
+      "presetFormOption": "Provide me an AI visibility report of my brand"
+    }
   },
   "leadForms": {
     "connect": {
       "heading": "I would love to connect and hear your thoughts",
+      "messageLabel": "Your message",
       "submitLabel": "Send",
       "successMessage": "Thanks for reaching out — we'll be in touch."
     },
@@ -40,8 +46,8 @@
       "successMessage": "Check your inbox — the first chapter is on its way."
     },
     "preorder": {
-      "heading": "Pre-order the book",
-      "submitLabel": "Pre-order",
+      "heading": "Join the launch list",
+      "submitLabel": "Notify me",
       "successMessage": "Thanks — we'll let you know as soon as it's available."
     },
     "downloadReport": {
@@ -69,9 +75,9 @@
     }
   },
   "stripeLinks": {
-    "note": "TEST MODE links from the build-notes doc. Swap for live buy.stripe.com links when the book/masterclass are ready to sell for real.",
-    "ebook": "https://buy.stripe.com/test_14A5kF0B64hQ6d54cg4Ni00",
-    "hardcover": "https://buy.stripe.com/test_8x28wR3NidSqgRJeQU4Ni02",
-    "masterclass": "https://buy.stripe.com/test_fZu8wRfw06pYatl1044Ni01"
+    "note": "Not live yet — no page currently links here. Fill in with real buy.stripe.com links when the book/masterclass are ready to sell for real.",
+    "ebook": "",
+    "hardcover": "",
+    "masterclass": ""
   }
 }

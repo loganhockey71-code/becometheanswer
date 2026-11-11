@@ -6,10 +6,18 @@
 // PUBLIC_FORM_ENDPOINT is configured, then a real POST to that endpoint.
 import globalSettings from '../../content/settings/global.json';
 
-const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
+const { heading, microcopy, formOptions, freeAnalysisVariant } = globalSettings.registerInterestForm;
 ---
 
-<dialog id="register-interest-dialog" class="register-dialog">
+<dialog
+  id="register-interest-dialog"
+  class="register-dialog"
+  data-default-heading={heading}
+  data-default-microcopy={microcopy}
+  data-variant-heading={freeAnalysisVariant.heading}
+  data-variant-microcopy={freeAnalysisVariant.microcopy}
+  data-variant-preset={freeAnalysisVariant.presetFormOption}
+>
   <div class="relative w-full max-w-lg rounded-[12px] bg-paper p-8 shadow-card">
     <button
       type="button"
@@ -20,8 +28,8 @@ const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
       &times;
     </button>
 
-    <h2 class="font-display text-[26px] font-bold text-ink">{heading}</h2>
-    {microcopy && <p class="mt-2 text-sm text-muted">{microcopy}</p>}
+    <h2 class="font-display text-[26px] font-bold text-ink" id="register-form-heading">{heading}</h2>
+    <p class="mt-2 text-sm text-muted" id="register-form-microcopy">{microcopy}</p>
 
     <form id="register-interest-form" class="mt-6 flex flex-col gap-4" novalidate>
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -55,9 +63,9 @@ const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
         />
       </label>
 
-      <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label class="flex flex-col gap-1 text-sm text-slate">
-          Brand you work for <span class="text-muted">(optional)</span>
+          Company / brand <span class="text-muted">(optional)</span>
           <input
             name="brand"
             type="text"
@@ -68,14 +76,6 @@ const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
           Key competitor <span class="text-muted">(optional)</span>
           <input
             name="keyCompetitor"
-            type="text"
-            class="rounded-[6px] border border-line bg-paper px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-signal"
-          />
-        </label>
-        <label class="flex flex-col gap-1 text-sm text-slate">
-          Company name <span class="text-muted">(optional)</span>
-          <input
-            name="companyName"
             type="text"
             class="rounded-[6px] border border-line bg-paper px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-signal"
           />
@@ -118,6 +118,10 @@ const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
       >
         Submit
       </button>
+
+      <p class="text-xs text-muted">
+        We'll only use your details to reply. See our <a href="/privacy-policy" class="underline underline-offset-2 hover:text-signal-deep">Privacy Policy</a>.
+      </p>
     </form>
   </div>
 </dialog>
@@ -144,8 +148,21 @@ const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
   const otherWrapper = document.getElementById('other-message-wrapper');
   const errorEl = document.getElementById('register-form-error');
   const successEl = document.getElementById('register-form-success');
+  const headingEl = document.getElementById('register-form-heading');
+  const microcopyEl = document.getElementById('register-form-microcopy');
 
-  function openDialog() {
+  function openDialog(variant: string | null) {
+    if (variant === 'free-analysis' && dialog) {
+      if (headingEl) headingEl.textContent = dialog.dataset.variantHeading || '';
+      if (microcopyEl) microcopyEl.textContent = dialog.dataset.variantMicrocopy || '';
+      if (select && dialog.dataset.variantPreset) {
+        select.value = dialog.dataset.variantPreset;
+        otherWrapper?.classList.toggle('hidden', select.value !== 'Others');
+      }
+    } else if (dialog) {
+      if (headingEl) headingEl.textContent = dialog.dataset.defaultHeading || '';
+      if (microcopyEl) microcopyEl.textContent = dialog.dataset.defaultMicrocopy || '';
+    }
     dialog?.showModal();
   }
 
@@ -153,7 +170,7 @@ const { heading, microcopy, formOptions } = globalSettings.registerInterestForm;
     const target = (event.target as HTMLElement)?.closest('[data-open-register-form]');
     if (target) {
       event.preventDefault();
-      openDialog();
+      openDialog(target.getAttribute('data-open-register-form'));
     }
     if ((event.target as HTMLElement)?.closest('[data-close-register-form]')) {
       dialog?.close();

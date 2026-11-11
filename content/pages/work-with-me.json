@@ -20,7 +20,6 @@
       "body": "Most programs still teach SEO habits: keyword lists, backlink audits, ranking reports. None of it tells a client whether ChatGPT, Perplexity or Google's AI actually mention their brand, and your trainers are the ones fielding that question first. AEO is a different discipline: win share of voice in the answer, not just a click.",
       "proofStrip": [
         "42% of B2B searches now resolve inside an AI answer (Tinuiti, Q1 2026)",
-        "3.2× more citations after an AEO content rewrite (our engagements)",
         "Close to zero blue links most users click before acting on an AI answer"
       ]
     },
@@ -42,11 +41,11 @@
       ]
     },
     "workshops": [
-      { "number": "01", "title": "Audit & Strategy: Prompt Library", "description": "Build a prompt library, adapted to your brand, key competitor and industry, one shared starting point for every engagement.", "leavesWith": "A reusable prompt bank to track AI visibility quarterly." },
-      { "number": "02", "title": "Audit & Strategy: The 3 Pillars & Their Weight", "description": "Not every AEO factor matters equally, learn to prioritise authority, structure, coverage and freshness by category.", "leavesWith": "A weighted matrix that tells every client where to focus first." },
-      { "number": "03", "title": "Building & Governing an AEO Strategy", "description": "Define the core metrics so everyone measures the same way.", "leavesWith": "A metrics dashboard template (citation rate, share of answer, answer accuracy) ready on day one." },
-      { "number": "04", "title": "Monetization of AEO", "description": "Model whether a move pays off before the budget is spent.", "leavesWith": "A revenue-at-stake number for your next budget conversation, built from your AI Answer Index." },
-      { "number": "05", "title": "Act: The 90-Day Sprint", "description": "Turn five workshops of output into a dated plan.", "leavesWith": "A ready-to-run 90-day playbook with named owners, milestones and check-ins." }
+      { "number": "01", "title": "The Shift", "description": "Build a prompt library, adapted to your brand, key competitor and industry, one shared starting point for every engagement.", "leavesWith": "A reusable prompt bank to track AI visibility quarterly." },
+      { "number": "02", "title": "The Diagnostic", "description": "Score your brand on the three pillars machines read: Structure, Credibility and Identity, and learn which one to fix first in your category.", "leavesWith": "A weighted matrix that tells every client where to focus first." },
+      { "number": "03", "title": "The Answer Scoreboard", "description": "Define the core metrics so everyone measures the same way.", "leavesWith": "A metrics dashboard template (citation rate, share of answer, answer accuracy) ready on day one." },
+      { "number": "04", "title": "The Equity Builder", "description": "Model whether a move pays off before the budget is spent.", "leavesWith": "A revenue-at-stake number for your next budget conversation, built from your AI Answer Index." },
+      { "number": "05", "title": "The Answer Sprint", "description": "Turn five workshops of output into a dated plan.", "leavesWith": "A ready-to-run 90-day playbook with named owners, milestones and check-ins." }
     ],
     "howItRuns": {
       "points": [
@@ -80,13 +79,13 @@
       { "title": "Podcast / guest", "description": "A sharp, sourced take for your audience." }
     ],
     "ctaLabel": "Register your interest",
-    "quotableLine": "A keynote that makes a room realise their brand is missing from the answer, and that it's fixable."
+    "quotableLine": "A keynote that makes a room realize their brand is missing from the answer, and that it's fixable."
   },
   "consultancy": {
     "heading": "Work on it with me directly",
     "what": "When you'd rather have me on your specific problem than in a training room. I work hands-on with your team on your brand's AI visibility, from measuring where you stand today to a clear plan for becoming the answer in your category.",
     "who": "For brand and marketing leaders who don't want a generic playbook. They want their category, their competitors, their gaps, and a defensible next move. Fewer people, deeper work.",
-    "how": "It starts with an AI Answer Index™ read of where you actually stand, then a working session and a prioritised action plan you can hand straight to your team. Ongoing advisory optional.",
+    "how": "It starts with an AI Answer Index™ read of where you actually stand, then a working session and a prioritized action plan you can hand straight to your team. Ongoing advisory optional.",
     "ctaLabel": "Let's talk about your brand"
   },
   "bookBand": {
@@ -96,8 +95,8 @@
       "How to measure your share of the answer",
       "The 90 day path to becoming the answer"
     ],
-    "primaryCtaLabel": "Download the first chapter",
-    "secondaryCtaLabel": "Pre-order the book",
+    "primaryCtaLabel": "Download the first chapter (free)",
+    "secondaryCtaLabel": "Join the launch list",
     "tertiaryCtaLabel": "Let's talk about your brand"
   },
   "faq": {
@@ -117,7 +116,7 @@
       },
       {
         "question": "How much does the AEO program cost?",
-        "answer": "The full two-day, on-site program starts at $7,500 (excluding travel). Final scope and price depend on cohort size and how many of the five workshops are booked together."
+        "answer": "Pricing depends on cohort size and format. Ask for a proposal."
       },
       {
         "question": "Does Bjorn speak at events?",

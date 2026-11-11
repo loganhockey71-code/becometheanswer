@@ -11,7 +11,7 @@
     "heading": "What I believe",
     "paragraphs": [
       "For twenty years, my work has rested on one belief: people trust people, and brands are built by what other people say about them, not by what they say about themselves.",
-      "AI has nestled itself nicely between the different moments of truth. That meant getting real people to talk, review and recommend products and experiences. Now the recommendation is done by AI, and it decides who to name by reading exactly those signals.",
+      "AI now sits between every moment of truth, from the first question to the final purchase. That meant getting real people to talk, review and recommend products and experiences. Now the recommendation is done by AI, and it decides who to name by reading exactly those signals.",
       "Become the Answer is that belief, updated for the machines: being findable is no longer enough, you have to be the answer the AI gives. It's word of mouth again, only this time the machine is doing the listening and the talking.",
       "Eventually, the machine is no longer just a channel; it's a new buyer in the ecosystem, a revenue source in its own right that spends where it's been given a reason to trust."
     ]
@@ -22,15 +22,18 @@
     "items": [
       {
         "title": "Measure it",
-        "description": "I built the AI Answer Index™, a Nielsen-style read on how often a brand shows up across ChatGPT, Claude, Gemini and Rufus, tracked against its competitors. Most brands have no idea whether AI recommends them at all. This is where you find out."
+        "description": "I built the AI Answer Index™, a Nielsen-style read on how often a brand shows up across ChatGPT, Claude, Gemini and Rufus, tracked against its competitors. Most brands have no idea whether AI recommends them at all. This is where you find out.",
+        "href": "/free-analysis"
       },
       {
         "title": "Teach it",
-        "description": "Keynotes and hands-on masterclasses on Answer Engine Optimization, \"Win the AI Shelf\", for teams and agencies who need to act, not just understand."
+        "description": "Keynotes and hands-on masterclasses on Answer Engine Optimization, \"Win the AI Shelf\", for teams and agencies who need to act, not just understand.",
+        "href": "/work-with-me#masterclass"
       },
       {
         "title": "Build it",
-        "description": "I'm a practitioner, not a theorist. I build the pipelines and run the tests myself, so what I teach is what actually moves the needle, not what sounds good on a slide."
+        "description": "I'm a practitioner, not a theorist. I build the pipelines and run the tests myself, so what I teach is what actually moves the needle, not what sounds good on a slide.",
+        "href": "/work-with-me"
       }
     ],
     "ctaLabel": "Learn more about this"
@@ -53,8 +56,8 @@
       "How to measure your share of the answer",
       "The 90 day path to becoming the answer"
     ],
-    "primaryCtaLabel": "Download the first chapter",
-    "secondaryCtaLabel": "Pre-order the book",
+    "primaryCtaLabel": "Download the first chapter (free)",
+    "secondaryCtaLabel": "Join the launch list",
     "tertiaryCtaLabel": "Let's talk about your brand"
   },
   "faq": {

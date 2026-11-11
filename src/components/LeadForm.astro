@@ -62,8 +62,37 @@ const copyById = globalSettings.leadForms as Record<
               </label>
             )}
 
+            {(id === 'downloadChapter' || id === 'preorder') && (
+              <label class="flex items-start gap-2 text-sm text-slate">
+                <input
+                  type="checkbox"
+                  name="marketingConsent"
+                  value="yes"
+                  class="mt-1 h-4 w-4 rounded border-line text-signal focus-visible:outline-2 focus-visible:outline-signal"
+                />
+                <span>Keep me updated about the book and future masterclasses <span class="text-muted">(optional)</span></span>
+              </label>
+            )}
+
+            <p class="text-xs text-muted">
+              We'll only use your details to reply. See our <a href="/privacy-policy" class="underline underline-offset-2 hover:text-signal-deep">Privacy Policy</a>.
+            </p>
+
             <p class="hidden text-sm text-ink success-message" role="status">
               {copy.successMessage}
+              {id === 'downloadChapter' && (
+                <>
+                  {' '}
+                  <a
+                    href="/assets/uploads/book/become-the-answer-chapter-01.pdf"
+                    download
+                    class="font-semibold text-signal-deep underline underline-offset-4 hover:text-signal"
+                  >
+                    Download it now
+                  </a>
+                  .
+                </>
+              )}
             </p>
 
             <button

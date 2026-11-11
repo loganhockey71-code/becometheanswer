@@ -21,7 +21,10 @@ const { items, heading = 'FAQ' } = Astro.props;
         <details class="group py-5">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-ink marker:content-none">
             {item.question}
-            <span class="shrink-0 text-2xl leading-none text-signal transition-transform duration-150 group-open:rotate-45">
+            <span
+              aria-hidden="true"
+              class="shrink-0 text-2xl leading-none text-signal transition-transform duration-150 group-open:rotate-45"
+            >
               +
             </span>
           </summary>

@@ -13,7 +13,7 @@ seoDescription: "The marketing funnel didn't die, it collapsed into one moment a
 
 It collapsed into a single moment. The classic funnel, awareness, consideration, intent, purchase, assumed the buyer moved through stages you could nurture at each. AI compresses the middle into one recommendation, made inside a conversation you cannot see. The funnel did not die; it shrank and went dark.
 
-For fifty years, marketing organised itself around a funnel. At the top, awareness: get noticed. In the middle, consideration and intent: get compared, get shortlisted, get preferred. At the bottom, purchase. The whole discipline was the art of moving a buyer down it, one stage at a time, with a different play at each: an ad for awareness, a comparison page for consideration, a retargeting sequence for intent.
+For fifty years, marketing organized itself around a funnel. At the top, awareness: get noticed. In the middle, consideration and intent: get compared, get shortlisted, get preferred. At the bottom, purchase. The whole discipline was the art of moving a buyer down it, one stage at a time, with a different play at each: an ad for awareness, a comparison page for consideration, a retargeting sequence for intent.
 
 That model assumed the buyer walked through the stages in the open, where you could meet them at each one. AI breaks that assumption in two ways.
 

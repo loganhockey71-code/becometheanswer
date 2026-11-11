@@ -24,7 +24,7 @@ The hardest cost to act on is the one you cannot see, and AI invisibility is exa
 
 But invisible is not the same as free. Every category question where the machine recommends a rival and omits you is a sale you did not know you were in the running for. Multiply that by the questions in your category, every day, and the silent cost becomes a real one.
 
-You can size it. The book uses a simple model, Answer Economy Revenue, or AER, to turn invisibility into a figure a CFO recognises:
+You can size it. The book uses a simple model, Answer Economy Revenue, or AER, to turn invisibility into a figure a CFO recognizes:
 
 AER equals category AI query volume multiplied by your Share of Answer, multiplied by AI click-through rate, multiplied by conversion rate, multiplied by average customer value.
 

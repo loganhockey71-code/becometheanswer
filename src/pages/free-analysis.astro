@@ -37,6 +37,7 @@ const jsonLd = [
 <BaseLayout
   title="Free AI visibility analysis: your AI Answer Index, Cost of Invisibility and Answer Equity baseline"
   description="A free, three-part analysis of your brand's AI visibility: your AI Answer Index score, what invisibility is costing you, and your Answer Equity baseline."
+  image="/assets/uploads/og/free-analysis-og.png"
   jsonLd={jsonLd}
 >
   <Section bg="paper" padding="top-only">
@@ -47,6 +48,30 @@ const jsonLd = [
     </h1>
     <p class="mt-6 max-w-2xl text-lg text-slate md:text-xl">{toolsTable.subhead}</p>
     <p class="mt-4 max-w-2xl text-sm italic text-slate">{toolsTable.honestyNote}</p>
+  </Section>
+
+  <Section bg="paper">
+    <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">How it works</h2>
+    <ol class="mt-8 flex flex-col divide-y divide-line border-y border-line">
+      <li class="flex gap-4 py-5">
+        <span class="font-display text-2xl font-bold text-signal">1.</span>
+        <p class="text-slate">You tell us your brand, category and a key competitor.</p>
+      </li>
+      <li class="flex gap-4 py-5">
+        <span class="font-display text-2xl font-bold text-signal">2.</span>
+        <p class="text-slate">
+          We ask ChatGPT, Perplexity, Claude and Gemini the same questions your buyers ask, and read how often
+          each engine names you versus the competition.
+        </p>
+      </li>
+      <li class="flex gap-4 py-5">
+        <span class="font-display text-2xl font-bold text-signal">3.</span>
+        <p class="text-slate">
+          You get your AI Answer Index™ score, the revenue-at-stake figure behind it, and your Answer Equity
+          baseline, delivered to your inbox.
+        </p>
+      </li>
+    </ol>
   </Section>
 
   <Section bg="cloud">
@@ -72,7 +97,7 @@ const jsonLd = [
     </ol>
 
     <div class="mt-10 flex flex-col items-start gap-2">
-      <Button variant="primary" openRegisterForm>{toolsTable.ctaLabel}</Button>
+      <Button variant="primary" openRegisterForm="free-analysis">{toolsTable.ctaLabel}</Button>
       <p class="text-xs text-muted">{toolsTable.microcopy}</p>
     </div>
   </Section>
@@ -102,7 +127,7 @@ const jsonLd = [
       <p class="max-w-xl font-display text-2xl font-bold text-paper md:text-3xl">
         Ready to see where your brand actually stands in AI answers?
       </p>
-      <Button variant="primary" openRegisterForm>{toolsTable.ctaLabel}</Button>
+      <Button variant="primary" openRegisterForm="free-analysis">{toolsTable.ctaLabel}</Button>
     </div>
   </Section>
 </BaseLayout>

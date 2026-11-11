@@ -13,13 +13,13 @@
   "statBar": {
     "stats": [
       { "value": "~50%", "label": "of B2B buyers now start research in an AI chatbot", "sourceLabel": "G2 research, 2026", "sourceUrl": "https://www.demandgenreport.com/industry-news/news-brief/half-of-b2b-software-buyers-now-start-their-research-with-ai-chatbots-g2/52737/" },
-      { "value": "~2×", "label": "higher conversion from AI-referred visitors vs. organic search", "sourceLabel": "Similarweb cross-site analysis, 2026", "sourceUrl": "https://www.omnibound.ai/blog/ai-search-statistics" },
+      { "value": "~2×", "label": "higher conversion from AI-referred visitors vs. organic search", "sourceLabel": "via Omnibound, citing Similarweb, 2026", "sourceUrl": "https://www.omnibound.ai/blog/ai-search-statistics" },
       { "value": "~796%", "label": "year-over-year growth in AI referral traffic", "sourceLabel": "WebFX analysis of 2.3B sessions, 2025", "sourceUrl": "https://www.webfx.com/blog/seo/gen-ai-search-trends/" }
     ]
   },
   "bigIdea": {
     "title": "Being findable is no longer enough. You have to be the Answer.",
-    "subtitle": "When AI gives one answer instead of ten links, being findable stops being enough — you have to be the answer. That's a new discipline. Answer Engine Optimisation is the discipline of understanding what AI sees, trusts and recommends, then building the evidence your brand deserves.",
+    "subtitle": "When AI gives one answer instead of ten links, being findable stops being enough — you have to be the answer. That's a new discipline. Answer Engine Optimization (AEO) is the discipline of understanding what AI sees, trusts and recommends, then building the evidence your brand deserves.",
     "ctaLabel": "Become the Answer",
     "ctaHref": "/become-the-answer"
   },
@@ -31,10 +31,10 @@
       { "value": "200–500", "label": "items on a physical store shelf" },
       { "value": "100,000+", "label": "items on a digital shelf" },
       { "value": "10–60", "label": "items on page 1 of Amazon" },
-      { "value": "8", "label": "items recommended by an AI agent", "note": "Rufus, Sparky, ChatGPT" }
+      { "value": "8", "label": "items recommended by an AI agent", "note": "Amazon's Rufus, Walmart's Sparky, ChatGPT" }
     ],
     "riskHeading": "The risk for our clients",
-    "riskBody": "Appearing on page 1 of search is no longer enough, it's no guarantee you'll be selected by AI. As AI adoption grows, brands that don't feed AI engines with the right review signals will disappear from the recommended set entirely.",
+    "riskBody": "Appearing on page 1 of search is no longer enough. It's no guarantee you'll be selected by AI. As AI adoption grows, brands that don't feed AI engines with the right review signals will disappear from the recommended set entirely.",
     "source": "Profitero+ Digital Shelf Playbooks for AI Commerce, 2026"
   },
   "offerRow": {
@@ -86,15 +86,15 @@
   "toolsTable": {
     "eyebrow": "FREE ANALYSIS",
     "heading": "Curious where your brand actually stands in AI answers?",
-    "subhead": "Order a free analysis. Our three-tool stack shows you the whole picture: how often AI recommends you, what that gap is worth, and the brand asset underneath it.",
+    "subhead": "Request your Free AI Visibility Analysis. Our three-tool stack shows you the whole picture: how often AI recommends you, what that gap is worth, and the brand asset underneath it.",
     "tools": [
       {
         "name": "AI Answer Index™: your score",
         "description": "How often AI names your brand, and where you rank against competitors.",
-        "outcome": "Your AAI, with Share of Answer + Share of Recommendation."
+        "outcome": "Your AI Answer Index™ (AAI), with Share of Answer + Share of Recommendation."
       },
       {
-        "name": "The Cost of Invisibility: what the gap is worth (AER)",
+        "name": "The Cost of Invisibility: what the gap is worth — AI-attributed revenue (AER)",
         "description": "The revenue moving to whoever AI recommends instead of you.",
         "outcome": "A revenue-at-stake figure you can take to finance."
       },
@@ -104,7 +104,7 @@
         "outcome": "Your Answer Equity baseline (Salience · Fidelity · Preference · Confidence)."
       }
     ],
-    "ctaLabel": "Order your free analysis",
+    "ctaLabel": "Request your free analysis",
     "microcopy": "Free · about 15 minutes of our time, not yours · no obligation.",
     "honestyNote": "One report, three layers: your score, what it's costing you, and the asset you're building."
   },
@@ -148,8 +148,8 @@
       "How to measure your share of the answer",
       "The 90 day path to becoming the answer"
     ],
-    "primaryCtaLabel": "Download the first chapter",
-    "secondaryCtaLabel": "Pre-order the book",
+    "primaryCtaLabel": "Download the first chapter (free)",
+    "secondaryCtaLabel": "Join the launch list",
     "tertiaryCtaLabel": "Let's talk about your brand"
   }
 }

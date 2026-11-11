@@ -23,7 +23,12 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title={seo.title} description={seo.description} jsonLd={jsonLd}>
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  image="/assets/uploads/og/work-with-me-og.png"
+  jsonLd={jsonLd}
+>
   <!-- Hero -->
   <Section bg="paper" padding="top-only" containerClass="pb-20 md:pb-28">
     <Eyebrow>{eyebrow}</Eyebrow>
@@ -60,6 +65,14 @@ const jsonLd = [
             <li class="border-l-2 border-line pl-4">{item}</li>
           ))}
         </ul>
+        <Button
+          variant="ghost"
+          href="https://claude.ai/artifact/VqKW3Dh9vS2X5BxTooYDvt"
+          target="_blank"
+          class="mt-6"
+        >
+          More info
+        </Button>
       </div>
 
       <div>

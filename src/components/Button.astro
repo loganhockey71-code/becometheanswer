@@ -5,7 +5,8 @@
 interface Props {
   variant?: 'primary' | 'secondary' | 'ghost' | 'ghost-invert' | 'link';
   href?: string;
-  openRegisterForm?: boolean;
+  target?: string;
+  openRegisterForm?: boolean | string;
   openLeadForm?: string;
   class?: string;
   type?: 'button' | 'submit';
@@ -14,6 +15,7 @@ interface Props {
 const {
   variant = 'primary',
   href,
+  target,
   openRegisterForm = false,
   openLeadForm,
   class: className = '',
@@ -32,8 +34,12 @@ const variantClass = {
 }[variant];
 
 const attrs: Record<string, string | boolean> = {};
-if (openRegisterForm) attrs['data-open-register-form'] = true;
+if (openRegisterForm) {
+  attrs['data-open-register-form'] = typeof openRegisterForm === 'string' ? openRegisterForm : 'default';
+}
 if (openLeadForm) attrs['data-open-lead-form'] = openLeadForm;
+if (target) attrs['target'] = target;
+if (target === '_blank') attrs['rel'] = 'noopener noreferrer';
 ---
 
 {

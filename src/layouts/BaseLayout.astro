@@ -23,7 +23,11 @@ const {
   jsonLd = [],
 } = Astro.props;
 
-const pageTitle = globalSettings.seoDefaults.titleTemplate.replace('%s', title);
+const brandName = 'Become the Answer';
+const pageTitle =
+  title.startsWith(brandName) || title.endsWith(brandName)
+    ? title
+    : globalSettings.seoDefaults.titleTemplate.replace('%s', title);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = image ? new URL(image, Astro.site) : undefined;
 const siteUrl = Astro.site!.toString();
@@ -61,12 +65,12 @@ const allJsonLd = [organizationSchema(siteUrl), websiteSchema(siteUrl), ...jsonL
     }
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7E2PJNVF7D"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-75YRKCS57F"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-7E2PJNVF7D');
+      gtag('config', 'G-75YRKCS57F');
     </script>
   </head>
   <body>

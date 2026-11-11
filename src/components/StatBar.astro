@@ -11,30 +11,38 @@ interface Props {
 const { stats } = Astro.props;
 ---
 
-<div class="flex flex-wrap justify-center gap-x-12 gap-y-8 border-y border-line py-10 text-center">
-  {
-    stats.map((stat) => (
-      <div class="flex max-w-[220px] flex-col items-center">
-        <span class="font-display text-3xl font-bold text-signal sm:text-4xl">{stat.value}</span>
-        <span class="mt-1 text-sm text-muted">{stat.label}</span>
-        {stat.sourceLabel && (
-          <span class="mt-2 text-xs text-muted">
-            Source:{' '}
-            {stat.sourceUrl ? (
-              <a
-                href={stat.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="underline underline-offset-2 hover:text-signal-deep"
-              >
-                {stat.sourceLabel}
-              </a>
-            ) : (
-              stat.sourceLabel
-            )}
-          </span>
-        )}
-      </div>
-    ))
-  }
+<div class="overflow-hidden rounded-[12px] border border-line">
+  <table class="w-full border-collapse text-left">
+    <tbody>
+      {
+        stats.map((stat, i) => (
+          <tr class:list={[i !== 0 && 'border-t border-line']}>
+            <td class="w-[110px] bg-ink px-5 py-6 align-middle sm:w-[160px] sm:px-8">
+              <span class="font-display text-3xl font-bold text-signal sm:text-4xl">{stat.value}</span>
+            </td>
+            <td class="px-5 py-6 align-middle sm:px-8">
+              <p class="text-ink">{stat.label}</p>
+              {stat.sourceLabel && (
+                <p class="mt-2 text-xs text-muted">
+                  Source:{' '}
+                  {stat.sourceUrl ? (
+                    <a
+                      href={stat.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="underline underline-offset-2 hover:text-signal-deep"
+                    >
+                      {stat.sourceLabel}
+                    </a>
+                  ) : (
+                    stat.sourceLabel
+                  )}
+                </p>
+              )}
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
 </div>

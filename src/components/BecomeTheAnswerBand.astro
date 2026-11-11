@@ -37,18 +37,20 @@ const isInk = bg === 'ink';
 
 <section id={id} class:list={['py-14 md:py-24', isInk ? 'bg-ink text-paper' : 'bg-cloud text-ink']}>
   <div class="mx-auto grid w-full max-w-[1120px] grid-cols-1 items-center gap-10 px-6 md:grid-cols-2">
-    <div
-      class:list={[
-        'flex aspect-[3/4] w-full max-w-[280px] items-center justify-center rounded-[12px] border',
-        isInk ? 'border-slate' : 'border-line',
-      ]}
-      role="img"
-      aria-label="Become the Answer book cover placeholder — final cover to be supplied"
-    >
-      <span class:list={['text-xs uppercase tracking-[0.08em]', isInk ? 'text-muted' : 'text-muted']}>
-        Book cover
-      </span>
-    </div>
+    <picture>
+      <source srcset="/assets/uploads/book/become-the-answer-cover.webp" type="image/webp" />
+      <img
+        src="/assets/uploads/book/become-the-answer-cover.jpg"
+        alt="Become the Answer by Bjorn Vandemeulebroucke, book cover"
+        width="1200"
+        height="1600"
+        loading="lazy"
+        class:list={[
+          'aspect-[3/4] w-full max-w-[280px] rounded-[12px] border object-cover',
+          isInk ? 'border-slate' : 'border-line',
+        ]}
+      />
+    </picture>
 
     <div>
       <h2 class="font-display text-[32px] font-bold">

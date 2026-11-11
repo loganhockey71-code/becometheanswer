@@ -9,7 +9,6 @@ import LibraryTeaserRow from '../components/LibraryTeaserRow.astro';
 import BecomeTheAnswerBand from '../components/BecomeTheAnswerBand.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import page from '../../content/pages/become-the-answer.json';
-import globalSettings from '../../content/settings/global.json';
 import { faqPageSchema, breadcrumbSchema } from '../lib/seo';
 import aiAnswerIndexImage from '../assets/brand/ai-answer-index.png';
 import { Image } from 'astro:assets';
@@ -27,8 +26,6 @@ const {
   faq,
 } = page;
 
-const { stripeLinks } = globalSettings;
-
 const siteUrl = Astro.site!.toString();
 const jsonLd = [
   faqPageSchema(faq.items),
@@ -39,7 +36,12 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title={seo.title} description={seo.description} jsonLd={jsonLd}>
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  image="/assets/uploads/book/become-the-answer-cover.jpg"
+  jsonLd={jsonLd}
+>
   <!-- Hero -->
   <Section bg="paper" padding="top-only" containerClass="pb-20 md:pb-28">
     <Eyebrow>{hero.eyebrow}</Eyebrow>
@@ -76,7 +78,7 @@ const jsonLd = [
           <p class="text-xs uppercase tracking-[0.04em] text-muted">{stakes.tool1.microcopy}</p>
           <p class="max-w-prose text-slate">{stakes.tool1.body}</p>
           <div class="mt-2">
-            <Button variant="primary" openRegisterForm>{stakes.tool1.ctaLabel}</Button>
+            <Button variant="primary" openRegisterForm="free-analysis">{stakes.tool1.ctaLabel}</Button>
           </div>
         </div>
 
@@ -110,7 +112,7 @@ const jsonLd = [
     </p>
 
     <div class="mt-6">
-      <Button variant="ghost" href={stripeLinks.ebook}>{operatingSystem.ctaLabel}</Button>
+      <Button variant="ghost" href="/free-analysis">{operatingSystem.ctaLabel}</Button>
     </div>
   </Section>
 
@@ -156,11 +158,6 @@ const jsonLd = [
     <div class="mx-auto max-w-2xl border-l-2 border-signal pl-8 text-left">
       <h2 class="font-display text-[32px] font-bold text-ink md:text-[38px]">{beyondTheScore.heading}</h2>
       <p class="mt-6 text-lg text-slate">{beyondTheScore.subhead}</p>
-      <p class="mt-4 text-slate">{beyondTheScore.body}</p>
-      <div class="mt-8">
-        <Button variant="secondary" openRegisterForm>{beyondTheScore.ctaLabel}</Button>
-      </div>
-      <p class="mt-8 font-display text-lg font-bold text-signal-deep">{beyondTheScore.quotableLine}</p>
     </div>
   </Section>
 

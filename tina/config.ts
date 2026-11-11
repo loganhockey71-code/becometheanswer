@@ -443,6 +443,7 @@ export default defineConfig({
                 fields: [
                   { type: 'string', name: 'title', label: 'Title' },
                   { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
+                  { type: 'string', name: 'href', label: 'Link (where the button goes)' },
                 ],
               },
               { type: 'string', name: 'ctaLabel', label: 'Button Text (all items)' },

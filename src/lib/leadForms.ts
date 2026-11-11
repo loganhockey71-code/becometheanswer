@@ -30,7 +30,7 @@ export const FIELD_DEFS: Record<FieldKey, FieldDef> = {
 // names in tina/config.ts, and GraphQL identifiers can't contain hyphens.
 export const LEAD_FORM_FIELDS: Record<string, FieldKey[]> = {
   // CTA3-shaped (first, last, email) — used for lightweight, no-friction asks.
-  connect: ['firstName', 'lastName', 'email'],
+  connect: ['firstName', 'lastName', 'email', 'message'],
   downloadChapter: ['firstName', 'lastName', 'email'],
   preorder: ['firstName', 'lastName', 'email'],
   // CTA2-shaped (adds brand name) — used where a report/PDF is delivered.

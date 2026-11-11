@@ -20,7 +20,7 @@ But something quieter has. The field SEO covers is getting smaller, on two front
 
 The first is that AI answers are eating search from the inside. Google's own AI Overviews now appear on roughly half of US searches, up from about six percent eighteen months earlier (Google, 2026). More and more of a search ends before a single blue link is clicked.
 
-The second is more uncomfortable. When BCG analysed millions of queries, it found that the brands AI answer engines name overlap with the brands ranking in traditional search by only eight to twelve percent (BCG X, 2026). Read that twice. Your hard-won page-one ranking buys you almost none of the answer. The two systems have quietly decoupled.
+The second is more uncomfortable. When BCG analyzed millions of queries, it found that the brands AI answer engines name overlap with the brands ranking in traditional search by only eight to twelve percent (BCG X, 2026). Read that twice. Your hard-won page-one ranking buys you almost none of the answer. The two systems have quietly decoupled.
 
 So the honest answer is: SEO is not dead, it is shrinking, and the part it no longer covers, the answer, is the part growing fastest, and the part most brands have no strategy for yet.
 
