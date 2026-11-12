@@ -22,18 +22,15 @@
     "items": [
       {
         "title": "Measure it",
-        "description": "I built the AI Answer Index™, a Nielsen-style read on how often a brand shows up across ChatGPT, Claude, Gemini and Rufus, tracked against its competitors. Most brands have no idea whether AI recommends them at all. This is where you find out.",
-        "href": "/free-analysis"
+        "description": "I built the AI Answer Index™, a Nielsen-style read on how often a brand shows up across ChatGPT, Claude, Gemini and Rufus, tracked against its competitors. Most brands have no idea whether AI recommends them at all. This is where you find out."
       },
       {
         "title": "Teach it",
-        "description": "Keynotes and hands-on masterclasses on Answer Engine Optimization, \"Win the AI Shelf\", for teams and agencies who need to act, not just understand.",
-        "href": "/work-with-me#masterclass"
+        "description": "Keynotes and hands-on masterclasses on Answer Engine Optimization, \"Win the AI Shelf\", for teams and agencies who need to act, not just understand."
       },
       {
         "title": "Build it",
-        "description": "I'm a practitioner, not a theorist. I build the pipelines and run the tests myself, so what I teach is what actually moves the needle, not what sounds good on a slide.",
-        "href": "/work-with-me"
+        "description": "I'm a practitioner, not a theorist. I build the pipelines and run the tests myself, so what I teach is what actually moves the needle, not what sounds good on a slide."
       }
     ],
     "ctaLabel": "Learn more about this"

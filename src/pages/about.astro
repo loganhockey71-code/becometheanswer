@@ -13,6 +13,14 @@ import { Image } from 'astro:assets';
 const { seo, eyebrow, headline, lead, connectLine, whatIBelieve, whatIDo, principles, bookBand, faq, closingCta } =
   about;
 
+// Fixed 1:1 with whatIDo.items' three entries (Measure it / Teach it / Build it) —
+// kept in code, not the CMS, so this link fix doesn't require a TinaCloud schema sync.
+const WHAT_I_DO_HREFS: Record<string, string> = {
+  'Measure it': '/free-analysis',
+  'Teach it': '/work-with-me#masterclass',
+  'Build it': '/work-with-me',
+};
+
 const siteUrl = Astro.site!.toString();
 const jsonLd = [
   personSchema(siteUrl),
@@ -65,11 +73,15 @@ const jsonLd = [
     <p class="mt-4 text-lg text-slate">{whatIDo.intro}</p>
     <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
       {
-        whatIDo.items.map((item: { title: string; description: string; href: string }) => (
+        whatIDo.items.map((item: { title: string; description: string }) => (
           <div class="flex h-full flex-col">
             <h3 class="font-display text-[22px] font-bold text-ink">{item.title}</h3>
             <p class="mt-3 flex-1 text-sm text-slate">{item.description}</p>
-            <Button variant="link" href={item.href} class="mt-4 inline-block self-start text-sm">
+            <Button
+              variant="link"
+              href={WHAT_I_DO_HREFS[item.title] || '/become-the-answer'}
+              class="mt-4 inline-block self-start text-sm"
+            >
               {whatIDo.ctaLabel}
             </Button>
           </div>
